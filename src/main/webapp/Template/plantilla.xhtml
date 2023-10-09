@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+   <title>ROWMS Working Website</title>
+   <h:outputStylesheet name="css/bootstrap.min.css"/>
+   <h:outputStylesheet name="css/alertify.core.css"/>
+   <h:outputStylesheet name="css/alertify.default.css"/>
+   <h:outputScript name="js/alertify.js"
+   />
+</h:head>
+
+<h:body>
+   <p:menubar>
+      <p:submenu label="Plazas" icon="pi pi-fw pi-file" outcome="/index.xhtml">
+      </p:submenu>
+      <p:submenu label="Empresa" icon="pi pi-fw pi-folder-open">
+
+      </p:submenu>
+      <p:submenu label="Mi perfil" icon="pi pi-fw pi-print" outcome="../Usuario/VerPerfil.xhtml">
+      </p:submenu>
+      <p:submenu label="Administrador"  icon="pi pi-fw pi-user">
+         <p:menuitem value="Ver Empresas" outcome="../AdminEmpresa/VerEmpresas.xhtml" />
+
+      </p:submenu>
+   </p:menubar>
+
+   <div class="row">
+
+      <div class="col-md-11 col-sm-11">
+         <ui:insert name="content">
+            Contenido por defecto
+         </ui:insert>
+      </div>
+   </div>
+
+   <div class="row">
+      <div class="py-3 my-4">
+         <p class="text-center text-muted">© 2023 UDB, DWF404</p>
+      </div>
+   </div>
+
+</h:body>
+
+</html>

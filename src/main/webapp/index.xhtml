@@ -1,15 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-<h:head>
-    <title>ROWMS Working Website</title>
-</h:head>
-<h:body>
-    <h:link value="Logearse" outcome="login.xhtml"/><br></br>
-    <h:link value="Empresas" outcome="Empresa/ListaDependientes.xhtml"/>
-</h:body>
-</html>
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:b="http://bootsfaces.net/ui"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+        xmlns:c="http://java.sun.com/jsp/jstl/core"
+        template="Template/plantilla.xhtml">
+
+    <ui:define name="content">
+        <p:tabView>
+            <p:tab title="ROWMS Working Website">
+                <h:link value="Logearse" outcome="login.xhtml"/><br/>
+                <h:link value="Empresas" outcome="AdminEmpresa/ListadoDependientes.xhtml"/>
+            </p:tab>
+
+
+        </p:tabView>
+        <h:outputScript>
+            <c:if test="#{not empty flash.exito}">
+                alertify.success('#{flash.exito}');
+            </c:if>
+        </h:outputScript>
+    </ui:define>
+
+</ui:composition>
+
+
+
