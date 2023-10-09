@@ -1,9 +1,8 @@
 package sv.edu.udb.www.managedbeans;
 import jakarta.faces.bean.ManagedBean;
 import jakarta.faces.bean.RequestScoped;
-import sv.edu.udb.www.entities.EmpresasEntity;
 import sv.edu.udb.www.models.EmpresasModel;
-import sv.edu.udb.www.utils.JsfUtil;
+
 import java.util.List;
 @ManagedBean
 @RequestScoped
