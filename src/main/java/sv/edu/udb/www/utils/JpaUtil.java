@@ -11,6 +11,3 @@ public class JpaUtil {
         return emFactory.createEntityManager();
     }
 }
-
-
-

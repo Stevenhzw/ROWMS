@@ -3,17 +3,15 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
              version="3.0">
-    <persistence-unit name="default">
-
-        <class>sv.edu.udb.www.entities.EmpresasEntity</class>
-        <class>sv.edu.udb.www.entities.EstadosEntity</class>
-        <class>sv.edu.udb.www.entities.PlazasEntity</class>
-        <class>sv.edu.udb.www.entities.UsuariosEntity</class>
-        <properties>
-            <property name="toplink.jdbc.url" value="jdbc:mysql://localhost:3306/rowms_bd?useSSL=false"/>
-            <property name="toplink.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
-            <property name="toplink.jdbc.user" value="root"/>
-            <property name="toplink.jdbc.password" value=""/>
-        </properties>
-    </persistence-unit>
+<persistence-unit name="default">
+    <class>sv.edu.udb.www.entities.EmpresasEntity</class>
+    <class>sv.edu.udb.www.entities.EstadosEntity</class>
+    <class>sv.edu.udb.www.entities.PlazasEntity</class>
+    <class>sv.edu.udb.www.entities.UsuariosEntity</class>
+    <properties>
+        <property name="eclipselink.jdbc.url" value="jdbc:mysql://localhost:3306/rowms_bd?useSSL=false"/>
+        <property name="eclipselink.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="eclipselink.jdbc.user" value="root"/>
+    </properties>
+</persistence-unit>
 </persistence>
