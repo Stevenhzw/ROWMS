@@ -10,9 +10,10 @@
         <class>sv.edu.udb.www.entities.PlazasEntity</class>
         <class>sv.edu.udb.www.entities.UsuariosEntity</class>
         <properties>
-            <property name="toplink.jdbc.url" value="jdbc:mysql://localhost:3306/rowms_bd?useSSL=false"/>
+            <property name="toplink.jdbc.url" value="jdbc:mysql://localhost:3306/rowms_bd"/>
             <property name="toplink.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="toplink.jdbc.user" value="root"/>
+            <property name="toplink.jdbc.password" value=""/>
         </properties>
     </persistence-unit>
 </persistence>
