@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    
+    <title>Blog</title>
+</h:head>
+<h:body>
+    <div>
+
+        <h:form styleClass="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <h:commandLink class="nav-link" action="form">Nuevo
+                                entrada</h:commandLink>
+                        </li>
+                        <li class="nav-item">
+                            <h:commandLink class="nav-link" action="index">Lista de
+                                entradas</h:commandLink>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </h:form>
+    </div>
+    <div class="container">
+        <ui:insert name="content">Content</ui:insert>
+    </div>
+    <h:outputScript>
+        <c:if test = "#{not empty flash.exito}" >
+            alertify.success('#{flash.exito}');
+        </c:if>
+        function confirmarEliminacion(){
+        return confirm("¿Está seguro que desea eliminar esta entrada");
+        }
+    </h:outputScript>
+</h:body>
+</html>
