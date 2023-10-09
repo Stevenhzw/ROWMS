@@ -29,6 +29,8 @@ public class LoginBean implements Serializable {
         }
     }
 
+
+
     public String getCorreo() {
         return correo;
     }

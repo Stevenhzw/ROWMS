@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:p="http://java.sun.com/jsf/html">
+<h:head>
+    <title>Lista de Dependientes</title>
+</h:head>
+<h:body>
+    <h1>Lista de Dependientes</h1>
+
+    <h:form prependId="false">
+        <h:inputText id="filtro" value="#{dependienteBean.filtro}">
+            <f:ajax event="keyup" render="dependientesTable" />
+        </h:inputText>
+    </h:form>
+    <h:form>
+        <h:commandButton value="Buscar" action="#{dependienteBean.buscarDependientes}" />
+    </h:form>
+    <h:form id="dependientesTable">
+        <h:dataTable value="#{dependienteBean.listaDependientesFiltrada}" var="dependiente">
+            <!-- Otras columnas aquí -->
+    <!-- Verifica si la lista está vacía antes de mostrar los datos -->
+        <c:if test="#{not empty dependienteBean.listaDependientes}">
+            <h:column>
+                <f:facet name="header">DUI</f:facet>
+                #{dependiente.dui}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Nombre</f:facet>
+                #{dependiente.nombre}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Apellido</f:facet>
+                #{dependiente.apellido}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Edad</f:facet>
+                #{dependiente.edad}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Genero</f:facet>
+                #{dependiente.genero}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Foto</f:facet>
+                #{dependiente.foto}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Telefono</f:facet>
+                #{dependiente.telefono}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Correo</f:facet>
+                #{dependiente.correo}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Estado</f:facet>
+                #{dependiente.estado}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Rol</f:facet>
+                #{dependiente.rol}
+            </h:column>
+
+        </c:if>
+        <c:if test="#{empty dependienteBean.listaDependientes}">
+            <p>No hay Dependientes para mostrar.</p>
+        </c:if>
+    </h:dataTable>
+    </h:form>
+
+
+</h:body>
+</html>

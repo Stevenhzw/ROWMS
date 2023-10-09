@@ -5,7 +5,6 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Query;
 import sv.edu.udb.www.entities.EmpresasEntity;
-import sv.edu.udb.www.entities.UsuariosEntity;
 
 public class EmpresasModel {
     public List<EmpresasEntity> listarEmpresas() {
