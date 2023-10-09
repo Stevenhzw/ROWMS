@@ -4,10 +4,28 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "usuarios", schema = "rowms_bd", catalog = "")
+@NamedQueries({
+        @NamedQuery(name = "UsuariosEntity.findAll", query = "SELECT e FROM UsuariosEntity e"),
+        @NamedQuery(name = "UsuariosEntity.findByDui", query = "SELECT e FROM UsuariosEntity e WHERE e.dui = :dui"),
+        @NamedQuery(name = "UsuariosEntity.findByNombre", query = "SELECT e FROM UsuariosEntity e WHERE e.nombre = :nombre"),
+        @NamedQuery(name = "UsuariosEntity.findByApellido", query = "SELECT e FROM UsuariosEntity e WHERE e.apellido = :apellido"),
+        @NamedQuery(name = "UsuariosEntity.findByEdad", query = "SELECT e FROM UsuariosEntity e WHERE e.edad = :edad"),
+        @NamedQuery(name = "UsuariosEntity.findByGenero", query = "SELECT e FROM UsuariosEntity e WHERE e.genero = :genero"),
+        @NamedQuery(name = "UsuariosEntity.findByFoto", query = "SELECT  e FROM UsuariosEntity e WHERE e.foto = :foto"),
+        @NamedQuery(name = "UsuariosEntity.findByTelefono", query = "SELECT  e FROM UsuariosEntity e WHERE e.telefono = :telefono"),
+        @NamedQuery(name = "UsuariosEntity.findByDireccion", query = "SELECT  e FROM UsuariosEntity e WHERE e.direccion = :direccion"),
+        @NamedQuery(name = "UsuariosEntity.findByExpLaboral", query = "SELECT  e FROM UsuariosEntity e WHERE e.expLaboral = :expLaboral"),
+        @NamedQuery(name = "UsuariosEntity.findByGradoAcademico", query = "SELECT  e FROM UsuariosEntity e WHERE e.gradoAcademico = :gradoAcademico"),
+        @NamedQuery(name = "UsuariosEntity.findByCorreo", query = "SELECT  e FROM UsuariosEntity e WHERE e.correo = :correo"),
+        @NamedQuery(name = "UsuariosEntity.findByContraseña", query = "SELECT  e FROM UsuariosEntity e WHERE e.contraseña = :contraseña"),
+        @NamedQuery(name = "UsuariosEntity.findByEmpresaAfiliada", query = "SELECT  e FROM UsuariosEntity e WHERE e.empresaAfiliada = :empresaAfiliada"),
+        @NamedQuery(name = "UsuariosEntity.findByEstado", query = "SELECT  e FROM UsuariosEntity e WHERE e.estado = :estado"),
+        @NamedQuery(name = "UsuariosEntity.findByRol", query = "SELECT  e FROM UsuariosEntity e WHERE e.rol = :rol")
+})
 public class UsuariosEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "dui", nullable = false, length = 9)
+    @Column(name = "dui", nullable = false, length = 10)
     private String dui;
     @Basic
     @Column(name = "nombre", nullable = false, length = 100)
