@@ -35,7 +35,11 @@ public class DependientesModel {
         EntityManager em = JpaUtil.getEntityManager();
         try {
             // Utiliza una consulta JPQL con un filtro
-            Query consulta = em.createQuery("SELECT e FROM UsuariosEntity e WHERE LOWER(e.nombre) LIKE :filtro");
+            Query consulta = em.createQuery("SELECT e FROM UsuariosEntity e " +
+                    "WHERE LOWER(e.nombre) LIKE :filtro " +
+                    "OR LOWER(e.dui) LIKE :filtro " +
+                    "OR LOWER(e.apellido) LIKE :filtro " +
+                    "OR LOWER(e.direccion) LIKE :filtro");
             consulta.setParameter("filtro", "%" + filtro.toLowerCase() + "%");
 
             List<UsuariosEntity> listaDependientesFiltrada = consulta.getResultList();
