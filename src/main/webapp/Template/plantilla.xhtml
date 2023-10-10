@@ -20,12 +20,11 @@
 
 <h:body>
    <p:menubar>
-      <p:submenu label="Plazas" icon="pi pi-fw pi-file" outcome="/index.xhtml">
-      </p:submenu>
+      <p:menuitem value="Plazas" outcome="index" />
       <p:submenu label="Empresa" icon="pi pi-fw pi-folder-open">
-
+         <p:menuitem value="Ver Generos" outcome="/AdminEmpresa/ListadoDependientes" />
       </p:submenu>
-      <p:submenu label="Mi perfil" icon="pi pi-fw pi-print" outcome="../Usuario/VerPerfil.xhtml">
+      <p:submenu label="Mi perfil" icon="pi pi-fw pi-print">
       </p:submenu>
       <p:submenu label="Administrador"  icon="pi pi-fw pi-user">
 
@@ -34,16 +33,14 @@
 
    <div class="row">
 
-      <div class="col-md-11 col-sm-11">
          <ui:insert name="content">
             Contenido por defecto
          </ui:insert>
-      </div>
    </div>
 
    <div class="row">
       <div class="py-3 my-4">
-         <p class="text-center text-muted">© 2023 UDB, DWF404</p>
+         <p class="text-center text-muted">© 2023 ROWMS, DWF404</p>
       </div>
    </div>
 
