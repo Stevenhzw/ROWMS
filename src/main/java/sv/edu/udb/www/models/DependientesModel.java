@@ -40,6 +40,7 @@ public class DependientesModel {
                     "OR LOWER(e.dui) LIKE :filtro " +
                     "OR LOWER(e.correo) LIKE :filtro " +
                     "OR LOWER(e.apellido) LIKE :filtro " +
+                    "OR LOWER(e.rol) LIKE :filtro " +
                     "OR LOWER(e.direccion) LIKE :filtro");
             consulta.setParameter("filtro", "%" + filtro.toLowerCase() + "%");
 

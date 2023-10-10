@@ -14,9 +14,7 @@
         </h:inputText>
 
     </h:form>
-    <h:form>
-        <h:commandButton value="Buscar" action="#{dependienteBean.buscarDependientes}" />
-    </h:form>
+
     <h:form id="dependientesTable">
         <h:dataTable value="#{dependienteBean.listaDependientesFiltrada}" var="dependiente">
             <!-- Otras columnas aquí -->

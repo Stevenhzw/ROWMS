@@ -3,14 +3,28 @@
       xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
       xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:p="http://java.sun.com/jsf/html">
 <h:head>
-    <title>Lista de Dependientes</title>
+    <title>Lista de Empresas</title>
 </h:head>
 <h:body>
-    <h:dataTable value="#{empresaBean.listaEmpresas}" var="empresa">
-        <!-- Otras columnas aquí -->
+    <h1>Lista de Empresas</h1>
 
-        <!-- Verifica si la lista está vacía antes de mostrar los datos -->
-        <c:if test="#{not empty empresaBean.listaEmpresas}">
+    <h:form prependId="false">
+        <h:inputText id="filtro" value="#{empresaBean.filtro}">
+            <f:ajax event="keyup" render="empresasTable" />
+        </h:inputText>
+
+    </h:form>
+
+    <h:form id="empresasTable">
+        <h:dataTable value="#{empresaBean.listaEmpresasFiltrada}" var="empresa">
+            <!-- Otras columnas aquí -->
+            <!-- Verifica si la lista está vacía antes de mostrar los datos -->
+
+            <h:column>
+                <f:facet name="header">Logo</f:facet>
+                #{empresa.fotoEmpresa}
+            </h:column>
+
             <h:column>
                 <f:facet name="header">ID</f:facet>
                 #{empresa.idEmpresa}
@@ -19,12 +33,49 @@
                 <f:facet name="header">Nombre</f:facet>
                 #{empresa.nombreEmpresa}
             </h:column>
-        </c:if>
-        <c:if test="#{empty empresaBean.listaEmpresas}">
-            <p>No hay empresas para mostrar.</p>
-        </c:if>
-    </h:dataTable>
+
+            <h:column>
+                <f:facet name="header">Descripción</f:facet>
+                #{empresa.descripcionEmpresa}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Telefono</f:facet>
+                #{empresa.telefonoEmpresa}
+            </h:column>
+
+
+            <h:column>
+                <f:facet name="header">Dirección</f:facet>
+                #{empresa.direccionEmpresa}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Correo</f:facet>
+                #{empresa.correoEmpresa}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Estado</f:facet>
+                #{empresa.estadoEmpresa}
+            </h:column>
+
+
+
+        </h:dataTable>
+    </h:form>
+
+
 </h:body>
 </html>
+
+
+
+
+
+
+
+
+
 
 
