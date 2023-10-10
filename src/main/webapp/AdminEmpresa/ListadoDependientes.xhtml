@@ -12,6 +12,7 @@
         <h:inputText id="filtro" value="#{dependienteBean.filtro}">
             <f:ajax event="keyup" render="dependientesTable" />
         </h:inputText>
+
     </h:form>
     <h:form>
         <h:commandButton value="Buscar" action="#{dependienteBean.buscarDependientes}" />
@@ -20,7 +21,7 @@
         <h:dataTable value="#{dependienteBean.listaDependientesFiltrada}" var="dependiente">
             <!-- Otras columnas aquí -->
     <!-- Verifica si la lista está vacía antes de mostrar los datos -->
-        <c:if test="#{not empty dependienteBean.listaDependientes}">
+
             <h:column>
                 <f:facet name="header">DUI</f:facet>
                 #{dependiente.dui}
@@ -71,10 +72,7 @@
                 #{dependiente.rol}
             </h:column>
 
-        </c:if>
-        <c:if test="#{empty dependienteBean.listaDependientes}">
-            <p>No hay Dependientes para mostrar.</p>
-        </c:if>
+
     </h:dataTable>
     </h:form>
 

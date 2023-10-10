@@ -14,25 +14,25 @@ public class DependienteBean {
     private String filtro;
     private List<UsuariosEntity> listaDependientesFiltrada;
 
+    public DependienteBean() {
+        listaDependientesFiltrada = modelo.listarDependientes();
+    }
+
     public String getFiltro() {
         return filtro;
     }
 
     public void setFiltro(String filtro) {
         this.filtro = filtro;
+        // Actualiza la lista de dependientes filtrada cada vez que cambia el filtro
+        listaDependientesFiltrada = modelo.buscarDependientes(filtro);
     }
 
     public List<UsuariosEntity> getListaDependientesFiltrada() {
         return listaDependientesFiltrada;
     }
 
-    public void buscarDependientes() {
-        if (filtro != null && !filtro.isEmpty()) {
-            listaDependientesFiltrada = modelo.buscarDependientes(filtro);
-        } else {
-            listaDependientesFiltrada = modelo.listarDependientes();
-        }
-    }
+
 
 
     public List<UsuariosEntity> getListaDependientes() {
