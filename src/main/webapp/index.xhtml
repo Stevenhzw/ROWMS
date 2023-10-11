@@ -18,8 +18,8 @@
 
 
         </p:tabView>
-        <p:panel class="text-center text-muted" header="Bienvenido, #{loginBean.usuarioAutenticado.nombre} #{loginBean.usuarioAutenticado.apellido}!" rendered="#{loginBean.usuarioAutenticado.correo!=null}">
-        </p:panel>
+        <p:panel class="text-center text-muted" header="Bienvenid@, #{loginBean.usuarioAutenticado.nombre} #{loginBean.usuarioAutenticado.apellido}!" rendered="#{loginBean.usuarioAutenticado.correo!=null}"/>
+        <p:panel class="text-center text-muted" header="Bienvenid@, #{loginBean.empresaAutenticada.nombreEmpresa}!" rendered="#{loginBean.empresaAutenticada.correoEmpresa!=null}"/>
     </ui:define>
 
 </ui:composition>

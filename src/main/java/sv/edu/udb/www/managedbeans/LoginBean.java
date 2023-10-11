@@ -3,26 +3,27 @@ package sv.edu.udb.www.managedbeans;
 import jakarta.enterprise.context.SessionScoped;
 import jakarta.faces.context.FacesContext;
 import jakarta.inject.Named;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.Query;
 import jakarta.servlet.http.HttpSession;
+import sv.edu.udb.www.entities.EmpresasEntity;
 import sv.edu.udb.www.entities.UsuariosEntity;
+import sv.edu.udb.www.models.EmpresasModel;
 import sv.edu.udb.www.models.UsuariosModel;
 import sv.edu.udb.www.utils.JpaUtil;
 import sv.edu.udb.www.utils.JsfUtil;
-
 import java.io.Serializable;
-import java.util.List;
+
 
 @Named
 @SessionScoped
 public class LoginBean implements Serializable {
 
     UsuariosModel modelo = new UsuariosModel();
+    EmpresasModel modeloE = new EmpresasModel();
     private UsuariosEntity usuario2;
     private String correo;
     private String contraseña;
     private UsuariosEntity usuarioAutenticado;
+    private EmpresasEntity empresaAutenticada;
     private boolean sesionIniciada = false;
 
     public LoginBean() {
@@ -36,7 +37,13 @@ public class LoginBean implements Serializable {
             sesionIniciada = true;
             return "index?faces-redirect=true";
         } else {
-            JsfUtil.setErrorMessage(null, "Usuario o contraseña incorrectos");
+            EmpresasEntity empresa = modeloE.obtenerEmpresa(correo, contraseña);
+            if (empresa != null){
+                empresaAutenticada = empresa;
+                sesionIniciada = true;
+                return "index?faces-redirect=true";
+            }
+            JsfUtil.setErrorMessage(null, "Correo o contraseña incorrectos");
             return null;
         }
     }
@@ -73,6 +80,10 @@ public class LoginBean implements Serializable {
 
     public UsuariosEntity getUsuarioAutenticado() {
         return usuarioAutenticado;
+    }
+
+    public EmpresasEntity getEmpresaAutenticada() {
+        return empresaAutenticada;
     }
 
     public UsuariosEntity getUsuario2() {

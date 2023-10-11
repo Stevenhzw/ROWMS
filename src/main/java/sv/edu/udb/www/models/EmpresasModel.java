@@ -1,4 +1,5 @@
 package sv.edu.udb.www.models;
+import jakarta.persistence.NoResultException;
 import sv.edu.udb.www.entities.UsuariosEntity;
 import sv.edu.udb.www.utils.JpaUtil;
 import java.util.List;
@@ -47,6 +48,25 @@ public class EmpresasModel {
             e.printStackTrace();
             System.err.println("Error al ejecutar la consulta JPQL: " + e.getMessage());
             return null;
+        } finally {
+            em.close();
+        }
+    }
+
+    public EmpresasEntity obtenerEmpresa(String correo, String contraseña) {
+        EntityManager em = JpaUtil.getEntityManager();
+        try {
+            EmpresasEntity empresa = em.createNamedQuery("EmpresasEntity.findByCorreoEmpresa", EmpresasEntity.class)
+                    .setParameter("correoEmpresa", correo)
+                    .getSingleResult();
+
+            if (empresa != null && empresa.getContraseñaEmpresa().equals(contraseña)) {
+                return empresa;
+            } else {
+                return null;  // Retorna null si no se encuentra un usuario o la contraseña no coincide
+            }
+        } catch (NoResultException e) {
+            return null;  // Retorna null si no se encuentra un usuario
         } finally {
             em.close();
         }

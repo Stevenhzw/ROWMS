@@ -5,7 +5,8 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "empresas", schema = "rowms_bd", catalog = "")
 @NamedQueries({
-        @NamedQuery(name = "EmpresasEntity.findAll", query = "SELECT e FROM EmpresasEntity e")
+        @NamedQuery(name = "EmpresasEntity.findAll", query = "SELECT e FROM EmpresasEntity e"),
+        @NamedQuery(name = "EmpresasEntity.findByCorreoEmpresa", query = "SELECT  e FROM EmpresasEntity e WHERE e.correoEmpresa = :correoEmpresa"),
 })
 public class EmpresasEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
