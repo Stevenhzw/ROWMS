@@ -42,9 +42,10 @@ public class LoginBean implements Serializable {
                 empresaAutenticada = empresa;
                 sesionIniciada = true;
                 return "index?faces-redirect=true";
+            }else {
+                JsfUtil.setErrorMessage(null, "Correo o contraseña incorrectos");
+                return null;
             }
-            JsfUtil.setErrorMessage(null, "Correo o contraseña incorrectos");
-            return null;
         }
     }
 
