@@ -10,74 +10,66 @@
 
     <ui:define name="content">
         <h:head>
-            <title>Lista de Dependientes</title>
+            <title>Lista de Empresas</title>
         </h:head>
         <p:tabView>
             <p:tab title="ROWMS Working Website">
                 <h:body>
-                    <h1>Lista de Dependientes</h1>
+
+                    <h1>Lista de Empresas</h1>
 
                     <h:form prependId="false">
-                        <h:inputText id="filtro" value="#{dependienteBean.filtro}">
-                            <f:ajax event="keyup" render="dependientesTable" />
+                        <h:inputText id="filtro" value="#{empresaBean.filtro}">
+                            <f:ajax event="keyup" render="empresasTable" />
                         </h:inputText>
 
                     </h:form>
 
-                    <h:form id="dependientesTable">
-                        <h:dataTable value="#{dependienteBean.listaDependientesFiltrada}" var="dependiente">
+                    <h:form id="empresasTable">
+                        <h:dataTable value="#{empresaBean.listaEmpresasFiltrada}" var="empresa">
                             <!-- Otras columnas aquí -->
                             <!-- Verifica si la lista está vacía antes de mostrar los datos -->
 
                             <h:column>
-                                <f:facet name="header">DUI</f:facet>
-                                #{dependiente.dui}
+                                <f:facet name="header">Logo</f:facet>
+                                #{empresa.fotoEmpresa}
                             </h:column>
 
+                            <h:column>
+                                <f:facet name="header">ID</f:facet>
+                                #{empresa.idEmpresa}
+                            </h:column>
                             <h:column>
                                 <f:facet name="header">Nombre</f:facet>
-                                #{dependiente.nombre}
+                                #{empresa.nombreEmpresa}
                             </h:column>
 
                             <h:column>
-                                <f:facet name="header">Apellido</f:facet>
-                                #{dependiente.apellido}
-                            </h:column>
-
-                            <h:column>
-                                <f:facet name="header">Edad</f:facet>
-                                #{dependiente.edad}
-                            </h:column>
-
-                            <h:column>
-                                <f:facet name="header">Genero</f:facet>
-                                #{dependiente.genero}
-                            </h:column>
-
-                            <h:column>
-                                <f:facet name="header">Foto</f:facet>
-                                #{dependiente.foto}
+                                <f:facet name="header">Descripción</f:facet>
+                                #{empresa.descripcionEmpresa}
                             </h:column>
 
                             <h:column>
                                 <f:facet name="header">Telefono</f:facet>
-                                #{dependiente.telefono}
+                                #{empresa.telefonoEmpresa}
+                            </h:column>
+
+
+                            <h:column>
+                                <f:facet name="header">Dirección</f:facet>
+                                #{empresa.direccionEmpresa}
                             </h:column>
 
                             <h:column>
                                 <f:facet name="header">Correo</f:facet>
-                                #{dependiente.correo}
+                                #{empresa.correoEmpresa}
                             </h:column>
 
                             <h:column>
                                 <f:facet name="header">Estado</f:facet>
-                                #{dependiente.estado}
+                                #{empresa.estadoEmpresa}
                             </h:column>
 
-                            <h:column>
-                                <f:facet name="header">Rol</f:facet>
-                                #{dependiente.rol}
-                            </h:column>
 
 
                         </h:dataTable>
@@ -91,3 +83,13 @@
     </ui:define>
 
 </ui:composition>
+
+
+
+
+
+
+
+
+
+

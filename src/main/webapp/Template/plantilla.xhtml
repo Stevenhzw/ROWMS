@@ -20,20 +20,23 @@
 
 <h:body>
    <p:menubar>
-      <p:menuitem value="Plazas" outcome="index" />
+      <p:menuitem value="Plazas" outcome="/index"/>
       <p:submenu label="Empresa" icon="pi pi-fw pi-briefcase" rendered="#{loginBean.usuarioAutenticado.rol=='adminEmpresa' or loginBean.usuarioAutenticado.rol=='administrador'}">
-         <p:menuitem value="Ver Empresas" outcome="/AdminEmpresa/ListadoDependientes"  />
+         <p:menuitem value="Ver Empresas" outcome="/AdminEmpresa/VerEmpresa"/>
+         <p:menuitem value="Ver Dependientes" outcome="/AdminEmpresa/ListarDependientes"/>
+         <p:menuitem value="Solicitudes de Plazas" outcome="/AdminEmpresa/EstadoPlaza"/>
       </p:submenu>
       <p:submenu label="Dependientes"  icon="pi pi-fw pi-folder-open" rendered="#{loginBean.usuarioAutenticado.rol=='adminEmpresa' or loginBean.usuarioAutenticado.rol=='administrador'}" >
-
+         <p:menuitem value="Ver Plazas" outcome="/Dependiente/VerPlazas"/>
+         <p:menuitem value="Crear solicitud de Plaza" outcome="/Dependiente/CrearPlaza"/>
       </p:submenu>
-      <p:submenu label="Administrador"  icon="pi pi-fw pi-lock">
-
+      <p:submenu label="Administrador"  icon="pi pi-fw pi-lock" rendered="#{loginBean.usuarioAutenticado.rol=='administrador'}">
+         <p:menuitem value="Usuarios" outcome="/Administrador/ListarUsuarios"/>
+         <p:menuitem value="Empresas" outcome="/Administrador/ListarEmpresas"/>
+         <p:menuitem value="Plazas" outcome="/Dependiente/VerPlazas"/>
       </p:submenu>
-      <p:submenu label="Mi perfil" icon="pi pi-fw pi-user">
-      </p:submenu>
-
-      <p:menuitem value="Iniciar sesion" icon="pi pi-fw pi-sign-in" outcome="login.xhtml"/>
+      <p:menuitem value="Mi perfil" icon="pi pi-fw pi-user" outcome="/Usuario/VerUsuario" rendered="#{loginBean.usuarioAutenticado.correo!=null}"/>
+      <p:menuitem value="Iniciar sesion" icon="pi pi-fw pi-sign-in" outcome="/login"/>
       <p:menuitem value="Cerrar sesion" icon="pi pi-fw pi-sign-out" action="#{loginBean.cerrarSesion}" rendered="#{loginBean.usuarioAutenticado.correo!=null}"/>
    </p:menubar>
 
