@@ -21,28 +21,33 @@
 <h:body>
    <p:menubar>
       <p:menuitem value="Plazas" outcome="index" />
-      <p:submenu label="Empresa" icon="pi pi-fw pi-folder-open">
-         <p:menuitem value="Ver Generos" outcome="/AdminEmpresa/ListadoDependientes" />
+      <p:submenu label="Empresa" icon="pi pi-fw pi-briefcase" rendered="#{loginBean.usuarioAutenticado.rol=='adminEmpresa' or loginBean.usuarioAutenticado.rol=='administrador'}">
+         <p:menuitem value="Ver Empresas" outcome="/AdminEmpresa/ListadoDependientes"  />
       </p:submenu>
-      <p:submenu label="Mi perfil" icon="pi pi-fw pi-print">
-      </p:submenu>
-      <p:submenu label="Administrador"  icon="pi pi-fw pi-user">
+      <p:submenu label="Dependientes"  icon="pi pi-fw pi-folder-open" rendered="#{loginBean.usuarioAutenticado.rol=='adminEmpresa' or loginBean.usuarioAutenticado.rol=='administrador'}" >
 
       </p:submenu>
+      <p:submenu label="Administrador"  icon="pi pi-fw pi-lock">
+
+      </p:submenu>
+      <p:submenu label="Mi perfil" icon="pi pi-fw pi-user">
+      </p:submenu>
+
+      <p:menuitem value="Iniciar sesion" icon="pi pi-fw pi-sign-in" outcome="login.xhtml"/>
+      <p:menuitem value="Cerrar sesion" icon="pi pi-fw pi-sign-out" action="#{loginBean.cerrarSesion}" rendered="#{loginBean.usuarioAutenticado.correo!=null}"/>
    </p:menubar>
 
-   <div class="row">
+
+
 
          <ui:insert name="content">
             Contenido por defecto
          </ui:insert>
-   </div>
 
-   <div class="row">
-      <div class="py-3 my-4">
+
+
          <p class="text-center text-muted">© 2023 ROWMS, DWF404</p>
-      </div>
-   </div>
+
 
 </h:body>
 

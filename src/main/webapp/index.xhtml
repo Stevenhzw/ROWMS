@@ -2,7 +2,6 @@
 <ui:composition
         xmlns="http://www.w3.org/1999/xhtml"
         xmlns:h="http://java.sun.com/jsf/html"
-        xmlns:b="http://bootsfaces.net/ui"
         xmlns:f="http://xmlns.jcp.org/jsf/core"
         xmlns:p="http://primefaces.org/ui"
         xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
@@ -13,16 +12,14 @@
         <p:tabView>
             <p:tab title="ROWMS Working Website">
                 <h:link value="Logearse" outcome="login.xhtml"/><br/>
-                <h:link value="Empresas" outcome="AdminEmpresa/ListadoDependientes.xhtml"/>
+                <h:link value="Empresas" outcome="AdminEmpresa/ListadoDependientes.xhtml"/><br/>
+                <h:commandLink value="Cerrar sesion" icon="pi pi-fw pi-sign-out" action="#{loginBean.cerrarSesion}" />
             </p:tab>
 
 
         </p:tabView>
-        <h:outputScript>
-            <c:if test="#{not empty flash.exito}">
-                alertify.success('#{flash.exito}');
-            </c:if>
-        </h:outputScript>
+        <p:panel class="text-center text-muted" header="Bienvenido, #{loginBean.usuarioAutenticado.nombre} #{loginBean.usuarioAutenticado.apellido}!" rendered="#{loginBean.usuarioAutenticado.correo!=null}">
+        </p:panel>
     </ui:define>
 
 </ui:composition>
