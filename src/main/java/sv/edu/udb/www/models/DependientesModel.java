@@ -29,29 +29,4 @@ public class DependientesModel {
         }
     }
 
-
-
-    public List<UsuariosEntity> buscarDependientes(String filtro) {
-        EntityManager em = JpaUtil.getEntityManager();
-        try {
-            // Utiliza una consulta JPQL con un filtro
-            Query consulta = em.createQuery("SELECT e FROM UsuariosEntity e " +
-                    "WHERE LOWER(e.nombre) LIKE :filtro " +
-                    "OR LOWER(e.dui) LIKE :filtro " +
-                    "OR LOWER(e.correo) LIKE :filtro " +
-                    "OR LOWER(e.apellido) LIKE :filtro " +
-                    "OR LOWER(e.rol) LIKE :filtro " +
-                    "OR LOWER(e.direccion) LIKE :filtro");
-            consulta.setParameter("filtro", "%" + filtro.toLowerCase() + "%");
-
-            List<UsuariosEntity> listaDependientesFiltrada = consulta.getResultList();
-            return listaDependientesFiltrada;
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.err.println("Error al ejecutar la consulta JPQL: " + e.getMessage());
-            return null;
-        } finally {
-            em.close();
-        }
-    }
 }
