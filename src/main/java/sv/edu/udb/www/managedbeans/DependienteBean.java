@@ -11,12 +11,18 @@ public class DependienteBean {
     DependientesModel modelo = new DependientesModel();
 
     private UsuariosEntity usuario;
+
     private List<UsuariosEntity> listaDependientes;
+
 
     public DependienteBean() {
         usuario = new UsuariosEntity();
     }
+
     public List<UsuariosEntity> getUsuarios() {
+        return modelo.listarUsuarios();
+    }
+    public List<UsuariosEntity> getDependientes() {
         return modelo.listarDependientes();
     }
 
