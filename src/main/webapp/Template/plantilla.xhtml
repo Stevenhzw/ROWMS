@@ -34,7 +34,7 @@
          <p:menuitem value="Usuarios" outcome="/Administrador/ListarUsuarios"/>
          <p:menuitem value="Dependientes" outcome="/AdminEmpresa/ListarDependientes"/>
          <p:menuitem value="Empresas" outcome="/Administrador/ListarEmpresas"/>
-         <p:menuitem value="Plazas" outcome="/Dependiente/VerPlazas"/>
+         <p:menuitem value="Plazas" outcome="/Administrador/ListarPlazas"/>
       </p:submenu>
       <p:menuitem value="Mi perfil" icon="pi pi-fw pi-user" outcome="/Usuario/VerUsuario" rendered="#{loginBean.usuarioAutenticado.correo!=null}"/>
       <p:menuitem value="Iniciar sesion" icon="pi pi-fw pi-sign-in" outcome="/login"/>
