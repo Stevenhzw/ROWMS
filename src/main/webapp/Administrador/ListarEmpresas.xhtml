@@ -6,90 +6,85 @@
         xmlns:p="http://primefaces.org/ui"
         xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
         xmlns:c="http://java.sun.com/jsp/jstl/core"
+        xmlns:b="http://bootsfaces.net/ui"
         template="../Template/plantilla.xhtml">
-
     <ui:define name="content">
         <h:head>
             <title>Lista de Empresas</title>
         </h:head>
         <p:tabView>
             <p:tab title="ROWMS Working Website">
-                <h:body>
-
-                    <h1>Lista de Empresas</h1>
-
-                    <h:form prependId="false">
-                        <h:inputText id="filtro" value="#{empresaBean.filtro}">
-                            <f:ajax event="keyup" render="empresasTable" />
-                        </h:inputText>
-
-                    </h:form>
-
-                    <h:form id="empresasTable">
-                        <h:dataTable value="#{empresaBean.listaEmpresasFiltrada}" var="empresa">
-                            <!-- Otras columnas aquí -->
-                            <!-- Verifica si la lista está vacía antes de mostrar los datos -->
-
-                            <h:column>
-                                <f:facet name="header">Logo</f:facet>
-                                #{empresa.fotoEmpresa}
-                            </h:column>
-
-                            <h:column>
-                                <f:facet name="header">ID</f:facet>
-                                #{empresa.idEmpresa}
-                            </h:column>
-                            <h:column>
-                                <f:facet name="header">Nombre</f:facet>
-                                #{empresa.nombreEmpresa}
-                            </h:column>
-
-                            <h:column>
-                                <f:facet name="header">Descripción</f:facet>
-                                #{empresa.descripcionEmpresa}
-                            </h:column>
-
-                            <h:column>
-                                <f:facet name="header">Telefono</f:facet>
-                                #{empresa.telefonoEmpresa}
-                            </h:column>
 
 
-                            <h:column>
-                                <f:facet name="header">Dirección</f:facet>
-                                #{empresa.direccionEmpresa}
-                            </h:column>
+                <h1>Lista de Empresas</h1>
 
-                            <h:column>
-                                <f:facet name="header">Correo</f:facet>
-                                #{empresa.correoEmpresa}
-                            </h:column>
-
-                            <h:column>
-                                <f:facet name="header">Estado</f:facet>
-                                #{empresa.estadoEmpresa}
-                            </h:column>
+                <b:dataTable value="#{empresaBean.empresas}" var="empresa"
+                             id="entradasPool"
+                             styleClass="table table-striped table-bordered">
 
 
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Logo" />
+                        </f:facet>
+                        <h:outputText value="#{empresa.fotoEmpresa}" />
+                    </h:column>
 
-                        </h:dataTable>
-                    </h:form>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="ID" />
+                        </f:facet>
+                        <h:outputText value="#{empresa.idEmpresa}" />
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Nombre" />
+                        </f:facet>
+                        <h:outputText value="#{empresa.nombreEmpresa}" />
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Descripción" />
+                        </f:facet>
+                        <h:outputText value="#{empresa.descripcionEmpresa}" />
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Telefono" />
+                        </f:facet>
+                        <h:outputText value="#{empresa.telefonoEmpresa}" />
+                    </h:column>
 
 
-                </h:body>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Dirección" />
+                        </f:facet>
+                        <h:outputText value="#{empresa.direccionEmpresa}" />
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Correo" />
+                        </f:facet>
+                        <h:outputText value="#{empresa.correoEmpresa}" />
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Estado" />
+                        </f:facet>
+                        <h:outputText value="#{empresa.estadoEmpresa}" />
+                    </h:column>
+                </b:dataTable>
+
 
             </p:tab>
         </p:tabView>
     </ui:define>
 
 </ui:composition>
-
-
-
-
-
-
-
-
-
 

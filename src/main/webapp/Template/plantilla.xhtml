@@ -32,6 +32,7 @@
       </p:submenu>
       <p:submenu label="Administrador"  icon="pi pi-fw pi-lock" rendered="#{loginBean.usuarioAutenticado.rol=='administrador'}">
          <p:menuitem value="Usuarios" outcome="/Administrador/ListarUsuarios"/>
+         <p:menuitem value="Usuarios" outcome="/AdminEmpresa/ListarDependientes"/>
          <p:menuitem value="Empresas" outcome="/Administrador/ListarEmpresas"/>
          <p:menuitem value="Plazas" outcome="/Dependiente/VerPlazas"/>
       </p:submenu>
