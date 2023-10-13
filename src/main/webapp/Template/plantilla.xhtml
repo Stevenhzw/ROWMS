@@ -5,8 +5,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:b="http://bootsfaces.net/ui"
-      xmlns:p="http://primefaces.org/ui"
+      xmlns:p="http://bootsfaces.net/ui"
+      xmlns:b="http://primefaces.org/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
 <h:head>
@@ -19,27 +19,29 @@
 </h:head>
 
 <h:body>
-   <p:menubar>
-      <p:menuitem value="Plazas" outcome="/index"/>
-      <p:submenu label="Empresa" icon="pi pi-fw pi-briefcase" rendered="#{loginBean.usuarioAutenticado.rol=='adminEmpresa' or loginBean.usuarioAutenticado.rol=='administrador'}">
-         <p:menuitem value="Ver Empresas" outcome="/AdminEmpresa/VerEmpresa"/>
-         <p:menuitem value="Ver Dependientes" outcome="/AdminEmpresa/ListarDependientes"/>
-         <p:menuitem value="Solicitudes de Plazas" outcome="/AdminEmpresa/EstadoPlaza"/>
-      </p:submenu>
-      <p:submenu label="Dependientes"  icon="pi pi-fw pi-folder-open" rendered="#{loginBean.usuarioAutenticado.rol=='adminEmpresa' or loginBean.usuarioAutenticado.rol=='administrador'}" >
-         <p:menuitem value="Ver Plazas" outcome="/Dependiente/VerPlazas"/>
-         <p:menuitem value="Crear solicitud de Plaza" outcome="/Dependiente/CrearPlaza"/>
-      </p:submenu>
-      <p:submenu label="Administrador"  icon="pi pi-fw pi-lock" rendered="#{loginBean.usuarioAutenticado.rol=='administrador'}">
-         <p:menuitem value="Usuarios" outcome="/Administrador/ListarUsuarios"/>
-         <p:menuitem value="Dependientes" outcome="/AdminEmpresa/ListarDependientes"/>
-         <p:menuitem value="Empresas" outcome="/Administrador/ListarEmpresas"/>
-         <p:menuitem value="Plazas" outcome="/Administrador/ListarPlazas"/>
-      </p:submenu>
-      <p:menuitem value="Mi perfil" icon="pi pi-fw pi-user" outcome="/Usuario/VerUsuario" rendered="#{loginBean.usuarioAutenticado.correo!=null}"/>
-      <p:menuitem value="Iniciar sesion" icon="pi pi-fw pi-sign-in" outcome="/login"/>
-      <p:menuitem value="Cerrar sesion" icon="pi pi-fw pi-sign-out" action="#{loginBean.cerrarSesion}" rendered="#{loginBean.usuarioAutenticado.correo!=null}"/>
-   </p:menubar>
+   <p:navBar brand="ROWMS Working Website" brandHref="#" inverse="true">
+      <p:navbarLinks>
+      <p:navLink  value="Plazas" outcome="/index"/>
+      <p:dropMenu value="Empresa" icon="pi pi-fw pi-briefcase" rendered="#{loginBean.usuarioAutenticado.rol=='adminEmpresa' or loginBean.usuarioAutenticado.rol=='administrador'}">
+         <p:navLink  value="Ver Empresas" outcome="/AdminEmpresa/VerEmpresa"/>
+         <p:navLink  value="Ver Dependientes" outcome="/AdminEmpresa/ListarDependientes"/>
+         <p:navLink  value="Solicitudes de Plazas" outcome="/AdminEmpresa/EstadoPlaza"/>
+      </p:dropMenu>
+      <p:dropMenu  value="Dependientes"  icon="pi pi-fw pi-folder-open" rendered="#{loginBean.usuarioAutenticado.rol=='adminEmpresa' or loginBean.usuarioAutenticado.rol=='administrador'}" >
+         <p:navLink  value="Ver Plazas" outcome="/Dependiente/VerPlazas"/>
+         <p:navLink  value="Crear solicitud de Plaza" outcome="/Dependiente/CrearPlaza"/>
+      </p:dropMenu >
+      <p:dropMenu  value="Administrador"  icon="pi pi-fw pi-lock" rendered="#{loginBean.usuarioAutenticado.rol=='administrador'}">
+         <p:navLink  value="Usuarios" outcome="/Administrador/ListarUsuarios"/>
+         <p:navLink  value="Dependientes" outcome="/AdminEmpresa/ListarDependientes"/>
+         <p:navLink  value="Empresas" outcome="/Administrador/ListarEmpresas"/>
+         <p:navLink  value="Plazas" outcome="/Administrador/ListarPlazas"/>
+      </p:dropMenu >
+      <p:navLink value="Mi perfil" icon="pi pi-fw pi-user" outcome="/Usuario/VerUsuario" rendered="#{loginBean.usuarioAutenticado.correo!=null}"/>
+      <p:navLink value="Iniciar sesion" icon="pi pi-fw pi-sign-in" outcome="/login"/>
+      <p:navLink value="Cerrar sesion" icon="pi pi-fw pi-sign-out" action="#{loginBean.cerrarSesion}" rendered="#{loginBean.usuarioAutenticado.correo!=null}"/>
+      </p:navbarLinks>
+   </p:navBar>
 
 
 
