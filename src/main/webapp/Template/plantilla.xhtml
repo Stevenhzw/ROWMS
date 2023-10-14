@@ -34,6 +34,7 @@
       <p:dropMenu  value="Administrador"  icon="pi pi-fw pi-lock" rendered="#{loginBean.usuarioAutenticado.rol=='administrador'}">
          <p:navLink  value="Usuarios" outcome="/Administrador/ListarUsuarios"/>
          <p:navLink  value="Dependientes" outcome="/AdminEmpresa/ListarDependientes"/>
+         <p:navLink  value="Crear Empresa" outcome="/Administrador/CrearEmpresa"/>
          <p:navLink  value="Empresas" outcome="/Administrador/ListarEmpresas"/>
          <p:navLink  value="Plazas" outcome="/Administrador/ListarPlazas"/>
       </p:dropMenu >
