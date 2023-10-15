@@ -27,50 +27,32 @@ template="../Template/plantilla.xhtml">
 
                 <h:form id="formulario">
                     <h:panelGrid columns="2" styleClass="col-md-10 col-sm-10 col-xs-12 inputgroup">
-                        <h:outputText value="Nombre de Plaza" />
+                        <h:outputText value="Nombre de Empresa" />
                         <b:inputText value="#{entradaBean.entrada.titulo}" required="true"
                                      required-message="Agrega un título" />
 
-                        <h:outputText value="Descripcion" />
+                        <h:outputText value="Descripcion de Empresa" />
                         <b:inputText value="#{entradaBean.entrada.titulo}" required="true"
                                      required-message="Agrega un título" />
 
-                        <h:outputText value="Direccion" />
+                        <h:outputText value="Foto de Empresa" />
                         <b:inputText value="#{entradaBean.entrada.titulo}" required="true"
                                      required-message="Agrega un título" />
 
-                        <h:outputText value="Empresa Afiliada" />
+                        <h:outputText value="Telefono de Empresa" />
                         <b:inputText value="#{entradaBean.entrada.titulo}" required="true"
                                      required-message="Agrega un título" />
 
-                        <h:outputText value="Salario" />
+                        <h:outputText value="Dirección de Empresa" />
                         <b:inputText value="#{entradaBean.entrada.titulo}" required="true"
                                      required-message="Agrega un título" />
 
-                        <h:outputText value="Requisistos" />
-                        <b:inputTextarea value="#{entradaBean.entrada.texto}" required="true"
-                                         required-message="Agrega texto a tu entrada" />
-
-
-                        <h:outputText value="Tipo de Plaza" />
-                        <h:selectOneMenu value="#{entradaBean.entrada.tipo}">
-                            <f:selectItem itemLabel="En constucción!!" itemValue="" />
-                            <f:selectItem itemLabel="Opción 1" itemValue="opcion1" />
-                            <f:selectItem itemLabel="Opción 2" itemValue="opcion2" />
-                            <f:selectItem itemLabel="Opción 3" itemValue="opcion3" />
-                        </h:selectOneMenu>
-
-                        <h:outputText value="Cargo de Plaza" />
+                        <h:outputText value="Correo de Empresa" />
                         <b:inputText value="#{entradaBean.entrada.titulo}" required="true"
                                      required-message="Agrega un título" />
 
-                        <h:outputText value="Estado" style="display: none;" />
+                        <h:outputText value="Estado de empresa" style="display: none;" />
                         <b:inputText value="1" required="true"
-                                     required-message="Agrega un título" style="display: none;"/>
-
-
-                        <h:outputText value="Motivo rechazo" style="display: none;" />
-                        <b:inputText value="." required="true"
                                      required-message="Agrega un título" style="display: none;"/>
 
 

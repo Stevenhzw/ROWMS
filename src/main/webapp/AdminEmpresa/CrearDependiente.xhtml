@@ -40,28 +40,37 @@
                             <b:inputText value="#{entradaBean.entrada.titulo}" required="true"
                                          required-message="Agrega un título" />
 
-                            <h:outputText value="Descripcion" />
+                            <h:outputText value="Edad" />
                             <b:inputText value="#{entradaBean.entrada.titulo}" required="true"
                                          required-message="Agrega un título" />
 
-                            <h:outputText value="Direccion" />
+
+                            <h:outputText value="Genero" />
+                            <h:selectOneMenu value="#{entradaBean.entrada.tipo}">
+                                <f:selectItem itemLabel="En constucción!!" itemValue="" />
+                                <f:selectItem itemLabel="Opción 1" itemValue="opcion1" />
+                                <f:selectItem itemLabel="Opción 2" itemValue="opcion2" />
+                            </h:selectOneMenu>
+
+
+                            <h:outputText value="Foto" />
                             <b:inputText value="#{entradaBean.entrada.titulo}" required="true"
                                          required-message="Agrega un título" />
 
-                            <h:outputText value="Empresa Afiliada" />
+                            <h:outputText value="Telefono" />
                             <b:inputText value="#{entradaBean.entrada.titulo}" required="true"
                                          required-message="Agrega un título" />
 
-                            <h:outputText value="Salario" />
+                            <h:outputText value="Dirección" />
                             <b:inputText value="#{entradaBean.entrada.titulo}" required="true"
                                          required-message="Agrega un título" />
 
-                            <h:outputText value="Requisistos" />
+                            <h:outputText value="Expresión Laboral" />
                             <b:inputTextarea value="#{entradaBean.entrada.texto}" required="true"
                                              required-message="Agrega texto a tu entrada" />
 
 
-                            <h:outputText value="Tipo de Plaza" />
+                            <h:outputText value="Grado Academico" />
                             <h:selectOneMenu value="#{entradaBean.entrada.tipo}">
                                 <f:selectItem itemLabel="En constucción!!" itemValue="" />
                                 <f:selectItem itemLabel="Opción 1" itemValue="opcion1" />
@@ -69,7 +78,7 @@
                                 <f:selectItem itemLabel="Opción 3" itemValue="opcion3" />
                             </h:selectOneMenu>
 
-                            <h:outputText value="Cargo de Plaza" />
+                            <h:outputText value="Correo" />
                             <b:inputText value="#{entradaBean.entrada.titulo}" required="true"
                                          required-message="Agrega un título" />
 
@@ -77,9 +86,12 @@
                             <b:inputText value="1" required="true"
                                          required-message="Agrega un título" style="display: none;"/>
 
+                            <h:outputText value="Empresa Afiliada" style="display: none;" />
+                            <b:inputText value="1" required="true"
+                                         required-message="Agrega un título" style="display: none;"/>
 
-                            <h:outputText value="Motivo rechazo" style="display: none;" />
-                            <b:inputText value="." required="true"
+                            <h:outputText value="Rol" style="display: none;" />
+                            <b:inputText value="1" required="true"
                                          required-message="Agrega un título" style="display: none;"/>
 
 
