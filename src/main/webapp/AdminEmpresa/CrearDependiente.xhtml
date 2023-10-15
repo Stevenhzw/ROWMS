@@ -27,6 +27,11 @@
 
                     <h:form id="formulario">
                         <h:panelGrid columns="2" styleClass="col-md-10 col-sm-10 col-xs-12 inputgroup">
+
+                            <h:outputText value="Dui de Dependiente" />
+                            <b:inputText value="#{entradaBean.entrada.titulo}" required="true"
+                                         required-message="Agrega un título" />
+
                             <h:outputText value="Nombre de Dependiente" />
                             <b:inputText value="#{entradaBean.entrada.titulo}" required="true"
                                          required-message="Agrega un título" />
