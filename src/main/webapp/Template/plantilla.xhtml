@@ -22,17 +22,20 @@
    <p:navBar brand="ROWMS Working Website" brandHref="#" inverse="true">
       <p:navbarLinks>
       <p:navLink  value="Plazas" outcome="/index"/>
+
       <p:dropMenu value="Empresa" icon="pi pi-fw pi-briefcase" rendered="#{loginBean.empresaAutenticada.rol=='adminEmpresa' or loginBean.usuarioAutenticado.rol=='administrador'}">
          <p:navLink  value="Ver Empresas" outcome="/AdminEmpresa/VerEmpresa"/>
          <p:navLink  value="Ver Dependientes" outcome="/AdminEmpresa/ListarDependientes"/>
          <p:navLink  value="Editar Perfil Empresa" outcome="/AdminEmpresa/EditarEmpresa"/>
          <p:navLink  value="Solicitudes de Plazas" outcome="/AdminEmpresa/EstadoPlaza"/>
       </p:dropMenu>
+
       <p:dropMenu  value="Dependientes"  icon="pi pi-fw pi-folder-open" rendered="#{loginBean.empresaAutenticada.rol=='adminEmpresa' or loginBean.usuarioAutenticado.rol=='administrador'}" >
          <p:navLink  value="Ver Plazas" outcome="/Dependiente/VerPlazas"/>
          <p:navLink  value="Crear solicitud de Plaza" outcome="/Dependiente/CrearPlaza"/>
          <p:navLink  value="Editar Una plaza de Plaza" outcome="/Dependiente/EditarPlaza"/>
       </p:dropMenu >
+
       <p:dropMenu  value="Administrador"  icon="pi pi-fw pi-lock" rendered="#{loginBean.usuarioAutenticado.rol=='administrador'}">
          <p:navLink  value="Usuarios" outcome="/Administrador/ListarUsuarios"/>
          <p:navLink  value="Dependientes" outcome="/AdminEmpresa/ListarDependientes"/>
@@ -47,7 +50,13 @@
                     onclick="return confirm('¿Estás seguro de que deseas cerrar la sesión?')"
                     action="#{loginBean.cerrarSesion}" />
 
+      <p:navLink value="Licencia" href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" >
+         <img src="Template/cc.png" alt="CC Icon" width="20" height="20" />
+
+      </p:navLink>
+
       </p:navbarLinks>
+
    </p:navBar>
 
 
