@@ -12,30 +12,37 @@
         <h:head>
             <title>Iniciar Sesión</title>
         </h:head>
-        <p:tabView>
-            <p:tab title="ROWMS Working Website">
-                <h:body>
-                    <h:form>
-                        <h:panelGroup layout="block" styleClass="alert alert-danger"
-                                      rendered="#{not empty facesContext.messageList}">
-                            <h:messages />
-                        </h:panelGroup>
-                        <h:outputLabel for="correo">Correo:</h:outputLabel>
-                        <h:inputText id="correo" value="#{loginBean.correo}" required="true"/><br/>
+        <div class="container h-100">
+            <div class="row h-100 justify-content-center align-items-center">
+                <div class="col-md-6">
+                    <p:panel header="Iniciar Sesión" styleClass="p-panel-info">
+                        <h:form class="form" role="form">
+                            <h:panelGroup layout="block" styleClass="alert alert-danger"
+                                          rendered="#{not empty facesContext.messageList}">
+                                <h:messages />
+                            </h:panelGroup>
 
-                        <h:outputLabel for="contraseña">Contraseña:</h:outputLabel>
-                        <h:inputSecret id="contraseña" value="#{loginBean.contraseña}" required="true"/><br/>
+                            <div class="form-group">
+                                <h:outputLabel for="correo">Correo:</h:outputLabel>
+                                <h:inputText id="correo" value="#{loginBean.correo}" required="true" class="form-control"/>
+                            </div>
 
-                        <h:commandButton value="Iniciar Sesión" action="#{loginBean.iniciarSesion}"/><br/>
-                    </h:form>
-                    <h:outputScript>
-                        <c:if test = "#{not empty flash.exito}" >
-                            alertify.success('#{flash.exito}');
-                        </c:if>
-                    </h:outputScript>
-                </h:body>
-            </p:tab>
-        </p:tabView>
+                            <div class="form-group">
+                                <h:outputLabel for="contraseña">Contraseña:</h:outputLabel>
+                                <h:inputSecret id="contraseña" value="#{loginBean.contraseña}" required="true" class="form-control"/>
+                            </div>
+
+                            <h:commandButton class="btn btn-primary" value="Iniciar Sesión" action="#{loginBean.iniciarSesion}"/>
+                        </h:form>
+                        <h:outputScript>
+                            <c:if test="#{not empty flash.exito}">
+                                alertify.success('#{flash.exito}');
+                            </c:if>
+                        </h:outputScript>
+                    </p:panel>
+                </div>
+            </div>
+        </div>
     </ui:define>
 
 </ui:composition>

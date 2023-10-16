@@ -42,7 +42,11 @@
       </p:dropMenu >
       <p:navLink value="Mi perfil" icon="pi pi-fw pi-user" outcome="/Usuario/VerUsuario" rendered="#{loginBean.usuarioAutenticado.correo!=null  or loginBean.empresaAutenticada.correoEmpresa!=null}"/>
       <p:navLink value="Iniciar sesion" icon="pi pi-fw pi-sign-in" outcome="/login"/>
-      <p:navLink value="Cerrar sesion" icon="pi pi-fw pi-sign-out" action="#{loginBean.cerrarSesion}" rendered="#{loginBean.usuarioAutenticado.correo!=null or loginBean.empresaAutenticada.correoEmpresa!=null}"/>
+         <p:navLink value="Cerrar sesión" icon="pi pi-fw pi-sign-out"
+                    rendered="#{loginBean.usuarioAutenticado.correo!=null or loginBean.empresaAutenticada.correoEmpresa!=null}"
+                    onclick="return confirm('¿Estás seguro de que deseas cerrar la sesión?')"
+                    action="#{loginBean.cerrarSesion}" />
+
       </p:navbarLinks>
    </p:navBar>
 
@@ -53,8 +57,7 @@
             Contenido por defecto
          </ui:insert>
 
-
-
+   <br></br>
          <p class="text-center text-muted">© 2023 ROWMS, DWF404</p>
 
 
