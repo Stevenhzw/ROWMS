@@ -22,13 +22,13 @@
    <p:navBar brand="ROWMS Working Website" brandHref="#" inverse="true">
       <p:navbarLinks>
       <p:navLink  value="Plazas" outcome="/index"/>
-      <p:dropMenu value="Empresa" icon="pi pi-fw pi-briefcase" rendered="#{loginBean.usuarioAutenticado.rol=='adminEmpresa' or loginBean.usuarioAutenticado.rol=='administrador'}">
+      <p:dropMenu value="Empresa" icon="pi pi-fw pi-briefcase" rendered="#{loginBean.empresaAutenticada.rol=='adminEmpresa' or loginBean.usuarioAutenticado.rol=='administrador'}">
          <p:navLink  value="Ver Empresas" outcome="/AdminEmpresa/VerEmpresa"/>
          <p:navLink  value="Ver Dependientes" outcome="/AdminEmpresa/ListarDependientes"/>
          <p:navLink  value="Editar Perfil Empresa" outcome="/AdminEmpresa/EditarEmpresa"/>
          <p:navLink  value="Solicitudes de Plazas" outcome="/AdminEmpresa/EstadoPlaza"/>
       </p:dropMenu>
-      <p:dropMenu  value="Dependientes"  icon="pi pi-fw pi-folder-open" rendered="#{loginBean.usuarioAutenticado.rol=='adminEmpresa' or loginBean.usuarioAutenticado.rol=='administrador'}" >
+      <p:dropMenu  value="Dependientes"  icon="pi pi-fw pi-folder-open" rendered="#{loginBean.empresaAutenticada.rol=='adminEmpresa' or loginBean.usuarioAutenticado.rol=='administrador'}" >
          <p:navLink  value="Ver Plazas" outcome="/Dependiente/VerPlazas"/>
          <p:navLink  value="Crear solicitud de Plaza" outcome="/Dependiente/CrearPlaza"/>
          <p:navLink  value="Editar Una plaza de Plaza" outcome="/Dependiente/EditarPlaza"/>
@@ -40,9 +40,9 @@
          <p:navLink  value="Empresas" outcome="/Administrador/ListarEmpresas"/>
          <p:navLink  value="Plazas" outcome="/Administrador/ListarPlazas"/>
       </p:dropMenu >
-      <p:navLink value="Mi perfil" icon="pi pi-fw pi-user" outcome="/Usuario/VerUsuario" rendered="#{loginBean.usuarioAutenticado.correo!=null}"/>
+      <p:navLink value="Mi perfil" icon="pi pi-fw pi-user" outcome="/Usuario/VerUsuario" rendered="#{loginBean.usuarioAutenticado.correo!=null  or loginBean.empresaAutenticada.correoEmpresa!=null}"/>
       <p:navLink value="Iniciar sesion" icon="pi pi-fw pi-sign-in" outcome="/login"/>
-      <p:navLink value="Cerrar sesion" icon="pi pi-fw pi-sign-out" action="#{loginBean.cerrarSesion}" rendered="#{loginBean.usuarioAutenticado.correo!=null}"/>
+      <p:navLink value="Cerrar sesion" icon="pi pi-fw pi-sign-out" action="#{loginBean.cerrarSesion}" rendered="#{loginBean.usuarioAutenticado.correo!=null or loginBean.empresaAutenticada.correoEmpresa!=null}"/>
       </p:navbarLinks>
    </p:navBar>
 

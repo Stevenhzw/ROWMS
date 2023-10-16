@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 12-10-2023 a las 03:29:46
+-- Tiempo de generación: 15-10-2023 a las 20:14:56
 -- Versión del servidor: 8.0.31
 -- Versión de PHP: 8.0.26
 
@@ -38,6 +38,7 @@ CREATE TABLE IF NOT EXISTS `empresas` (
   `correoEmpresa` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `contraseñaEmpresa` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `estadoEmpresa` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `rol` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`idEmpresa`),
   KEY `estadoEmpresa` (`estadoEmpresa`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -46,9 +47,9 @@ CREATE TABLE IF NOT EXISTS `empresas` (
 -- Volcado de datos para la tabla `empresas`
 --
 
-INSERT INTO `empresas` (`idEmpresa`, `nombreEmpresa`, `descripcionEmpresa`, `fotoEmpresa`, `telefonoEmpresa`, `direccionEmpresa`, `correoEmpresa`, `contraseñaEmpresa`, `estadoEmpresa`) VALUES
-('EMP0001', 'Mcdonalds', 'Comida Rapida', 'ss.png', '7549-9568', 'comida rapida', 'mcdonalds@gmail.com', 'ccc', '1'),
-('EMP0002', 'Burger King', 'hamberguesas', 'burger.png', '2526-2656', 'los proceres', 'burgerKing@gmail.com', '123', '1');
+INSERT INTO `empresas` (`idEmpresa`, `nombreEmpresa`, `descripcionEmpresa`, `fotoEmpresa`, `telefonoEmpresa`, `direccionEmpresa`, `correoEmpresa`, `contraseñaEmpresa`, `estadoEmpresa`, `rol`) VALUES
+('EMP0001', 'Mcdonalds', 'Comida Rapida', 'ss.png', '7549-9568', 'comida rapida', 'mcdonalds@gmail.com', 'ccc', '1', 'adminEmpresa'),
+('EMP0002', 'Burger King', 'hamberguesas', 'burger.png', '2526-2656', 'los proceres', 'burgerKing@gmail.com', '123', '1', 'adminEmpresa');
 
 -- --------------------------------------------------------
 
