@@ -28,6 +28,7 @@
          <p:navLink  value="Ver Dependientes" outcome="/AdminEmpresa/ListarDependientes"/>
          <p:navLink  value="Editar Perfil Empresa" outcome="/AdminEmpresa/EditarEmpresa"/>
          <p:navLink  value="Solicitudes de Plazas" outcome="/AdminEmpresa/EstadoPlaza"/>
+         <p:navLink  value="Crear un Dependiente" outcome="/AdminEmpresa/CrearDependiente"/>
       </p:dropMenu>
 
       <p:dropMenu  value="Dependientes"  icon="pi pi-fw pi-folder-open" rendered="#{loginBean.empresaAutenticada.rol=='adminEmpresa' or loginBean.usuarioAutenticado.rol=='administrador'}" >

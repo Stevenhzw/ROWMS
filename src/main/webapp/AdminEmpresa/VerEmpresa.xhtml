@@ -4,18 +4,62 @@
         xmlns:h="http://java.sun.com/jsf/html"
         xmlns:f="http://xmlns.jcp.org/jsf/core"
         xmlns:p="http://primefaces.org/ui"
+        xmlns:b="http://bootsfaces.net/ui"
         xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
         xmlns:c="http://java.sun.com/jsp/jstl/core"
         template="../Template/plantilla.xhtml">
 
     <ui:define name="content">
         <h:head>
-            <title>Ver Empresa</title>
+            <title>Ver Perfil De Empresa</title>
         </h:head>
         <p:tabView>
             <p:tab title="ROWMS Working Website">
 
-                <h1>En Construcción</h1>
+                <h:panelGrid style="text-align:center; margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
+                    <h1>Mi Perfil</h1>
+
+                    <h:form id="formulario">
+                        <h:panelGrid columns="2" styleClass="col-md-10 col-sm-10 col-xs-12 inputgroup">
+                            <h:outputText value="ID" />
+                            <h:outputText value="#{loginBean.empresaAutenticada.idEmpresa}" />
+
+                            <h:outputText value="Nombre" />
+                            <b:inputText value="#{loginBean.empresaAutenticada.nombreEmpresa}" required="true"
+                                         required-message="Agrega un título" />
+
+                            <h:outputText value="Descripción" />
+                            <b:inputText value="#{loginBean.empresaAutenticada.descripcionEmpresa}" required="true"
+                                         required-message="Agrega un título" />
+
+                            <h:outputText value="Foto" />
+                            <b:inputText value="#{loginBean.empresaAutenticada.fotoEmpresa}" required="true"
+                                         required-message="Agrega un título" />
+
+                            <h:outputText value="Telefono" />
+                            <b:inputText value="#{loginBean.empresaAutenticada.telefonoEmpresa}" required="true"
+                                         required-message="Agrega un título" />
+
+                            <h:outputText value="Dirección" />
+                            <b:inputText value="#{loginBean.empresaAutenticada.direccionEmpresa}" required="true"
+                                         required-message="Agrega un título" />
+
+                            <h:outputText value="Correo" />
+                            <b:inputText value="#{loginBean.empresaAutenticada.correoEmpresa}" required="true"
+                                         required-message="Agrega un título" />
+
+
+                            <h:outputText value="Estado" />
+                            <b:inputText value="#{loginBean.empresaAutenticada.estadoEmpresa}" required="true"
+                                         required-message="Agrega un título" />
+
+
+                        </h:panelGrid>
+                        <b:commandButton value="Modificar" action="#"
+                                         look="success" styleClass="btn-lg"/>
+                    </h:form>
+
+                </h:panelGrid>
             </p:tab>
         </p:tabView>
     </ui:define>
