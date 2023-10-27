@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-10-2023 a las 03:45:31
+-- Tiempo de generación: 11-10-2023 a las 21:39:03
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -38,6 +38,13 @@ CREATE TABLE `empresas` (
   `contraseñaEmpresa` varchar(100) NOT NULL,
   `estadoEmpresa` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `empresas`
+--
+
+INSERT INTO `empresas` (`idEmpresa`, `nombreEmpresa`, `descripcionEmpresa`, `fotoEmpresa`, `telefonoEmpresa`, `direccionEmpresa`, `correoEmpresa`, `contraseñaEmpresa`, `estadoEmpresa`) VALUES
+('EMP001', 'Textufil', 'empresa de telas', NULL, '1212-1212', 'Soyapango', 'textufil@gmail.com', '123', '1');
 
 -- --------------------------------------------------------
 
@@ -88,7 +95,7 @@ CREATE TABLE `plazas` (
 --
 
 CREATE TABLE `usuarios` (
-  `dui` varchar(9) NOT NULL,
+  `dui` varchar(10) NOT NULL,
   `nombre` varchar(100) NOT NULL,
   `apellido` varchar(100) NOT NULL,
   `edad` int(11) NOT NULL,
@@ -104,6 +111,15 @@ CREATE TABLE `usuarios` (
   `estado` varchar(100) NOT NULL,
   `rol` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`dui`, `nombre`, `apellido`, `edad`, `genero`, `foto`, `telefono`, `direccion`, `expLaboral`, `gradoAcademico`, `correo`, `contraseña`, `empresaAfiliada`, `estado`, `rol`) VALUES
+('00000000-0', 'Admin', 'Steven', 20, 'masculino', NULL, '0000-0000', 'soyapango', '-', '-', 'admin@gmail.com', '123', NULL, '1', 'administrador'),
+('12121212-2', 'Manuel', 'Miranda', 19, 'masculino', NULL, '1212-0121', 'soyapango', 'nula', 'bachiller', 'manuel@gmail.com', '123', 'EMP001', '1', 'adminEmpresa'),
+('12345678-9', 'steven', 'moreno', 19, 'masculino', NULL, '1212-1212', 'Soyapango', 'nula', 'bachiller', 'steven@gmail.com', '123', 'EMP001', '1', 'cliente');
 
 --
 -- Índices para tablas volcadas
