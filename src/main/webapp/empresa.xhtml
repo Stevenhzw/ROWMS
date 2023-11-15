@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: RAUL
+  Date: 18/10/2023
+  Time: 04:23
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:i="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>Empresas</title>
+</h:head>
+
+<h:body>
+    <p:panel>
+
+
+        <h:form>
+            <p:panelGrid columns="1" style="width: 50%; ">
+                <p:outputLabel value="EMPLOYEE FORM" />
+                <p:panelGrid columns="2">
+
+
+                    <p:outputLabel value="idEmpresa" />
+                    <p:inputText value="#{empresaBean.empresa.idEmpresa}"
+                                 required="true" requiredMessage="id de la empresa requerido" />
+
+                    <p:outputLabel value="Nombre de empresa" />
+                    <p:inputText value="#{empresaBean.empresa.nombreEmpresa}"
+                                 required="true" requiredMessage="Nombre empresa requerido" />
+
+                    <p:outputLabel value="Descripcion de empresa" />
+                    <p:inputText value="#{empresaBean.empresa.descripcionEmpresa}"
+                                 required="true" requiredMessage="Descripcion empresa requerido" />
+
+                    <p:outputLabel value="foto de empresa" />
+                    <p:inputText value="#{empresaBean.empresa.fotoEmpresa}"
+                                 required="true" requiredMessage="foto empresa requerido" />
+
+                    <p:outputLabel value="Telefono de empresa" />
+                    <p:inputText value="#{empresaBean.empresa.telefonoEmpresa}"
+                                 required="true" requiredMessage="telefono empresa requerido" />
+
+                    <p:outputLabel value="Direccion de empresa" />
+                    <p:inputText value="#{empresaBean.empresa.direccionEmpresa}"
+                                 required="true" requiredMessage="direccion empresa requerido" />
+
+                    <p:outputLabel value="Correo de empresa" />
+                    <p:inputText value="#{empresaBean.empresa.correoEmpresa}"
+                                 required="true" requiredMessage="correo empresa requerido" />
+
+                    <p:outputLabel value="Contraseña de empresa" />
+                    <p:inputText value="#{empresaBean.empresa.contraseñaEmpresa}"
+                                 required="true" requiredMessage="contraseña empresa requerido" />
+
+                    <p:outputLabel value="estado de empresa" />
+                    <p:inputText value="#{empresaBean.empresa.estadoEmpresa}"
+                                 required="true" requiredMessage="estado empresa requerido" />
+
+                    <p:outputLabel value="rol de empresa" />
+                    <p:inputText value="#{empresaBean.empresa.rol}"
+                                 required="true" requiredMessage="rol empresa requerido" />
+
+                </p:panelGrid>
+                <p:commandButton action="#{empresaBean.guardarEmpresa()}"
+                                 ajax="false" value="Guardar" />
+                <h:messages />
+
+
+
+            </p:panelGrid>
+        </h:form>
+
+
+        <h:form>
+            <p:dataTable id="empresas"  var="empre" value="#{empresaBean.empresasModel.listarEmpresas()}" rows="10">
+                <p:column headerText="idEmpresa" sortBy="#{empre.idEmpresa}">
+                    <p:outputLabel value="#{empre.idEmpresa}" />
+                </p:column>
+
+                <p:column headerText="nombreEmpresa" sortBy="#{empre.nombreEmpresa}">
+                    <p:outputLabel value="#{empre.nombreEmpresa}" />
+                </p:column>
+                <p:column headerText="direccionEmpresa" sortBy="#{empre.direccionEmpresa}">
+                    <p:outputLabel value="#{empre.direccionEmpresa}" />
+                </p:column>
+                <p:column headerText="telefonoEmpresa" sortBy="#{empre.telefonoEmpresa}">
+                    <p:outputLabel value="#{empre.telefonoEmpresa}" />
+                </p:column>
+
+                <p:column headerText="Acciones">
+                    <h:commandButton value="Ver" action="#{empresaBean.verEmpresa(empre.idEmpresa)}" />
+                    <h:commandButton value="Editar" action="#{empresaBean.cargarEmpresa(empre.idEmpresa)}" />
+                    <h:commandButton id="btnDelesdte" action="#{empresaBean.eliminarEmpresa(empre.idEmpresa)}"
+                                     onclick="if (!confirm('Quieres eliminar esta empresa?')) return false"
+                                     value="Eliminar">
+                    </h:commandButton>
+                </p:column>
+
+            </p:dataTable>
+
+        <p:dataScroller  id="empresas2"  var="empre" value="#{empresaBean.empresasModel.listarEmpresas()}" chunkSize="10" mode="inline"
+                         scrollHeight="100">
+            <div class="product">
+                <div class="product-list-detail">
+                    <div>ID: #{empre.idEmpresa}</div>
+                    <div>Nombre: #{empre.nombreEmpresa}</div>
+                    <div>Direccion: #{empre.direccionEmpresa}</div>
+                    <div>Telefono: #{empre.telefonoEmpresa}</div>
+            </div>
+                <div class="product-list-action">
+            <p:column headerText="Acciones">
+                <h:commandButton value="Ver" action="#{empresaBean.verEmpresa(empre.idEmpresa)}" />
+                <h:commandButton value="Editar" action="#{empresaBean.cargarEmpresa(empre.idEmpresa)}" />
+                <h:commandButton id="btnDelesdte2" action="#{empresaBean.eliminarEmpresa(empre.idEmpresa)}"
+                                 onclick="if (!confirm('Quieres eliminar esta empresa?')) return false"
+                                 value="Eliminar">
+                </h:commandButton>
+            </p:column>
+            </div>
+            </div>
+        </p:dataScroller >
+        </h:form>
+
+
+    </p:panel>
+    <h:outputScript>
+        <c:if test="#{not empty flash.exito}">
+            alertify.success('#{flash.exito}');
+        </c:if>
+    </h:outputScript>
+
+</h:body>
+
+
+</html>

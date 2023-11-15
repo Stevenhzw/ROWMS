@@ -8,7 +8,7 @@ import jakarta.persistence.*;
         @NamedQuery(name = "PlazasEntity.findAll", query = "SELECT e FROM PlazasEntity e")
 })
 public class PlazasEntity {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @Id
     @Column(name = "idPlaza", nullable = false, length = 7)
     private String idPlaza;

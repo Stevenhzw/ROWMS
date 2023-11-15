@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: RAUL
+  Date: 25/10/2023
+  Time: 07:52
+-->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+    <title>Editar Empresa</title>
+</h:head>
+
+<h:body>
+    <style>
+        .ui-panelgrid.showcase-text-align-center .ui-grid-responsive .ui-panelgrid-cell {
+            text-align: center;
+        }
+
+        .customPanelGrid .ui-panelgrid-content {
+            align-items: center;
+        }
+    </style>
+            <div class="card">
+
+                <p:panelGrid columns="2">
+
+                    <f:facet name="header">
+                        <h:outputText value="Empresa: #{empresaBean.empresa.idEmpresa}"/>
+                        <p:graphicImage name="resources/images/default.jpg"/>
+                    </f:facet>
+
+                    <h:outputText value="Nombre de la empresa:"/>
+                    <h:outputText value="#{empresaBean.empresa.nombreEmpresa}"/>
+
+                    <h:outputText value="Descripcion de la empresa:"/>
+                    <h:outputText value="#{empresaBean.empresa.descripcionEmpresa}"/>
+
+                    <h:outputText value="Telefono de la empresa:"/>
+                    <h:outputText value="#{empresaBean.empresa.telefonoEmpresa}"/>
+
+                    <h:outputText value="Direccion de la empresa:"/>
+                    <h:outputText value="#{empresaBean.empresa.direccionEmpresa}"/>
+
+                    <h:outputText value="Correo de la empresa:"/>
+                    <h:outputText value="#{empresaBean.empresa.correoEmpresa}"/>
+                </p:panelGrid>
+                <p:commandButton value="Volver" onclick="window.location.href='empresa.xhtml'; return false;" />
+            </div>
+
+</h:body>
+
+</html>
