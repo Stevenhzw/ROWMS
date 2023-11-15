@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 11-10-2023 a las 21:39:03
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Servidor: 127.0.0.1:3306
+-- Tiempo de generación: 15-10-2023 a las 20:14:56
+-- Versión del servidor: 8.0.31
+-- Versión de PHP: 8.0.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,24 +27,29 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `empresas`
 --
 
-CREATE TABLE `empresas` (
-  `idEmpresa` varchar(7) NOT NULL,
-  `nombreEmpresa` varchar(100) NOT NULL,
-  `descripcionEmpresa` varchar(100) NOT NULL,
-  `fotoEmpresa` varchar(300) DEFAULT NULL,
-  `telefonoEmpresa` varchar(9) NOT NULL,
-  `direccionEmpresa` varchar(100) NOT NULL,
-  `correoEmpresa` varchar(100) NOT NULL,
-  `contraseñaEmpresa` varchar(100) NOT NULL,
-  `estadoEmpresa` varchar(100) NOT NULL
+DROP TABLE IF EXISTS `empresas`;
+CREATE TABLE IF NOT EXISTS `empresas` (
+  `idEmpresa` varchar(7) COLLATE utf8mb4_general_ci NOT NULL,
+  `nombreEmpresa` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `descripcionEmpresa` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `fotoEmpresa` varchar(300) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `telefonoEmpresa` varchar(9) COLLATE utf8mb4_general_ci NOT NULL,
+  `direccionEmpresa` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `correoEmpresa` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `contraseñaEmpresa` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `estadoEmpresa` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `rol` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`idEmpresa`),
+  KEY `estadoEmpresa` (`estadoEmpresa`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `empresas`
 --
 
-INSERT INTO `empresas` (`idEmpresa`, `nombreEmpresa`, `descripcionEmpresa`, `fotoEmpresa`, `telefonoEmpresa`, `direccionEmpresa`, `correoEmpresa`, `contraseñaEmpresa`, `estadoEmpresa`) VALUES
-('EMP001', 'Textufil', 'empresa de telas', NULL, '1212-1212', 'Soyapango', 'textufil@gmail.com', '123', '1');
+INSERT INTO `empresas` (`idEmpresa`, `nombreEmpresa`, `descripcionEmpresa`, `fotoEmpresa`, `telefonoEmpresa`, `direccionEmpresa`, `correoEmpresa`, `contraseñaEmpresa`, `estadoEmpresa`, `rol`) VALUES
+('EMP0001', 'Mcdonalds', 'Comida Rapida', 'ss.png', '7549-9568', 'comida rapida', 'mcdonalds@gmail.com', 'ccc', '1', 'adminEmpresa'),
+('EMP0002', 'Burger King', 'hamberguesas', 'burger.png', '2526-2656', 'los proceres', 'burgerKing@gmail.com', '123', '1', 'adminEmpresa');
 
 -- --------------------------------------------------------
 
@@ -52,9 +57,11 @@ INSERT INTO `empresas` (`idEmpresa`, `nombreEmpresa`, `descripcionEmpresa`, `fot
 -- Estructura de tabla para la tabla `estados`
 --
 
-CREATE TABLE `estados` (
-  `idEstado` varchar(11) NOT NULL,
-  `nombreEstado` varchar(100) NOT NULL
+DROP TABLE IF EXISTS `estados`;
+CREATE TABLE IF NOT EXISTS `estados` (
+  `idEstado` varchar(11) COLLATE utf8mb4_general_ci NOT NULL,
+  `nombreEstado` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`idEstado`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -73,20 +80,33 @@ INSERT INTO `estados` (`idEstado`, `nombreEstado`) VALUES
 -- Estructura de tabla para la tabla `plazas`
 --
 
-CREATE TABLE `plazas` (
-  `idPlaza` varchar(7) NOT NULL,
-  `nombrePlaza` varchar(100) NOT NULL,
-  `descripcionPlaza` varchar(100) NOT NULL,
-  `direccionPlaza` varchar(100) NOT NULL,
-  `empresaAfiliada` varchar(100) NOT NULL,
+DROP TABLE IF EXISTS `plazas`;
+CREATE TABLE IF NOT EXISTS `plazas` (
+  `idPlaza` varchar(7) COLLATE utf8mb4_general_ci NOT NULL,
+  `nombrePlaza` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `descripcionPlaza` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `direccionPlaza` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `empresaAfiliada` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `salarioPlaza` float NOT NULL,
-  `requisitoPlaza` varchar(100) NOT NULL,
-  `tipoPlaza` varchar(100) NOT NULL,
-  `rubroPlaza` varchar(100) NOT NULL,
-  `cargoPlaza` varchar(100) NOT NULL,
-  `estadoPlaza` varchar(100) NOT NULL,
-  `motivoRechazoPlaza` varchar(200) DEFAULT NULL
+  `requisitoPlaza` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `tipoPlaza` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `rubroPlaza` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `cargoPlaza` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `estadoPlaza` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `motivoRechazoPlaza` varchar(200) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`idPlaza`),
+  KEY `estadoPlaza` (`estadoPlaza`),
+  KEY `estadoPlaza_2` (`estadoPlaza`),
+  KEY `empresaAfiliada` (`empresaAfiliada`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `plazas`
+--
+
+INSERT INTO `plazas` (`idPlaza`, `nombrePlaza`, `descripcionPlaza`, `direccionPlaza`, `empresaAfiliada`, `salarioPlaza`, `requisitoPlaza`, `tipoPlaza`, `rubroPlaza`, `cargoPlaza`, `estadoPlaza`, `motivoRechazoPlaza`) VALUES
+('PLA0001', 'Plaza de cajero', 'cajero descripcion', 'burguer santa elena', 'EMP0002', 600, 'nada', 'laboral ns', 'restaurante', 'cajero', '1', NULL),
+('PLA0002', 'cocinero del macdonalds', 'de cocina', 'mcdonals santa elena', 'EMP0001', 750, 'saber cocinar', 'coss', 'restaurantes', 'cocinero', '1', NULL);
 
 -- --------------------------------------------------------
 
@@ -94,22 +114,26 @@ CREATE TABLE `plazas` (
 -- Estructura de tabla para la tabla `usuarios`
 --
 
-CREATE TABLE `usuarios` (
-  `dui` varchar(10) NOT NULL,
-  `nombre` varchar(100) NOT NULL,
-  `apellido` varchar(100) NOT NULL,
-  `edad` int(11) NOT NULL,
-  `genero` varchar(100) NOT NULL,
-  `foto` varchar(300) DEFAULT NULL,
-  `telefono` varchar(9) NOT NULL,
-  `direccion` varchar(100) NOT NULL,
-  `expLaboral` varchar(100) NOT NULL,
-  `gradoAcademico` varchar(100) NOT NULL,
-  `correo` varchar(100) NOT NULL,
-  `contraseña` varchar(100) NOT NULL,
-  `empresaAfiliada` varchar(100) DEFAULT NULL,
-  `estado` varchar(100) NOT NULL,
-  `rol` varchar(100) NOT NULL
+DROP TABLE IF EXISTS `usuarios`;
+CREATE TABLE IF NOT EXISTS `usuarios` (
+  `dui` varchar(9) COLLATE utf8mb4_general_ci NOT NULL,
+  `nombre` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `apellido` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `edad` int NOT NULL,
+  `genero` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `foto` varchar(300) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `telefono` varchar(9) COLLATE utf8mb4_general_ci NOT NULL,
+  `direccion` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `expLaboral` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `gradoAcademico` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `correo` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `contraseña` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `empresaAfiliada` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `estado` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `rol` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`dui`),
+  KEY `empresaAfiliada` (`empresaAfiliada`),
+  KEY `estado` (`estado`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -117,43 +141,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`dui`, `nombre`, `apellido`, `edad`, `genero`, `foto`, `telefono`, `direccion`, `expLaboral`, `gradoAcademico`, `correo`, `contraseña`, `empresaAfiliada`, `estado`, `rol`) VALUES
-('00000000-0', 'Admin', 'Steven', 20, 'masculino', NULL, '0000-0000', 'soyapango', '-', '-', 'admin@gmail.com', '123', NULL, '1', 'administrador'),
-('12121212-2', 'Manuel', 'Miranda', 19, 'masculino', NULL, '1212-0121', 'soyapango', 'nula', 'bachiller', 'manuel@gmail.com', '123', 'EMP001', '1', 'adminEmpresa'),
-('12345678-9', 'steven', 'moreno', 19, 'masculino', NULL, '1212-1212', 'Soyapango', 'nula', 'bachiller', 'steven@gmail.com', '123', 'EMP001', '1', 'cliente');
-
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `empresas`
---
-ALTER TABLE `empresas`
-  ADD PRIMARY KEY (`idEmpresa`),
-  ADD KEY `estadoEmpresa` (`estadoEmpresa`);
-
---
--- Indices de la tabla `estados`
---
-ALTER TABLE `estados`
-  ADD PRIMARY KEY (`idEstado`);
-
---
--- Indices de la tabla `plazas`
---
-ALTER TABLE `plazas`
-  ADD PRIMARY KEY (`idPlaza`),
-  ADD KEY `estadoPlaza` (`estadoPlaza`),
-  ADD KEY `estadoPlaza_2` (`estadoPlaza`),
-  ADD KEY `empresaAfiliada` (`empresaAfiliada`);
-
---
--- Indices de la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`dui`),
-  ADD KEY `empresaAfiliada` (`empresaAfiliada`),
-  ADD KEY `estado` (`estado`);
+('12345678-', 'steven', 'steven', 20, 'maculino', 'sada.png', '1525-6596', 'adasd', 'asd', 'asd', 'steven@gmail.com', '123', 'EMP0001', '1', 'administrador'),
+('12345698-', 'manuel', 'miranda', 20, 'amsculino', 'asd.png', '5696-6959', 'sdasdsa', 'sss', 'ssss', 'manuel@gmail.com', '123', 'EMP0001', '1', 'dependiente'),
+('95966959-', 'Mikel', 'Mikes', 21, 'mascule', 'sadd.png', '2299-6959', 'guayabales', '20 años', 'si', 'mikel@gmail.com', '123', 'EMP0001', '1', 'Dependiente');
 
 --
 -- Restricciones para tablas volcadas

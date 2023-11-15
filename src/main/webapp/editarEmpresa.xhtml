@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: RAUL
+  Date: 25/10/2023
+  Time: 07:52
+-->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Editar Empresa</title>
+</h:head>
+
+<h:body>
+    <h:form id="editForm">
+        <p:panel header="Editar Empresa">
+            <p:panelGrid columns="2">
+                <p:outputLabel value="ID de Empresa:" for="idEmpresa" />
+                <p:inputText id="idEmpresa" value="#{empresaBean.empresa.idEmpresa}" />
+
+                <p:outputLabel value="Nombre de Empresa:" for="nombreEmpresa" />
+                <p:inputText id="nombreEmpresa" value="#{empresaBean.empresa.nombreEmpresa}" required="true" />
+
+                <p:outputLabel value="Descripcion de la empesa:" for="descripcionEmpresa" />
+                <p:inputText id="descripcionEmpresa" value="#{empresaBean.empresa.descripcionEmpresa}" required="true" />
+
+                <p:outputLabel value="foto empresa:" for="fotoEmpresa" />
+                <p:inputText id="fotoEmpresa" value="#{empresaBean.empresa.fotoEmpresa}" required="true" />
+
+                <p:outputLabel value="telefono empresa:" for="telefonoEmpresa" />
+                <p:inputText id="telefonoEmpresa" value="#{empresaBean.empresa.telefonoEmpresa}" required="true" />
+
+                <p:outputLabel value="direccion empresa:" for="direccionEmpresa" />
+                <p:inputText id="direccionEmpresa" value="#{empresaBean.empresa.direccionEmpresa}" required="true" />
+
+                <p:outputLabel value="correo empresa:" for="correoEmpresa" />
+                <p:inputText id="correoEmpresa" value="#{empresaBean.empresa.correoEmpresa}" required="true" />
+
+                <p:outputLabel value="Contraseña empresa:" for="contraseñaEmpresa" />
+                <p:inputText id="contraseñaEmpresa" value="#{empresaBean.empresa.contraseñaEmpresa}" required="true" />
+
+                <p:outputLabel value="Estado empresa:" for="estadoEmpresa" />
+                <p:inputText id="estadoEmpresa" value="#{empresaBean.empresa.estadoEmpresa}" required="true" />
+
+                <p:outputLabel value="rol empresa:" for="rol" />
+                <p:inputText id="rol" value="#{empresaBean.empresa.rol}" required="true" />
+                <!-- Otros campos de empresa: Descripción, foto, teléfono, dirección, correo, contraseña, estado, rol -->
+
+                <!-- Agrega aquí otros campos de la empresa que deseas editar -->
+
+            </p:panelGrid>
+
+            <p:commandButton value="Guardar Cambios" action="#{empresaBean.actualizarEmpresa}" update="editForm"
+                             ajax="false" />
+
+            <p:commandButton value="Cancelar" onclick="window.location.href='empresa.xhtml'; return false;" />
+
+
+
+        </p:panel>
+    </h:form>
+</h:body>
+
+</html>

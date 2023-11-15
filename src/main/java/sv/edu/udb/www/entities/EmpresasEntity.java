@@ -9,7 +9,7 @@ import jakarta.persistence.*;
         @NamedQuery(name = "EmpresasEntity.findByCorreoEmpresa", query = "SELECT  e FROM EmpresasEntity e WHERE e.correoEmpresa = :correoEmpresa"),
 })
 public class EmpresasEntity {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @Id
     @Column(name = "idEmpresa", nullable = false, length = 7)
     private String idEmpresa;

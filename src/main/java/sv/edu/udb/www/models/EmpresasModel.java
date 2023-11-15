@@ -12,22 +12,98 @@ public class EmpresasModel {
     public List<EmpresasEntity> listarEmpresas() {
         EntityManager em = JpaUtil.getEntityManager();
         try {
-            System.out.println("Iniciando consulta JPQL...");
-            // Utiliza una consulta JPQL para obtener la lista de empresas
+
             Query consulta = em.createQuery("SELECT e FROM EmpresasEntity e");
 
             List<EmpresasEntity> listaEmpresas = consulta.getResultList();
-            System.out.println("Consulta JPQL completada con éxito. Número de resultados: " + listaEmpresas.size());
+            em.close();
             return listaEmpresas;
         } catch (Exception e) {
-            // Maneja cualquier excepción que pueda ocurrir durante la consulta
-            e.printStackTrace();
-            System.err.println("Error al ejecutar la consulta JPQL: " + e.getMessage());
+            em.close();
             return null;
-        } finally {
-            em.close(); // Cierra el EntityManager cuando hayas terminado
         }
     }
+
+    public int eliminarEmpre(String idEmpresa) {
+        EntityManager em = JpaUtil.getEntityManager();
+        int filasBorradas = 0;
+        try {
+            EmpresasEntity emp = em.find(EmpresasEntity.class, idEmpresa);
+            if (emp != null) {
+                EntityTransaction tran = em.getTransaction();
+                tran.begin();
+                em.remove(emp);
+                tran.commit();
+                filasBorradas = 1;
+            }
+            em.close();
+            return filasBorradas;
+        } catch (Exception e) {
+            em.close();
+            return 0;
+        }
+    }
+
+
+
+    public int insertarEmpresa(EmpresasEntity empresa) {
+        EntityManager em = JpaUtil.getEntityManager();
+        EntityTransaction tran = em.getTransaction();
+        try {
+            tran.begin();//Iniciando transacción
+            em.persist(empresa); //Guardando el objeto en la BD
+            tran.commit();//Confirmando la transacción
+            em.close();
+            return 1;
+        } catch (Exception e) {
+            em.close();
+            return 0;
+        }
+    }
+
+
+    public EmpresasEntity obtenerEmpresaPorId(String idEmpresa) {
+        EntityManager em = JpaUtil.getEntityManager();
+        try {
+            return em.find(EmpresasEntity.class, idEmpresa);
+        } finally {
+            em.close();
+        }
+    }
+
+    public EmpresasEntity actualizarEmpresa(EmpresasEntity empresa) {
+        EntityManager em = JpaUtil.getEntityManager();
+        EntityTransaction transaction = em.getTransaction();
+        EmpresasEntity empresaActualizada = null;
+
+        try {
+            transaction.begin();
+            // Obtener la entidad persistente de la base de datos
+            EmpresasEntity entidadPersistente = em.find(EmpresasEntity.class, empresa.getIdEmpresa());
+
+            if (entidadPersistente != null) {
+                // Actualizar los campos de la entidad persistente con los valores del objeto recibido
+                entidadPersistente.setNombreEmpresa(empresa.getNombreEmpresa());
+                entidadPersistente.setDescripcionEmpresa(empresa.getDescripcionEmpresa());
+                // Actualiza los demás campos de la entidad de manera similar
+
+                // Actualizar la entidad persistente en el contexto de persistencia
+                empresaActualizada = em.merge(entidadPersistente);
+            }
+
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction.isActive()) {
+                transaction.rollback();
+            }
+            e.printStackTrace(); // Log the exception for debugging purposes
+        } finally {
+            em.close();
+        }
+
+        return empresaActualizada;
+    }
+
 
 
     public List<EmpresasEntity> buscarEmpresas(String filtro) {

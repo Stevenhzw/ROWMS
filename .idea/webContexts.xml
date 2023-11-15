@@ -6,6 +6,7 @@
         <entry key="file://$PROJECT_DIR$/src/main/webapp/AdminEmpresa/ListadoDependientes.xhtml" value="file://$PROJECT_DIR$/src/main/webapp/AdminEmpresa" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/Empresa/ListadoDependientes.xhtml" value="file://$PROJECT_DIR$/src/main/webapp/Empresa" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/Template/plantilla.xhtml" value="file://$PROJECT_DIR$/src/main/webapp/Template" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/verEmpresa.xhtml" value="file://$PROJECT_DIR$/src/main/webapp" />
       </map>
     </option>
   </component>
