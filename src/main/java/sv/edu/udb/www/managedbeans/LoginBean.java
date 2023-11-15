@@ -29,6 +29,7 @@ public class LoginBean implements Serializable {
     public LoginBean() {
         usuario2 = new UsuariosEntity();
     }
+
     public String iniciarSesion() {
         UsuariosEntity usuario = modelo.obtenerUsuario(correo, contraseña);
 
@@ -50,15 +51,10 @@ public class LoginBean implements Serializable {
     }
 
     public String cerrarSesion() {
-        FacesContext context = FacesContext.getCurrentInstance();
-        HttpSession session = (HttpSession) context.getExternalContext().getSession(false);
-
-        if (session != null) {
-            session.invalidate();
-        }
 
         sesionIniciada = false;
         usuarioAutenticado = null;
+        empresaAutenticada = null;
 
         return "index?faces-redirect=true";
     }

@@ -1,4 +1,7 @@
 package sv.edu.udb.www.models;
+
+//Este he cambiado
+
 import jakarta.persistence.NoResultException;
 import sv.edu.udb.www.utils.JpaUtil;
 import java.util.List;
@@ -26,4 +29,24 @@ public class UsuariosModel {
             em.close();
         }
     }
+
+    public int insertarUsuario(UsuariosEntity usuario) {
+        EntityManager em = JpaUtil.getEntityManager();
+        EntityTransaction tran = em.getTransaction();
+        try {
+            tran.begin();//Iniciando transacción
+            em.persist(usuario); //Guardando el objeto en la BD
+            tran.commit();//Confirmando la transacción
+            em.close();
+            return 1;
+        } catch (Exception e) {
+            em.close();
+            return 0;
+        }
+    }
+
+
+
+
+
 }

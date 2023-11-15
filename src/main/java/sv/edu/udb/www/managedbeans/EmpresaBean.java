@@ -47,7 +47,7 @@ public class EmpresaBean {
         } else {
             JsfUtil.setErrorMessage(null, "No se pudo actualizar la empresa");
         }
-        return "empresa"; // Redirige de vuelta a la lista de empresas
+        return "ListarEmpresas"; // Redirige de vuelta a la lista de empresas
     }
 
 
@@ -59,33 +59,16 @@ public class EmpresaBean {
             JsfUtil.setErrorMessage(null, "No se pudo borrar a esta empresa");
         }
         // Redirige a la misma página después de eliminar
-            return "empresa";
-        }
+        return "empresa";
+    }
     public EmpresasModel getEmpresasModel() {
         return modelo;
     }
 
 
-
-
     public List<EmpresasEntity> getListaEmpresas() {
         return modelo.listarEmpresas();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     public List<EmpresasEntity> getEmpresas() {
