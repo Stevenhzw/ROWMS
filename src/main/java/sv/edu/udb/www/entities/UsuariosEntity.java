@@ -23,7 +23,7 @@ import jakarta.persistence.*;
         @NamedQuery(name = "UsuariosEntity.findByRol", query = "SELECT  e FROM UsuariosEntity e WHERE e.rol = :rol")
 })
 public class UsuariosEntity {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "dui", nullable = false, length = 10)
     private String dui;
