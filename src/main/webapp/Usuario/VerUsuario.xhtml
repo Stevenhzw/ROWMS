@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ui:composition
-        xmlns="http://www.w3.org/1999/xhtml"
-        xmlns:h="http://java.sun.com/jsf/html"
-        xmlns:f="http://xmlns.jcp.org/jsf/core"
-        xmlns:p="http://primefaces.org/ui"
-        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-        xmlns:c="http://java.sun.com/jsp/jstl/core"
-        template="../Template/plantilla.xhtml">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:b="http://bootsfaces.net/ui"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:c="http://java.sun.com/jsp/jstl/core"
+                template="../Template/plantilla.xhtml">
 
     <ui:define name="content">
         <h:head>
@@ -14,11 +14,94 @@
         </h:head>
         <p:tabView>
             <p:tab title="ROWMS Working Website">
+                <div class="container">
+                    <h1 class="text-center">Mi Perfil</h1>
 
+                    <h:form id="formulario">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <h:outputText value="Nombre" />
+                                    <b:inputText value="#{loginBean.usuarioAutenticado.nombre}" required="true"
+                                                 requiredMessage="Agrega un título" class="form-control" />
+                                </div>
 
+                                <div class="form-group">
+                                    <h:outputText value="Apellido" />
+                                    <b:inputText value="#{loginBean.usuarioAutenticado.apellido}" required="true"
+                                                 requiredMessage="Agrega un título" class="form-control" />
+                                </div>
+
+                                <div class="form-group">
+                                    <h:outputText value="Edad" />
+                                    <b:inputText value="#{loginBean.usuarioAutenticado.edad}" required="true"
+                                                 requiredMessage="Agrega un título" class="form-control" />
+                                </div>
+
+                                <div class="form-group">
+                                    <h:outputText value="Genero" />
+                                    <b:inputText value="#{loginBean.usuarioAutenticado.genero}" required="true"
+                                                 requiredMessage="Agrega un título" class="form-control" />
+                                </div>
+
+                                <div class="form-group">
+                                    <h:outputText value="Foto" />
+                                    <b:inputText value="#{loginBean.usuarioAutenticado.foto}" required="false"
+                                                 requiredMessage="Agrega un título" class="form-control" />
+                                </div>
+
+                                <div class="form-group">
+                                    <h:outputText value="Telefono" />
+                                    <b:inputText value="#{loginBean.usuarioAutenticado.telefono}" required="true"
+                                                 requiredMessage="Agrega un título" class="form-control" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <h:outputText value="Dirección" />
+                                    <b:inputText value="#{loginBean.usuarioAutenticado.direccion}" required="true"
+                                                 requiredMessage="Agrega un título" class="form-control" />
+                                </div>
+
+                                <div class="form-group">
+                                    <h:outputText value="Experiencia Laboral" />
+                                    <b:inputTextarea value="#{loginBean.usuarioAutenticado.expLaboral}" required="true"
+                                                     requiredMessage="Agrega texto a tu entrada" class="form-control" />
+                                </div>
+
+                                <div class="form-group">
+                                    <h:outputText value="Grado Academico" />
+                                    <b:inputText value="#{loginBean.usuarioAutenticado.gradoAcademico}" required="true"
+                                                 requiredMessage="Agrega un título" class="form-control" />
+                                </div>
+
+                                <div class="form-group">
+                                    <h:outputText value="Correo" />
+                                    <b:inputText value="#{loginBean.usuarioAutenticado.correo}" required="true"
+                                                 requiredMessage="Agrega un título" class="form-control" />
+                                </div>
+
+                                <div class="form-group">
+                                    <h:outputText value="Empresa Afiliada" />
+                                    <b:inputText value="#{loginBean.usuarioAutenticado.empresaAfiliada}" required="true"
+                                                 requiredMessage="Agrega un título" class="form-control" />
+                                </div>
+
+                                <div class="form-group">
+                                    <h:outputText value="Rol" />
+                                    <b:inputText value="#{loginBean.usuarioAutenticado.rol}" required="true"
+                                                 requiredMessage="Agrega un título" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center">
+                            <b:commandButton value="Agregar" action="#" look="success" styleClass="btn btn-lg" />
+                        </div>
+                    </h:form>
+                </div>
             </p:tab>
         </p:tabView>
     </ui:define>
-
 </ui:composition>
-

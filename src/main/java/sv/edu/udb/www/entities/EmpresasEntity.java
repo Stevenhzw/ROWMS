@@ -38,6 +38,10 @@ public class EmpresasEntity {
     @Column(name = "estadoEmpresa", nullable = false, length = 100)
     private String estadoEmpresa;
 
+    @Basic
+    @Column(name = "rol", nullable = false, length = 100)
+    private String rol;
+
     public String getIdEmpresa() {
         return idEmpresa;
     }
@@ -108,6 +112,12 @@ public class EmpresasEntity {
 
     public void setEstadoEmpresa(String estadoEmpresa) {
         this.estadoEmpresa = estadoEmpresa;
+    }
+
+    public String getRol() { return rol;}
+
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 
     @Override

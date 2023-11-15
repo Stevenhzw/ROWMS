@@ -12,7 +12,21 @@ import java.util.List;
 public class EmpresaBean {
 
     EmpresasModel modelo = new EmpresasModel();
-    private List<UsuariosEntity> listaEmpresas;
+
+    private EmpresasEntity empresa;
+    private List<EmpresasEntity> listaEmpresas;
+
+    public EmpresaBean() {
+        empresa = new EmpresasEntity();
+    }
+    public List<EmpresasEntity> getEmpresas() {
+        return modelo.listarEmpresas();
+    }
+
+    public EmpresasEntity getEmpresa() {
+        return empresa;
+    }
+   /* private List<UsuariosEntity> listaEmpresas;
 
     private String filtro;
     private List<EmpresasEntity> listaEmpresasFiltrada;
@@ -29,15 +43,8 @@ public class EmpresaBean {
         this.filtro = filtro;
         // Actualiza la lista de dependientes filtrada cada vez que cambia el filtro
         listaEmpresasFiltrada = modelo.buscarEmpresas(filtro);
-    }
+    }*/
 
-    public List<EmpresasEntity> getListaEmpresasFiltrada() {
-        return listaEmpresasFiltrada;
-    }
 
-    public List<EmpresasEntity> getListaEmpresas() {
-        // Llama al método en el modelo para obtener la lista de empresas
-        // Por ejemplo, podrías usar EmpresaModel.listarEmpresas()
-        return modelo.listarEmpresas();
-    }
+
 }

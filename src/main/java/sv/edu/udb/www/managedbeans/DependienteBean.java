@@ -9,35 +9,31 @@ import java.util.List;
 @RequestScoped
 public class DependienteBean {
     DependientesModel modelo = new DependientesModel();
+
+    private UsuariosEntity usuario;
+
     private List<UsuariosEntity> listaDependientes;
 
-    private String filtro;
-    private List<UsuariosEntity> listaDependientesFiltrada;
 
     public DependienteBean() {
-        listaDependientesFiltrada = modelo.listarDependientes();
+        usuario = new UsuariosEntity();
     }
 
-    public String getFiltro() {
-        return filtro;
+    public List<UsuariosEntity> getUsuarios() {
+        return modelo.listarUsuarios();
     }
-
-    public void setFiltro(String filtro) {
-        this.filtro = filtro;
-        // Actualiza la lista de dependientes filtrada cada vez que cambia el filtro
-        listaDependientesFiltrada = modelo.buscarDependientes(filtro);
-    }
-
-    public List<UsuariosEntity> getListaDependientesFiltrada() {
-        return listaDependientesFiltrada;
-    }
-
-
-
-
-    public List<UsuariosEntity> getListaDependientes() {
-        // Llama al método en el modelo para obtener la lista de empresas
-        // Por ejemplo, podrías usar EmpresaModel.listarEmpresas()
+    public List<UsuariosEntity> getDependientes() {
         return modelo.listarDependientes();
     }
+
+    public UsuariosEntity getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuarioEntity(UsuariosEntity usuario) {
+        this.usuario = usuario;
+    }
+
+
+
 }
