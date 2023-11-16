@@ -17,88 +17,108 @@
                 <div class="container">
                     <h1 class="text-center">Mi Perfil</h1>
 
-                    <h:form id="formulario">
+                    <h:form id="formulario" rendered="#{loginBean.usuarioAutenticado.correo!=null}">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <h:outputText value="Nombre" />
-                                    <b:inputText value="#{loginBean.usuarioAutenticado.nombre}" required="true"
-                                                 requiredMessage="Agrega un título" class="form-control" />
+                                    <h:outputText value="Nombre" rendered="#{loginBean.usuarioAutenticado.correo!=null}"/>
+                                    <b:inputText value="#{loginBean.usuarioAutenticado.nombre}" rendered="#{loginBean.usuarioAutenticado.correo!=null}" readonly="true" class="form-control" />
+
                                 </div>
 
                                 <div class="form-group">
-                                    <h:outputText value="Apellido" />
-                                    <b:inputText value="#{loginBean.usuarioAutenticado.apellido}" required="true"
-                                                 requiredMessage="Agrega un título" class="form-control" />
+                                    <h:outputText value="Apellido" rendered="#{loginBean.usuarioAutenticado.correo!=null}" />
+                                    <b:inputText value="#{loginBean.usuarioAutenticado.apellido}" rendered="#{loginBean.usuarioAutenticado.correo!=null}" readonly="true" class="form-control" />
                                 </div>
 
                                 <div class="form-group">
-                                    <h:outputText value="Edad" />
-                                    <b:inputText value="#{loginBean.usuarioAutenticado.edad}" required="true"
-                                                 requiredMessage="Agrega un título" class="form-control" />
+                                    <h:outputText value="Edad" rendered="#{loginBean.usuarioAutenticado.correo!=null}" />
+                                    <b:inputText value="#{loginBean.usuarioAutenticado.edad}" rendered="#{loginBean.usuarioAutenticado.correo!=null}" readonly="true" class="form-control" />
                                 </div>
 
                                 <div class="form-group">
-                                    <h:outputText value="Genero" />
-                                    <b:inputText value="#{loginBean.usuarioAutenticado.genero}" required="true"
-                                                 requiredMessage="Agrega un título" class="form-control" />
+                                    <h:outputText value="Genero" rendered="#{loginBean.usuarioAutenticado.correo!=null}" />
+                                    <b:inputText value="#{loginBean.usuarioAutenticado.genero}" rendered="#{loginBean.usuarioAutenticado.correo!=null}" readonly="true" class="form-control" />
                                 </div>
 
                                 <div class="form-group">
-                                    <h:outputText value="Foto" />
-                                    <b:inputText value="#{loginBean.usuarioAutenticado.foto}" required="false"
-                                                 requiredMessage="Agrega un título" class="form-control" />
+                                    <h:outputText value="Telefono" rendered="#{loginBean.usuarioAutenticado.correo!=null}" />
+                                    <b:inputText value="#{loginBean.usuarioAutenticado.telefono}" rendered="#{loginBean.usuarioAutenticado.correo!=null}" readonly="true" class="form-control" />
                                 </div>
 
                                 <div class="form-group">
-                                    <h:outputText value="Telefono" />
-                                    <b:inputText value="#{loginBean.usuarioAutenticado.telefono}" required="true"
-                                                 requiredMessage="Agrega un título" class="form-control" />
+                                    <h:outputText value="Dirección" rendered="#{loginBean.usuarioAutenticado.correo!=null}" />
+                                    <b:inputText value="#{loginBean.usuarioAutenticado.direccion}" rendered="#{loginBean.usuarioAutenticado.correo!=null}" readonly="true" class="form-control" />
                                 </div>
                             </div>
 
                             <div class="col-md-6">
+
                                 <div class="form-group">
-                                    <h:outputText value="Dirección" />
-                                    <b:inputText value="#{loginBean.usuarioAutenticado.direccion}" required="true"
-                                                 requiredMessage="Agrega un título" class="form-control" />
+                                    <h:outputText value="Experiencia Laboral" rendered="#{loginBean.usuarioAutenticado.correo!=null}" />
+                                    <b:inputTextarea value="#{loginBean.usuarioAutenticado.expLaboral}" rendered="#{loginBean.usuarioAutenticado.correo!=null}" readonly="true" class="form-control" />
                                 </div>
 
                                 <div class="form-group">
-                                    <h:outputText value="Experiencia Laboral" />
-                                    <b:inputTextarea value="#{loginBean.usuarioAutenticado.expLaboral}" required="true"
-                                                     requiredMessage="Agrega texto a tu entrada" class="form-control" />
+                                    <h:outputText value="Grado Academico" rendered="#{loginBean.usuarioAutenticado.correo!=null}" />
+                                    <b:inputText value="#{loginBean.usuarioAutenticado.gradoAcademico}" rendered="#{loginBean.usuarioAutenticado.correo!=null}" readonly="true" class="form-control" />
                                 </div>
 
                                 <div class="form-group">
-                                    <h:outputText value="Grado Academico" />
-                                    <b:inputText value="#{loginBean.usuarioAutenticado.gradoAcademico}" required="true"
-                                                 requiredMessage="Agrega un título" class="form-control" />
+                                    <h:outputText value="Correo" rendered="#{loginBean.usuarioAutenticado.correo!=null}" />
+                                    <b:inputText value="#{loginBean.usuarioAutenticado.correo}" rendered="#{loginBean.usuarioAutenticado.correo!=null}" readonly="true" class="form-control" />
                                 </div>
 
                                 <div class="form-group">
-                                    <h:outputText value="Correo" />
-                                    <b:inputText value="#{loginBean.usuarioAutenticado.correo}" required="true"
-                                                 requiredMessage="Agrega un título" class="form-control" />
+                                    <h:outputText value="Empresa Afiliada" rendered="#{loginBean.usuarioAutenticado.correo!=null}" />
+                                    <b:inputText value="#{loginBean.usuarioAutenticado.empresaAfiliada}" rendered="#{loginBean.usuarioAutenticado.correo!=null}" readonly="true" class="form-control" />
                                 </div>
 
                                 <div class="form-group">
-                                    <h:outputText value="Empresa Afiliada" />
-                                    <b:inputText value="#{loginBean.usuarioAutenticado.empresaAfiliada}" required="true"
-                                                 requiredMessage="Agrega un título" class="form-control" />
-                                </div>
-
-                                <div class="form-group">
-                                    <h:outputText value="Rol" />
-                                    <b:inputText value="#{loginBean.usuarioAutenticado.rol}" required="true"
-                                                 requiredMessage="Agrega un título" class="form-control" />
+                                    <h:outputText value="Rol" rendered="#{loginBean.usuarioAutenticado.correo!=null}" />
+                                    <b:inputText value="#{loginBean.usuarioAutenticado.rol}" rendered="#{loginBean.usuarioAutenticado.correo!=null}" readonly="true" class="form-control" />
                                 </div>
                             </div>
                         </div>
+                    </h:form>
 
-                        <div class="text-center">
-                            <b:commandButton value="Agregar" action="#" look="success" styleClass="btn btn-lg" />
-                        </div>
+                    <h:form id="formulario2" rendered="#{loginBean.empresaAutenticada.correoEmpresa!=null}">
+                        <div class="row">
+
+                                <div class="form-group">
+                                    <h:outputText value="Nombre Empresa" rendered="#{loginBean.empresaAutenticada.correoEmpresa!=null}" />
+                                    <b:inputText value="#{loginBean.empresaAutenticada.nombreEmpresa}" rendered="#{loginBean.empresaAutenticada.correoEmpresa!=null}" readonly="true" class="form-control" />
+                                </div>
+
+                                <div class="form-group">
+                                    <h:outputText value="Descripcion Empresa" rendered="#{loginBean.empresaAutenticada.correoEmpresa!=null}" />
+                                    <b:inputText value="#{loginBean.empresaAutenticada.descripcionEmpresa}" rendered="#{loginBean.empresaAutenticada.correoEmpresa!=null}" readonly="true" class="form-control" />
+                                </div>
+
+                                <div class="form-group">
+                                    <h:outputText value="Descripcion Empresa" rendered="#{loginBean.empresaAutenticada.correoEmpresa!=null}" />
+                                    <b:inputText value="#{loginBean.empresaAutenticada.telefonoEmpresa}" rendered="#{loginBean.empresaAutenticada.correoEmpresa!=null}" readonly="true" class="form-control" />
+                                </div>
+
+                                <div class="form-group">
+                                    <h:outputText value="Descripcion Empresa" rendered="#{loginBean.empresaAutenticada.correoEmpresa!=null}" />
+                                    <b:inputText value="#{loginBean.empresaAutenticada.direccionEmpresa}" rendered="#{loginBean.empresaAutenticada.correoEmpresa!=null}" readonly="true" class="form-control" />
+                                </div>
+
+                                <div class="form-group">
+                                    <h:outputText value="Descripcion Empresa" rendered="#{loginBean.empresaAutenticada.correoEmpresa!=null}" />
+                                    <b:inputText value="#{loginBean.empresaAutenticada.correoEmpresa}" rendered="#{loginBean.empresaAutenticada.correoEmpresa!=null}" readonly="true" class="form-control" />
+                                </div>
+
+                                <div class="form-group">
+                                    <h:outputText value="Descripcion Empresa" rendered="#{loginBean.empresaAutenticada.correoEmpresa!=null}" />
+                                    <b:inputText value="#{loginBean.empresaAutenticada.estadoEmpresa}" rendered="#{loginBean.empresaAutenticada.correoEmpresa!=null}" readonly="true" class="form-control" />
+                                </div>
+
+                            </div>
+
+
+
                     </h:form>
                 </div>
             </p:tab>
