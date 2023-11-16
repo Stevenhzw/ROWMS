@@ -74,6 +74,11 @@ public class PlazaBean{
         return "EditarPlaza";
     }
 
+    public String cargarPlazaOperaciones(String idPlaza) {
+        this.plaza = modelo.obtenerPlazaPorId(idPlaza);
+        return "OperacionesPlaza";
+    }
+
     public String eliminarPlaza(String idPlaza) {
         if (modelo.eliminarPlaza(idPlaza) > 0) {
             JsfUtil.setFlashMessage("exito", "Plaza eliminada exitosamente");
@@ -84,11 +89,30 @@ public class PlazaBean{
     }
 
     public String aceptarPlaza(String idPlaza) {
-        // Lógica para aceptar la plaza
-        // ...
+        // 1. Obtener la plaza correspondiente a partir del idPlaza
+        PlazasEntity plaza = modelo.obtenerPlazaPorId(idPlaza);
 
-        JsfUtil.setFlashMessage("exito", "Plaza aceptada exitosamente");
-        return "nombreDeTuPagina"; // Puedes redirigir a una página específica después de aceptar la plaza
+        // Verificar si la plaza existe
+        if (plaza != null) {
+            // 2. Actualizar el estado de la plaza para indicar que ha sido aceptada
+            plaza.setEstadoPlaza("3"); // Reemplaza "EstadoAceptado" con el valor adecuado
+
+            // Guardar los cambios en la base de datos
+            if (modelo.actualizarPlaza(plaza) != null) {
+                // 3. Mostrar un mensaje de éxito
+                JsfUtil.setFlashMessage("exito", "Plaza aceptada exitosamente");
+
+                // Puedes redirigir a una página específica después de aceptar la plaza
+                return "ListarUsuarios";
+            } else {
+                JsfUtil.setErrorMessage(null, "Error al actualizar la plaza");
+            }
+        } else {
+            JsfUtil.setErrorMessage(null, "Plaza no encontrada");
+        }
+
+        // En caso de errores, puedes redirigir a la misma página o a una página de error
+        return "ListarUsuarios";
     }
 
     public String rechazarPlaza(String idPlaza) {

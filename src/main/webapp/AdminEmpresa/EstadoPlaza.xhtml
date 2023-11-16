@@ -1,104 +1,406 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui:composition
-xmlns="http://www.w3.org/1999/xhtml"
-xmlns:h="http://java.sun.com/jsf/html"
-xmlns:f="http://xmlns.jcp.org/jsf/core"
-xmlns:p="http://primefaces.org/ui"
-xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-xmlns:c="http://java.sun.com/jsp/jstl/core"
-xmlns:b="http://bootsfaces.net/ui"
-template="../Template/plantilla.xhtml">
-<ui:define name="content">
-    <h:head>
-        <title>Plazas</title>
-    </h:head>
-    <p:tabView>
-        <p:tab title="ROWMS Working Website">
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+        xmlns:c="http://java.sun.com/jsp/jstl/core"
+        xmlns:b="http://bootsfaces.net/ui"
+        template="../Template/plantilla.xhtml">
+    <ui:define name="content">
+        <h:head>
+            <title>Plazas</title>
+        </h:head>
+        <p:tabView>
+            <p:tab title="Lista de Plazas">
+                <f:facet name="actions">
+                    Options I
+                </f:facet>
+                <h1>Lista de Plazas</h1>
+                <p:dataTable value="#{plazaBean.plazas}" var="plaza"
+                             id="entradasPool2"
+                             styleClass="table table-striped table-bordered">
 
 
-            <h1>Lista de Plazas</h1>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="ID" />
+                        </f:facet>
+                        <h:outputText value="#{plaza.idPlaza}" />
+                    </p:column>
 
-            <b:dataTable value="#{plazaBean.plazas}" var="plaza"
-                         id="entradasPool"
-                         styleClass="table table-striped table-bordered">
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Nombre" />
+                        </f:facet>
+                        <h:outputText value="#{plaza.nombrePlaza}" />
+                    </p:column>
 
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Descripción" />
+                        </f:facet>
+                        <h:outputText value="#{plaza.descripcionPlaza}" />
+                    </p:column>
 
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="ID" />
-                    </f:facet>
-                    <h:outputText value="#{plaza.idPlaza}" />
-                </h:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Empresa" />
+                        </f:facet>
+                        <h:outputText value="#{plaza.empresaAfiliada}" />
+                    </p:column>
 
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="Nombre" />
-                    </f:facet>
-                    <h:outputText value="#{plaza.nombrePlaza}" />
-                </h:column>
-
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="Descripción" />
-                    </f:facet>
-                    <h:outputText value="#{plaza.descripcionPlaza}" />
-                </h:column>
-
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="Empresa" />
-                    </f:facet>
-                    <h:outputText value="#{plaza.empresaAfiliada}" />
-                </h:column>
-
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="Salario" />
-                    </f:facet>
-                    <h:outputText value="#{plaza.salarioPlaza}" />
-                </h:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Salario" />
+                        </f:facet>
+                        <h:outputText value="#{plaza.salarioPlaza}" />
+                    </p:column>
 
 
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="Requisitos" />
-                    </f:facet>
-                    <h:outputText value="#{plaza.requisitoPlaza}" />
-                </h:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Requisitos" />
+                        </f:facet>
+                        <h:outputText value="#{plaza.requisitoPlaza}" />
+                    </p:column>
 
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="Tipo" />
-                    </f:facet>
-                    <h:outputText value="#{plaza.tipoPlaza}" />
-                </h:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Tipo" />
+                        </f:facet>
+                        <h:outputText value="#{plaza.tipoPlaza}" />
+                    </p:column>
 
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="Rubro" />
-                    </f:facet>
-                    <h:outputText value="#{plaza.rubroPlaza}" />
-                </h:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Rubro" />
+                        </f:facet>
+                        <h:outputText value="#{plaza.rubroPlaza}" />
+                    </p:column>
 
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="Cargo" />
-                    </f:facet>
-                    <h:outputText value="#{plaza.cargoPlaza}" />
-                </h:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Cargo" />
+                        </f:facet>
+                        <h:outputText value="#{plaza.cargoPlaza}" />
+                    </p:column>
 
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="Estado" />
-                    </f:facet>
-                    <h:outputText value="#{plaza.estadoPlaza}" />
-                </h:column>
-            </b:dataTable>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Estado" />
+                        </f:facet>
+                        <h:outputText value="#{plaza.estadoPlaza}" />
+                    </p:column>
 
 
-        </p:tab>
-    </p:tabView>
-</ui:define>
+                </p:dataTable>
+
+            </p:tab>
+
+
+            <p:tab title="Lista de Plazas Pendientes">
+                <f:facet name="actions">
+                    Options II
+                </f:facet>
+                <h1>Lista de Plazas Pendientes</h1>
+                <h:form>
+                <p:dataTable value="#{plazaBean.plazasFiltradasEstado5}" var="plaza"
+                             id="entradasPool"
+                             styleClass="table table-striped table-bordered">
+
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="ID" />
+                        </f:facet>
+                        <h:outputText value="#{plaza.idPlaza}" />
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Nombre" />
+                        </f:facet>
+                        <h:outputText value="#{plaza.nombrePlaza}" />
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Descripción" />
+                        </f:facet>
+                        <h:outputText value="#{plaza.descripcionPlaza}" />
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Empresa" />
+                        </f:facet>
+                        <h:outputText value="#{plaza.empresaAfiliada}" />
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Salario" />
+                        </f:facet>
+                        <h:outputText value="#{plaza.salarioPlaza}" />
+                    </p:column>
+
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Requisitos" />
+                        </f:facet>
+                        <h:outputText value="#{plaza.requisitoPlaza}" />
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Tipo" />
+                        </f:facet>
+                        <h:outputText value="#{plaza.tipoPlaza}" />
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Rubro" />
+                        </f:facet>
+                        <h:outputText value="#{plaza.rubroPlaza}" />
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Cargo" />
+                        </f:facet>
+                        <h:outputText value="#{plaza.cargoPlaza}" />
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Estado" />
+                        </f:facet>
+                        <h:outputText value="#{plaza.estadoPlaza}" />
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Acciones" />
+                        </f:facet>
+                        <h:commandButton value="Aceptar" action="#{plazaBean.aceptarPlaza(plaza.idPlaza)}" />
+                        <h:commandButton value="Rechazar" action="#{plazaBean.cargarPlazaOperaciones(plaza.idPlaza)}" />
+                    </p:column>
+
+                </p:dataTable>
+                </h:form>
+            </p:tab>
+
+
+            <!--FIN DE PENDIENTES-->
+
+            <p:tab title="Lista de Plazas Aceptadas">
+                <f:facet name="actions">
+                    Options II
+                </f:facet>
+                <h1>Lista de Plazas Aceptadas</h1>
+                <h:form>
+                <p:dataTable value="#{plazaBean.plazasFiltradasEstado3}" var="plaza"
+                             id="entradasPool3"
+                             styleClass="table table-striped table-bordered">
+
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="ID" />
+                        </f:facet>
+                        <h:outputText value="#{plaza.idPlaza}" />
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Nombre" />
+                        </f:facet>
+                        <h:outputText value="#{plaza.nombrePlaza}" />
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Descripción" />
+                        </f:facet>
+                        <h:outputText value="#{plaza.descripcionPlaza}" />
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Empresa" />
+                        </f:facet>
+                        <h:outputText value="#{plaza.empresaAfiliada}" />
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Salario" />
+                        </f:facet>
+                        <h:outputText value="#{plaza.salarioPlaza}" />
+                    </p:column>
+
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Requisitos" />
+                        </f:facet>
+                        <h:outputText value="#{plaza.requisitoPlaza}" />
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Tipo" />
+                        </f:facet>
+                        <h:outputText value="#{plaza.tipoPlaza}" />
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Rubro" />
+                        </f:facet>
+                        <h:outputText value="#{plaza.rubroPlaza}" />
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Cargo" />
+                        </f:facet>
+                        <h:outputText value="#{plaza.cargoPlaza}" />
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Estado" />
+                        </f:facet>
+                        <h:outputText value="#{plaza.estadoPlaza}" />
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Acciones" />
+                        </f:facet>
+                        <h:commandButton value="Aceptar" action="#{plazaBean.aceptarPlaza(plaza.idPlaza)}" />
+                        <h:commandButton value="Rechazar" action="#{plazaBean.cargarPlazaOperaciones(plaza.idPlaza)}" />
+
+
+                    </p:column>
+
+                </p:dataTable>
+                </h:form>
+            </p:tab>
+
+
+            <p:tab title="Lista de Plazas Rechazadas">
+                <f:facet name="actions">
+                    Options II
+                </f:facet>
+                <h1>Lista de Plazas Rechazadas</h1>
+                <h:form>
+                <p:dataTable value="#{plazaBean.plazasFiltradasEstado4}" var="plaza"
+                             id="entradasPool6"
+                             styleClass="table table-striped table-bordered">
+
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="ID" />
+                        </f:facet>
+                        <h:outputText value="#{plaza.idPlaza}" />
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Nombre" />
+                        </f:facet>
+                        <h:outputText value="#{plaza.nombrePlaza}" />
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Descripción" />
+                        </f:facet>
+                        <h:outputText value="#{plaza.descripcionPlaza}" />
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Empresa" />
+                        </f:facet>
+                        <h:outputText value="#{plaza.empresaAfiliada}" />
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Salario" />
+                        </f:facet>
+                        <h:outputText value="#{plaza.salarioPlaza}" />
+                    </p:column>
+
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Requisitos" />
+                        </f:facet>
+                        <h:outputText value="#{plaza.requisitoPlaza}" />
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Tipo" />
+                        </f:facet>
+                        <h:outputText value="#{plaza.tipoPlaza}" />
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Rubro" />
+                        </f:facet>
+                        <h:outputText value="#{plaza.rubroPlaza}" />
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Cargo" />
+                        </f:facet>
+                        <h:outputText value="#{plaza.cargoPlaza}" />
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Estado" />
+                        </f:facet>
+                        <h:outputText value="#{plaza.estadoPlaza}" />
+                    </p:column>
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Acciones" />
+                        </f:facet>
+                        <h:commandButton value="Aceptar" />
+                        <h:commandButton value="Rechazar" />
+                    </p:column>
+
+                </p:dataTable>
+                </h:form>
+            </p:tab>
+
+
+
+
+
+
+        </p:tabView>
+
+        <h:outputScript>
+            <c:if test="#{not empty flash.exito}">
+                alertify.success('#{flash.exito}');
+            </c:if>
+        </h:outputScript>
+    </ui:define>
 
 </ui:composition>
 
