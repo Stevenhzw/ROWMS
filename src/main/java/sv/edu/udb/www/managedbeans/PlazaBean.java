@@ -33,6 +33,20 @@ public class PlazaBean{
                 .collect(Collectors.toList());
     }
 
+    public List<PlazasEntity> getPlazasFiltradasEstado3() {
+        // Filtra las plazas con estado 3
+        return modelo.listarPlazas().stream()
+                .filter(plaza -> "3".equals(plaza.getEstadoPlaza()))
+                .collect(Collectors.toList());
+    }
+
+    public List<PlazasEntity> getPlazasFiltradasEstado4() {
+        // Filtra las plazas con estado 4
+        return modelo.listarPlazas().stream()
+                .filter(plaza -> "4".equals(plaza.getEstadoPlaza()))
+                .collect(Collectors.toList());
+    }
+
 
     public PlazasEntity getPlaza() {
         return plaza;
