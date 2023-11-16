@@ -81,10 +81,6 @@ public class UsuariosBean {
         } else {
             JsfUtil.setFlashMessage("exito", "Usuario registrado exitosamente");
             //Forzando la redirección en el cliente
-
-            loginBean.setCorreo(usuario.getCorreo());
-            loginBean.setContraseña(usuario.getContraseña());
-            loginBean.iniciarSesion();
             return "index?faces-redirect=true";
         }
     }

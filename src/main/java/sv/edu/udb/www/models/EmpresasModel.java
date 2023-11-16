@@ -105,7 +105,6 @@ public class EmpresasModel {
     }
 
 
-
     public List<EmpresasEntity> buscarEmpresas(String filtro) {
         EntityManager em = JpaUtil.getEntityManager();
         try {

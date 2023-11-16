@@ -18,9 +18,8 @@
 
                 <h1>Lista de Dependientes</h1>
 
-                <b:dataTable value="#{dependienteBean.dependientes}" var="dependiente"
-                             id="entradasPool"
-                             styleClass="table table-striped table-bordered">
+                <p:dataTable value="#{dependienteBean.dependientes2}"
+                              var="dependiente" id="entradasPool" styleClass="table table-striped table-bordered">
                     <h:column>
                         <f:facet name="header">
                             <h:outputText value="DUI" />
@@ -97,7 +96,7 @@
                         </f:facet>
                         <h:outputText value="#{dependiente.empresaAfiliada}" />
                     </h:column>
-                </b:dataTable>
+                </p:dataTable>
 
 
 

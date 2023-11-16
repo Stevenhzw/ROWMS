@@ -9,12 +9,14 @@ import java.util.List;
 @RequestScoped
 public class DependienteBean {
     DependientesModel modelo = new DependientesModel();
-
+    public DependientesModel getDependientesModel(){
+        return modelo;
+    }
     private UsuariosEntity usuario;
 
     private List<UsuariosEntity> listaDependientes;
 
-
+    private String idEmpresa;
     public DependienteBean() {
         usuario = new UsuariosEntity();
     }
@@ -22,8 +24,8 @@ public class DependienteBean {
     public List<UsuariosEntity> getUsuarios() {
         return modelo.listarUsuarios();
     }
-    public List<UsuariosEntity> getDependientes() {
-        return modelo.listarDependientes();
+    public List<UsuariosEntity> getDependientes2() {
+        return modelo.listarDependientesByEmpresa(idEmpresa);
     }
 
     public UsuariosEntity getUsuario() {
