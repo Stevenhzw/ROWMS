@@ -79,7 +79,23 @@ public class PlazaBean{
         this.plaza = modelo.obtenerPlazaPorId(idPlaza);
         return "OperacionesPlaza";
     }
-
+    public String aceptarPlaza() {
+        plaza.setEstadoPlaza("3");
+        if (modelo.actualizarPlaza(plaza) != null) {
+            JsfUtil.setFlashMessage("exito", "Plaza aceptada");
+        } else {
+            JsfUtil.setErrorMessage(null, "No se pudo aceptar la plaza");
+        }
+        return "EstadoPlaza";
+    }
+    public String actualizarPlaza() {
+        if (modelo.actualizarPlaza(plaza) != null) {
+            JsfUtil.setFlashMessage("exito", "Plaza actualizada exitosamente");
+        } else {
+            JsfUtil.setErrorMessage(null, "No se pudo actualizar la plaza");
+        }
+        return "CrearPlaza";
+    }
     public String eliminarPlaza(String idPlaza) {
         if (modelo.eliminarPlaza(idPlaza) > 0) {
             JsfUtil.setFlashMessage("exito", "Plaza eliminada exitosamente");
@@ -89,7 +105,7 @@ public class PlazaBean{
         return "CrearPlaza";
     }
 
-    public String aceptarPlaza(String idPlaza) {
+    /*public String aceptarPlaza(String idPlaza) {
         // 1. Obtener la plaza correspondiente a partir del idPlaza
         PlazasEntity plaza = modelo.obtenerPlazaPorId(idPlaza);
 
@@ -114,7 +130,7 @@ public class PlazaBean{
 
         // En caso de errores, puedes redirigir a la misma página o a una página de error
         return "ListarUsuarios";
-    }
+    }*/
 
     public String rechazarPlaza(String idPlaza) {
         // Lógica para rechazar la plaza
@@ -124,12 +140,5 @@ public class PlazaBean{
         return "nombreDeTuPagina"; // Puedes redirigir a una página específica después de rechazar la plaza
     }
 
-    public String actualizarPlaza() {
-        if (modelo.actualizarPlaza(plaza) != null) {
-            JsfUtil.setFlashMessage("exito", "Plaza actualizada exitosamente");
-        } else {
-            JsfUtil.setErrorMessage(null, "No se pudo actualizar la plaza");
-        }
-        return "empresa";
-    }
+
 }

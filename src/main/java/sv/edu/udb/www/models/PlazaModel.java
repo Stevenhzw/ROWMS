@@ -89,6 +89,15 @@ public class PlazaModel {
 
                 entidadPersistente.setNombrePlaza(plaza.getNombrePlaza());
                 entidadPersistente.setDescripcionPlaza(plaza.getDescripcionPlaza());
+                entidadPersistente.setDireccionPlaza(plaza.getDireccionPlaza());
+                entidadPersistente.setEmpresaAfiliada(plaza.getEmpresaAfiliada());
+                entidadPersistente.setSalarioPlaza(plaza.getSalarioPlaza());
+                entidadPersistente.setRequisitoPlaza(plaza.getRequisitoPlaza());
+                entidadPersistente.setTipoPlaza(plaza.getTipoPlaza());
+                entidadPersistente.setRubroPlaza(plaza.getRubroPlaza());
+                entidadPersistente.setCargoPlaza(plaza.getCargoPlaza());
+                entidadPersistente.setEstadoPlaza(plaza.getEstadoPlaza());
+                entidadPersistente.setMotivoRechazoPlaza(plaza.getMotivoRechazoPlaza());
 
                 plazaActualizada = em.merge(entidadPersistente);
             }

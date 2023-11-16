@@ -18,50 +18,12 @@
 
 <h:body>
     <h:form id="editForm">
-        <p:panel header="Editar Plaza">
+        <p:panel header="Aceptar Plaza">
             <p:panelGrid columns="4">
-                <p:outputLabel value="ID de la plaza:" for="idPlaza" />
-                <p:inputText id="idPlaza" value="#{plazaBean.plaza.idPlaza}" required="true" readonly="true" style="border: none; background-color: transparent;"/>
-
-                <p:outputLabel value="Nombre de la plaza:" for="nombrePlaza" />
-                <p:inputText id="nombrePlaza" value="#{plazaBean.plaza.nombrePlaza}" required="true" />
-
-
-                <p:outputLabel value="Digite la descripcion de la plaza" for="descripcionPlaza" />
-                <p:inputText id="descripcionPlaza" value="#{plazaBean.plaza.descripcionPlaza}" required="true" />
-
-                <p:outputLabel value="Digite la dirección de la plaza" for="direcccionPlaza"/>
-                <p:inputText id="direcccionPlaza" value="#{plazaBean.plaza.direccionPlaza}" required="true" />
-
-                <p:outputLabel value="Digite el id de la empresa afiliada" for="empresaAfiliada"/>
-                <p:inputText id="empresaAfiliada" value="#{plazaBean.plaza.empresaAfiliada}" required="true" />
-
-                <p:outputLabel value="Digite el salario de la plaza" for="salarioPlaza"/>
-                <p:inputText id="salarioPlaza" value="#{plazaBean.plaza.salarioPlaza}" required="true" />
-
-                <p:outputLabel value="Digite los requisitos de la plaza" for="requisitosPlaza"/>
-                <p:inputText id="requisitosPlaza" value="#{plazaBean.plaza.requisitoPlaza}" required="true" />
-
-                <p:outputLabel value="Digite el tipo de plaza" for="tipoPlaza"/>
-                <p:inputText id="tipoPlaza" value="#{plazaBean.plaza.tipoPlaza}" required="true" />
-
-                <p:outputLabel value="Digite el rubro de la plaza" for="rubroPlaza"/>
-                <p:inputText id="rubroPlaza" value="#{plazaBean.plaza.rubroPlaza}" required="true" />
-
-                <p:outputLabel value="Digite el cargo de la plaza" for="cargoPlaza"/>
-                <p:inputText id="cargoPlaza" value="#{plazaBean.plaza.cargoPlaza}" required="true"  />
-
-                <p:outputLabel value="Digite el estado de la plaza" for="estadoPlaza"/>
-                <p:inputText id="estadoPlaza" value="#{plazaBean.plaza.estadoPlaza}" required="true" readonly="true" style="border: none; background-color: transparent;"/>
 
             </p:panelGrid>
 
-            <p:commandButton value="Guardar Cambios" action="#{plazaBean.actualizarPlaza}" update="editForm"
-                             ajax="false" />
-            <p:commandButton value="Guardar Cambios" action="#{plazaBean.actualizarPlaza}" update="editForm"
-                             ajax="false" />
-
-            <p:commandButton value="Guardar Cambios" action="#{plazaBean.actualizarPlaza}" update="editForm"
+            <p:commandButton value="Estas seguro de realizar esta operación?" action="#{plazaBean.aceptarPlaza()}" update="editForm"
                              ajax="false" />
 
 
