@@ -83,6 +83,7 @@
                                 <h:outputLabel for="correo">Correo Electronico:</h:outputLabel>
                                 <h:inputText id="correo" value="#{usuariosBean.usuario.correo}" required="true" class="form-control" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" title="Ingrese un correo correcto"/>
                             </div>
+                            <h:inputHidden id="rol" value="#{empresaBean.empresa.idEmpresa}"/>
 
                             <div class="form-group">
                                 <h:outputLabel for="contraseña">Contraseña:</h:outputLabel>
