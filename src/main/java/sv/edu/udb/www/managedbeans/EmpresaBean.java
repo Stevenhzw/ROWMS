@@ -61,6 +61,12 @@ public class EmpresaBean {
         // Redirige a la misma página después de eliminar
         return "empresa";
     }
+
+    public String escribirEmpresa(String idEmpresa){
+        this.empresa = modelo.obtenerEmpresaPorId(idEmpresa);
+        return empresa.getNombreEmpresa();
+    }
+
     public EmpresasModel getEmpresasModel() {
         return modelo;
     }
