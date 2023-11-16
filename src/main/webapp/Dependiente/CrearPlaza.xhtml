@@ -1,126 +1,122 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  Created by IntelliJ IDEA.
-  User: RAUL
-  Date: 18/10/2023
-  Time: 04:23
--->
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:i="http://java.sun.com/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:c="http://java.sun.com/jsp/jstl/core"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+        xmlns:c="http://java.sun.com/jsp/jstl/core"
+        xmlns:b="http://bootsfaces.net/ui"
+        template="../Template/plantilla.xhtml">
+    <ui:define name="content">
+        <h:head>
+            <title>Plazas</title>
+        </h:head>
 
-<h:head>
-    <title>Apartado de plazas</title>
-</h:head>
-
-<h:body>
-    <p:panel>
+        <h:body>
+            <p:panel>
 
 
-        <h:form>
-            <p:panelGrid columns="1" style="width: 50%; ">
-                <p:outputLabel value="Registro de plazas" />
-                <p:panelGrid columns="2">
+                <h:form>
+                    <p:panelGrid columns="1" style="width: 50%; ">
+                        <p:outputLabel value="Registro de plazas" />
+                        <p:panelGrid columns="2">
 
 
-                    <p:outputLabel value="Digite el id de la plaza" />
-                    <p:inputText value="#{plazaBean.plaza.idPlaza}"
-                                 required="true" requiredMessage="id de la plaza requerido" />
+                            <p:outputLabel value="Digite el id de la plaza" />
+                            <p:inputText value="#{plazaBean.plaza.idPlaza}"
+                                         required="true" requiredMessage="id de la plaza requerido" />
 
-                    <p:outputLabel value="Digite el nombre de la plaza" />
-                    <p:inputText value="#{plazaBean.plaza.nombrePlaza}"
-                                 required="true" requiredMessage="Nombre de la plaza requerido" />
+                            <p:outputLabel value="Digite el nombre de la plaza" />
+                            <p:inputText value="#{plazaBean.plaza.nombrePlaza}"
+                                         required="true" requiredMessage="Nombre de la plaza requerido" />
 
-                    <p:outputLabel value="Digite la descripcion de la plaza" />
-                    <p:inputText value="#{plazaBean.plaza.descripcionPlaza}"
-                                 required="true" requiredMessage="Descripcion de la plaza requerida" />
+                            <p:outputLabel value="Digite la descripcion de la plaza" />
+                            <p:inputText value="#{plazaBean.plaza.descripcionPlaza}"
+                                         required="true" requiredMessage="Descripcion de la plaza requerida" />
 
-                    <p:outputLabel value="Digite la dirección de la plaza" />
-                    <p:inputText value="#{plazaBean.plaza.direccionPlaza}"
-                                 required="true" requiredMessage="Direccion de la plaza requerido" />
+                            <p:outputLabel value="Digite la dirección de la plaza" />
+                            <p:inputText value="#{plazaBean.plaza.direccionPlaza}"
+                                         required="true" requiredMessage="Direccion de la plaza requerido" />
 
-                    <p:outputLabel value="Digite el id de la empresa afiliada" />
-                    <p:inputText value="#{plazaBean.plaza.empresaAfiliada}"
-                                 required="true" requiredMessage="Empresa afiliada requerido" />
+                            <p:outputLabel value="Digite el id de la empresa afiliada" />
+                            <p:inputText value="#{plazaBean.plaza.empresaAfiliada}"
+                                         required="true" requiredMessage="Empresa afiliada requerido" />
 
-                    <p:outputLabel value="Digite el salario de la plaza" />
-                    <p:inputText value="#{plazaBean.plaza.salarioPlaza}"
-                                 required="true" requiredMessage="Salario de la plaza requerido" />
+                            <p:outputLabel value="Digite el salario de la plaza" />
+                            <p:inputText value="#{plazaBean.plaza.salarioPlaza}"
+                                         required="true" requiredMessage="Salario de la plaza requerido" />
 
-                    <p:outputLabel value="Digite los requisitos de la plaza" />
-                    <p:inputText value="#{plazaBean.plaza.requisitoPlaza}"
-                                 required="true" requiredMessage="Requisitos de la plaza requerido" />
+                            <p:outputLabel value="Digite los requisitos de la plaza" />
+                            <p:inputText value="#{plazaBean.plaza.requisitoPlaza}"
+                                         required="true" requiredMessage="Requisitos de la plaza requerido" />
 
-                    <p:outputLabel value="Digite el tipo de plaza" />
-                    <p:inputText value="#{plazaBean.plaza.tipoPlaza}"
-                                 required="true" requiredMessage="Tipo de plaza requerido" />
+                            <p:outputLabel value="Digite el tipo de plaza" />
+                            <p:inputText value="#{plazaBean.plaza.tipoPlaza}"
+                                         required="true" requiredMessage="Tipo de plaza requerido" />
 
-                    <p:outputLabel value="Digite el rubro de la plaza" />
-                    <p:inputText value="#{plazaBean.plaza.rubroPlaza}"
-                                 required="true" requiredMessage="Rubro de la plaza requerido" />
+                            <p:outputLabel value="Digite el rubro de la plaza" />
+                            <p:inputText value="#{plazaBean.plaza.rubroPlaza}"
+                                         required="true" requiredMessage="Rubro de la plaza requerido" />
 
-                    <p:outputLabel value="Digite el cargo de la plaza" />
-                    <p:inputText value="#{plazaBean.plaza.cargoPlaza}"
-                                 required="true" requiredMessage="Cargo de la plaza requerido" />
+                            <p:outputLabel value="Digite el cargo de la plaza" />
+                            <p:inputText value="#{plazaBean.plaza.cargoPlaza}"
+                                         required="true" requiredMessage="Cargo de la plaza requerido" />
 
-                    <p:outputLabel value="Digite el estado de la plaza" />
-                    <p:inputText value="#{plazaBean.plaza.estadoPlaza}"
-                                 required="true" requiredMessage="Estado de la plaza requerido" />
+                            <p:outputLabel value="Digite el estado de la plaza" />
+                            <p:inputText value="#{plazaBean.plaza.estadoPlaza}"
+                                         required="true" requiredMessage="Estado de la plaza requerido" />
 
-                </p:panelGrid>
-                <p:commandButton action="#{plazaBean.guardarPlaza()}"
-                                 ajax="false" value="Guardar" />
-                <h:messages />
+                        </p:panelGrid>
+                        <p:commandButton action="#{plazaBean.guardarPlaza()}"
+                                         ajax="false" value="Guardar" />
+                        <h:messages />
 
 
 
-            </p:panelGrid>
-        </h:form>
+                    </p:panelGrid>
+                </h:form>
 
 
 
-        <h:form>
-            <p:dataTable id="Plazas"  var="plazas" value="#{plazaBean.plazaModel.listarPlazas()}" rows="10">
-                <p:column headerText="idPlaza" sortBy="#{plazas.idPlaza}">
-                    <p:outputLabel value="#{plazas.idPlaza}" />
-                </p:column>
+                <h:form>
+                    <p:dataTable id="Plazas"  var="plazas" value="#{plazaBean.plazaModel.listarPlazas()}" rows="10">
+                        <p:column headerText="idPlaza" sortBy="#{plazas.idPlaza}">
+                            <p:outputLabel value="#{plazas.idPlaza}" />
+                        </p:column>
 
-                <p:column headerText="Nombre de la plaza" sortBy="#{plazas.nombrePlaza}">
-                    <p:outputLabel value="#{plazas.nombrePlaza}" />
-                </p:column>
-                <p:column headerText="Descripción de la plaza" sortBy="#{plazas.descripcionPlaza}">
-                    <p:outputLabel value="#{plazas.descripcionPlaza}" />
-                </p:column>
-                <p:column headerText="Dirección de la plaza" sortBy="#{plazas.direccionPlaza}">
-                    <p:outputLabel value="#{plazas.direccionPlaza}" />
-                </p:column>
+                        <p:column headerText="Nombre de la plaza" sortBy="#{plazas.nombrePlaza}">
+                            <p:outputLabel value="#{plazas.nombrePlaza}" />
+                        </p:column>
+                        <p:column headerText="Descripción de la plaza" sortBy="#{plazas.descripcionPlaza}">
+                            <p:outputLabel value="#{plazas.descripcionPlaza}" />
+                        </p:column>
+                        <p:column headerText="Dirección de la plaza" sortBy="#{plazas.direccionPlaza}">
+                            <p:outputLabel value="#{plazas.direccionPlaza}" />
+                        </p:column>
 
-                <p:column headerText="Acciones">
-                    <h:commandButton value="Editar" action="#{plazaBean.cargarPlaza(plazas.idPlaza)}" />
-                    <h:commandButton id="btnDelesdte" action="#{plazaBean.eliminarPlaza(plazas.idPlaza)}"
-                                     onclick="if (!confirm('Tu quieres eliminar esta plaza?')) return false"
-                                     value="Eliminar">
-                    </h:commandButton>
-                </p:column>
+                        <p:column headerText="Acciones">
+                            <h:commandButton value="Editar" action="#{plazaBean.cargarPlaza(plazas.idPlaza)}" />
+                            <h:commandButton id="btnDelesdte" action="#{plazaBean.eliminarPlaza(plazas.idPlaza)}"
+                                             onclick="if (!confirm('Tu quieres eliminar esta plaza?')) return false"
+                                             value="Eliminar">
+                            </h:commandButton>
+                        </p:column>
 
-            </p:dataTable>
-
-
-        </h:form>
-
-    </p:panel>
-
-    <h:outputScript>
-        <c:if test="#{not empty flash.exito}">
-            alertify.success('#{flash.exito}');
-        </c:if>
-    </h:outputScript>
-</h:body>
+                    </p:dataTable>
 
 
-</html>
+                </h:form>
+
+            </p:panel>
+        </h:body>
+
+
+        <h:outputScript>
+            <c:if test="#{not empty flash.exito}">
+                alertify.success('#{flash.exito}');
+            </c:if>
+        </h:outputScript>
+    </ui:define>
+
+</ui:composition>
