@@ -57,6 +57,7 @@ public class PlazaBean{
     }
 
     public String guardarPlaza() {
+        plaza.setEstadoPlaza("5");
         if (modelo.insertarPlaza(plaza) != 1) {
             JsfUtil.setErrorMessage(null, "Error: no se pudo insertar la plaza, revisa que los campos estén correctos");
         } else {
