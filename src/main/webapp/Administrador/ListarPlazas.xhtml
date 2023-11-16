@@ -94,13 +94,7 @@
                         <h:outputText value="#{plaza.estadoPlaza}" />
                     </h:column>
 
-                    <p:column headerText="Acciones">
-                        <h:commandButton value="Editar" action="#{plazaBean.cargarPlaza(plazas.idPlaza)}" />
-                        <h:commandButton id="btnDelesdte" action="#{plazaBean.eliminarPlaza(plazas.idPlaza)}"
-                                         onclick="if (!confirm('Tu quieres eliminar esta plaza?')) return false"
-                                         value="Eliminar">
-                        </h:commandButton>
-                    </p:column>
+
                 </b:dataTable>
             </p:tab>
         </p:tabView>
@@ -186,11 +180,22 @@
                         </f:facet>
                         <h:outputText value="#{plaza.estadoPlaza}" />
                     </h:column>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Acciones" />
+                            </f:facet>
+
+                        </p:column>
                 </b:dataTable>
             </p:tab>
         </p:tabView>
 
-
+        <h:outputScript>
+            <c:if test="#{not empty flash.exito}">
+                alertify.success('#{flash.exito}');
+            </c:if>
+        </h:outputScript>
     </ui:define>
 
 </ui:composition>
