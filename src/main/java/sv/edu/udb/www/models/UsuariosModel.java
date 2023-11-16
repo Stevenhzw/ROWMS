@@ -3,6 +3,7 @@ package sv.edu.udb.www.models;
 //Este he cambiado
 
 import jakarta.persistence.NoResultException;
+import sv.edu.udb.www.entities.AplicantesEntity;
 import sv.edu.udb.www.utils.JpaUtil;
 import java.util.List;
 import jakarta.persistence.EntityManager;
@@ -45,6 +46,14 @@ public class UsuariosModel {
         }
     }
 
+
+    public List<AplicantesEntity> listarAplicaciones_Usuario(String dui){
+        EntityManager em = JpaUtil.getEntityManager();
+        return em.createQuery(
+                        "SELECT a FROM AplicantesEntity a WHERE a.duiAplicante = :dui", AplicantesEntity.class)
+                .setParameter("dui", dui)
+                .getResultList();
+    }
 
 
 

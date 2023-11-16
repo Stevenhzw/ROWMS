@@ -12,7 +12,13 @@ import java.util.List;
 @RequestScoped
 public class UsuariosBean {
 
+    private int contador = 0;
+
     UsuariosModel modelo = new UsuariosModel();
+
+    public UsuariosModel getUsuariosModel() {
+        return modelo;
+    }
 
     private UsuariosEntity usuario;
     private List<UsuariosEntity> listaUsuarios;
@@ -34,6 +40,11 @@ public class UsuariosBean {
         return modelo.listarUsuarios();
     }
      */
+
+    public int getContador() {
+        contador++;
+        return contador;
+    }
 
     public String registrarNuevoAplicante(){
         usuario.setEmpresaAfiliada(null);

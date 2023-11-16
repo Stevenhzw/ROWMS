@@ -29,6 +29,21 @@ public class PlazaModel {
         }
     }
 
+    public List<PlazasEntity> listarActivas() {
+        EntityManager em = JpaUtil.getEntityManager();
+        try {
+
+            Query consulta = em.createQuery("SELECT e FROM PlazasEntity e WHERE e.estadoPlaza = '1'");
+
+            List<PlazasEntity> listaPlazas = consulta.getResultList();
+            em.close();
+            return listaPlazas;
+        } catch (Exception e) {
+            em.close();
+            return null;
+        }
+    }
+
     public int insertarPlaza(PlazasEntity plaza) {
         EntityManager em = JpaUtil.getEntityManager();
         EntityTransaction tran = em.getTransaction();
