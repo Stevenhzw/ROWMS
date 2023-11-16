@@ -85,6 +85,13 @@ public class EmpresasModel {
                 // Actualizar los campos de la entidad persistente con los valores del objeto recibido
                 entidadPersistente.setNombreEmpresa(empresa.getNombreEmpresa());
                 entidadPersistente.setDescripcionEmpresa(empresa.getDescripcionEmpresa());
+                entidadPersistente.setFotoEmpresa(empresa.getFotoEmpresa());
+                entidadPersistente.setTelefonoEmpresa(empresa.getTelefonoEmpresa());
+                entidadPersistente.setDescripcionEmpresa(empresa.getDescripcionEmpresa());
+                entidadPersistente.setCorreoEmpresa(empresa.getCorreoEmpresa());
+                entidadPersistente.setContraseñaEmpresa(empresa.getContraseñaEmpresa());
+                entidadPersistente.setEstadoEmpresa(empresa.getEstadoEmpresa());
+                entidadPersistente.setRol(empresa.getRol());
                 // Actualiza los demás campos de la entidad de manera similar
 
                 // Actualizar la entidad persistente en el contexto de persistencia

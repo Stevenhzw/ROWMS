@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 @ManagedBean
 @RequestScoped
-public class PlazaBean{
+public class PlazaBean {
 
     private PlazasEntity plaza;
     PlazaModel modelo = new PlazaModel();
@@ -79,6 +79,7 @@ public class PlazaBean{
         this.plaza = modelo.obtenerPlazaPorId(idPlaza);
         return "OperacionesPlaza";
     }
+
     public String aceptarPlaza() {
 
         if (modelo.aceptandoPlaza(plaza) != null) {
@@ -88,14 +89,8 @@ public class PlazaBean{
         }
         return "EstadoPlaza";
     }
-    public String actualizarPlaza() {
-        if (modelo.actualizarPlaza(plaza) != null) {
-            JsfUtil.setFlashMessage("exito", "Plaza actualizada exitosamente");
-        } else {
-            JsfUtil.setErrorMessage(null, "No se pudo actualizar la plaza");
-        }
-        return "empresa";
-    }
+
+
 
 
     public String eliminarPlaza(String idPlaza) {
@@ -142,5 +137,14 @@ public class PlazaBean{
         return "nombreDeTuPagina"; // Puedes redirigir a una página específica después de rechazar la plaza
     }
 
+
+    public String actualizarPlaza() {
+        if (modelo.actualizarPlaza(plaza) != null) {
+            JsfUtil.setFlashMessage("exito", "Plaza actualizada exitosamente");
+        } else {
+            JsfUtil.setErrorMessage(null, "No se pudo actualizar la plaza");
+        }
+        return "CrearPlaza";
+    }
 
 }

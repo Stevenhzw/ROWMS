@@ -1,5 +1,6 @@
 package sv.edu.udb.www.models;
 import jakarta.persistence.NoResultException;
+import sv.edu.udb.www.entities.EmpresasEntity;
 import sv.edu.udb.www.utils.JpaUtil;
 import java.util.List;
 
@@ -89,9 +90,12 @@ public class PlazaModel {
         }
     }
 
+
+
     public PlazasEntity actualizarPlaza(PlazasEntity plaza) {
         EntityManager em = JpaUtil.getEntityManager();
         EntityTransaction transaction = em.getTransaction();
+
         PlazasEntity plazaActualizada = null;
 
         try {
@@ -101,7 +105,6 @@ public class PlazaModel {
 
             if (entidadPersistente != null) {
                 // Actualizar los campos de la entidad persistente con los valores del objeto recibido
-
                 entidadPersistente.setNombrePlaza(plaza.getNombrePlaza());
                 entidadPersistente.setDescripcionPlaza(plaza.getDescripcionPlaza());
                 entidadPersistente.setDireccionPlaza(plaza.getDireccionPlaza());
@@ -111,6 +114,9 @@ public class PlazaModel {
                 entidadPersistente.setTipoPlaza(plaza.getTipoPlaza());
                 entidadPersistente.setRubroPlaza(plaza.getRubroPlaza());
                 entidadPersistente.setCargoPlaza(plaza.getCargoPlaza());
+
+                entidadPersistente.setMotivoRechazoPlaza(plaza.getMotivoRechazoPlaza());
+
                 entidadPersistente.setEstadoPlaza(plaza.getEstadoPlaza());
                 entidadPersistente.setMotivoRechazoPlaza(plaza.getMotivoRechazoPlaza());
 
@@ -148,6 +154,10 @@ public class PlazaModel {
 
                 entidadPersistente.setEstadoPlaza("3");
 
+
+                // Actualiza los demás campos de la entidad de manera similar
+
+                // Actualizar la entidad persistente en el contexto de persistencia
                 plazaActualizada = em.merge(entidadPersistente);
             }
 
