@@ -16,7 +16,7 @@ public class DependienteBean {
 
     private List<UsuariosEntity> listaDependientes;
 
-    private String idEmpresa;
+
     public DependienteBean() {
         usuario = new UsuariosEntity();
     }
@@ -24,8 +24,8 @@ public class DependienteBean {
     public List<UsuariosEntity> getUsuarios() {
         return modelo.listarUsuarios();
     }
-    public List<UsuariosEntity> getDependientes2() {
-        return modelo.listarDependientesByEmpresa(idEmpresa);
+    public List<UsuariosEntity> getDependientes() {
+        return modelo.listarDependientes();
     }
 
     public UsuariosEntity getUsuario() {

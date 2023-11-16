@@ -25,7 +25,6 @@
 
 
             <p:submenu  label="Empresa" icon="pi pi-fw pi-briefcase" rendered="#{loginBean.empresaAutenticada.rol=='adminEmpresa' or loginBean.usuarioAutenticado.rol=='administrador'}">
-               <p:menuitem   value="Ver Empresas" outcome="/AdminEmpresa/VerEmpresa"/>
                <p:menuitem   value="Ver Dependientes" outcome="/AdminEmpresa/ListarDependientes"/>
                <p:menuitem   value="Editar Perfil Empresa" outcome="/AdminEmpresa/EditarEmpresa"/>
                <p:menuitem   value="Solicitudes de Plazas" outcome="/AdminEmpresa/EstadoPlaza"/>

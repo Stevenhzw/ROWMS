@@ -49,12 +49,6 @@ public class DependientesModel {
         }
     }
 
-    public List<UsuariosEntity> listarDependientesByEmpresa(String idEmpresa){
-        EntityManager em = JpaUtil.getEntityManager();
-        return em.createQuery(
-                        "SELECT a FROM UsuariosEntity a WHERE a.empresaAfiliada = :idEmpresa", UsuariosEntity.class)
-                .setParameter("idEmpresa", idEmpresa)
-                .getResultList();
-    }
+
 
 }

@@ -18,65 +18,60 @@
 
                 <h1>Lista de Dependientes</h1>
 
-                <p:dataTable value="#{dependienteBean.dependientes2}"
-                              var="dependiente" id="entradasPool" styleClass="table table-striped table-bordered">
-                    <h:column>
+                <b:dataTable value="#{dependienteBean.dependientes}" var="dependiente"
+                             id="entradasPool"
+                             styleClass="table table-striped table-bordered">
+                    <h:column rendered="#{dependiente.empresaAfiliada == loginBean.empresaAutenticada.idEmpresa}">
                         <f:facet name="header">
                             <h:outputText value="DUI" />
                         </f:facet>
                         <h:outputText value="#{dependiente.dui}" />
                     </h:column>
 
-                    <h:column>
+                    <h:column rendered="#{dependiente.empresaAfiliada == loginBean.empresaAutenticada.idEmpresa}" >
                         <f:facet name="header">
                             <h:outputText value="Nombre" />
                         </f:facet>
                         <h:outputText value="#{dependiente.nombre}" />
                     </h:column>
 
-                    <h:column>
+                    <h:column rendered="#{dependiente.empresaAfiliada == loginBean.empresaAutenticada.idEmpresa}">
                         <f:facet name="header">
                             <h:outputText value="Apellido" />
                         </f:facet>
                         <h:outputText value="#{dependiente.apellido}" />
                     </h:column>
 
-                    <h:column>
+                    <h:column rendered="#{dependiente.empresaAfiliada == loginBean.empresaAutenticada.idEmpresa}">
                         <f:facet name="header">
                             <h:outputText value="Edad" />
                         </f:facet>
                         <h:outputText value="#{dependiente.edad}" />
                     </h:column>
 
-                    <h:column>
+                    <h:column rendered="#{dependiente.empresaAfiliada == loginBean.empresaAutenticada.idEmpresa}">
                         <f:facet name="header">
                             <h:outputText value="Genero" />
                         </f:facet>
                         <h:outputText value="#{dependiente.genero}" />
                     </h:column>
 
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Foto" />
-                        </f:facet>
-                        <h:outputText value="#{dependiente.foto}" />
-                    </h:column>
 
-                    <h:column>
+                    <h:column rendered="#{dependiente.empresaAfiliada == loginBean.empresaAutenticada.idEmpresa}">
                         <f:facet name="header">
                             <h:outputText value="Telefono" />
                         </f:facet>
                         <h:outputText value="#{dependiente.telefono}" />
                     </h:column>
 
-                    <h:column>
+                    <h:column rendered="#{dependiente.empresaAfiliada == loginBean.empresaAutenticada.idEmpresa}">
                         <f:facet name="header">
                             <h:outputText value="Correo" />
                         </f:facet>
                         <h:outputText value="#{dependiente.correo}" />
                     </h:column>
 
-                    <h:column>
+                    <h:column rendered="#{dependiente.empresaAfiliada == loginBean.empresaAutenticada.idEmpresa}">
                         <f:facet name="header">
                             <h:outputText value="Estado" />
                         </f:facet>
@@ -84,19 +79,19 @@
 
                     </h:column>
 
-                    <h:column>
+                    <h:column rendered="#{dependiente.empresaAfiliada == loginBean.empresaAutenticada.idEmpresa}">
                         <f:facet name="header">
                             <h:outputText value="Rol" />
                         </f:facet>
                         <h:outputText value="#{dependiente.rol}" />
                     </h:column>
-                    <h:column>
+                    <h:column rendered="#{dependiente.empresaAfiliada == loginBean.empresaAutenticada.idEmpresa}">
                         <f:facet name="header">
                             <h:outputText value="Empresa Afiliada" />
                         </f:facet>
                         <h:outputText value="#{dependiente.empresaAfiliada}" />
                     </h:column>
-                </p:dataTable>
+                </b:dataTable>
 
 
 
