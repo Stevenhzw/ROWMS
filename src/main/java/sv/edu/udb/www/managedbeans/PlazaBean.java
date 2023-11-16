@@ -33,6 +33,7 @@ public class PlazaBean{
                 .collect(Collectors.toList());
     }
 
+
     public PlazasEntity getPlaza() {
         return plaza;
     }
@@ -66,6 +67,22 @@ public class PlazaBean{
             JsfUtil.setErrorMessage(null, "No se pudo borrar a esta plaza");
         }
         return "CrearPlaza";
+    }
+
+    public String aceptarPlaza(String idPlaza) {
+        // Lógica para aceptar la plaza
+        // ...
+
+        JsfUtil.setFlashMessage("exito", "Plaza aceptada exitosamente");
+        return "nombreDeTuPagina"; // Puedes redirigir a una página específica después de aceptar la plaza
+    }
+
+    public String rechazarPlaza(String idPlaza) {
+        // Lógica para rechazar la plaza
+        // ...
+
+        JsfUtil.setFlashMessage("exito", "Plaza rechazada exitosamente");
+        return "nombreDeTuPagina"; // Puedes redirigir a una página específica después de rechazar la plaza
     }
 
     public String actualizarPlaza() {

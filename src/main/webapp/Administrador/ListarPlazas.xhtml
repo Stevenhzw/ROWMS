@@ -181,12 +181,14 @@
                         <h:outputText value="#{plaza.estadoPlaza}" />
                     </h:column>
 
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="Acciones" />
-                            </f:facet>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Acciones" />
+                        </f:facet>
+                        <h:commandButton value="Aceptar" />
+                        <h:commandButton value="Rechazar" />
+                    </p:column>
 
-                        </p:column>
                 </b:dataTable>
             </p:tab>
         </p:tabView>
