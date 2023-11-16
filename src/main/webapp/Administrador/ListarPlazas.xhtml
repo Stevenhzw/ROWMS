@@ -13,101 +13,96 @@
             <title>Plazas</title>
         </h:head>
         <p:tabView>
-            <p:tab title="ROWMS Working Website">
-
+            <p:tab title="Lista de Plazas">
+                <f:facet name="actions">
+                    Options I
+                </f:facet>
                 <h1>Lista de Plazas</h1>
-
-
-                <b:dataTable value="#{plazaBean.plazas}" var="plaza"
-                             id="entradasPool"
+                <p:dataTable value="#{plazaBean.plazas}" var="plaza"
+                             id="entradasPool2"
                              styleClass="table table-striped table-bordered">
 
 
-                    <h:column>
+                    <p:column>
                         <f:facet name="header">
                             <h:outputText value="ID" />
                         </f:facet>
                         <h:outputText value="#{plaza.idPlaza}" />
-                    </h:column>
+                    </p:column>
 
-                    <h:column>
+                    <p:column>
                         <f:facet name="header">
                             <h:outputText value="Nombre" />
                         </f:facet>
                         <h:outputText value="#{plaza.nombrePlaza}" />
-                    </h:column>
+                    </p:column>
 
-                    <h:column>
+                    <p:column>
                         <f:facet name="header">
                             <h:outputText value="Descripción" />
                         </f:facet>
                         <h:outputText value="#{plaza.descripcionPlaza}" />
-                    </h:column>
+                    </p:column>
 
-                    <h:column>
+                    <p:column>
                         <f:facet name="header">
                             <h:outputText value="Empresa" />
                         </f:facet>
                         <h:outputText value="#{plaza.empresaAfiliada}" />
-                    </h:column>
+                    </p:column>
 
-                    <h:column>
+                    <p:column>
                         <f:facet name="header">
                             <h:outputText value="Salario" />
                         </f:facet>
                         <h:outputText value="#{plaza.salarioPlaza}" />
-                    </h:column>
+                    </p:column>
 
 
-                    <h:column>
+                    <p:column>
                         <f:facet name="header">
                             <h:outputText value="Requisitos" />
                         </f:facet>
                         <h:outputText value="#{plaza.requisitoPlaza}" />
-                    </h:column>
+                    </p:column>
 
-                    <h:column>
+                    <p:column>
                         <f:facet name="header">
                             <h:outputText value="Tipo" />
                         </f:facet>
                         <h:outputText value="#{plaza.tipoPlaza}" />
-                    </h:column>
+                    </p:column>
 
-                    <h:column>
+                    <p:column>
                         <f:facet name="header">
                             <h:outputText value="Rubro" />
                         </f:facet>
                         <h:outputText value="#{plaza.rubroPlaza}" />
-                    </h:column>
+                    </p:column>
 
-                    <h:column>
+                    <p:column>
                         <f:facet name="header">
                             <h:outputText value="Cargo" />
                         </f:facet>
                         <h:outputText value="#{plaza.cargoPlaza}" />
-                    </h:column>
+                    </p:column>
 
-                    <h:column>
+                    <p:column>
                         <f:facet name="header">
                             <h:outputText value="Estado" />
                         </f:facet>
                         <h:outputText value="#{plaza.estadoPlaza}" />
-                    </h:column>
+                    </p:column>
 
 
-                </b:dataTable>
+                </p:dataTable>
+
             </p:tab>
-
-
-            
-        </p:tabView>
-
-        <p:tabView>
-            <p:tab title="ROWMS Working Website">
-
+            <p:tab title="Lista de Plazas Pendientes">
+                <f:facet name="actions">
+                    Options II
+                </f:facet>
                 <h1>Lista de Plazas Pendientes</h1>
-
-
                 <p:dataTable value="#{plazaBean.plazasFiltradasEstado5}" var="plaza"
                              id="entradasPool"
                              styleClass="table table-striped table-bordered">
@@ -194,6 +189,12 @@
 
                 </p:dataTable>
             </p:tab>
+
+
+
+
+
+
         </p:tabView>
 
         <h:outputScript>
