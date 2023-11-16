@@ -129,6 +129,6 @@ public class PlazaBean{
         } else {
             JsfUtil.setErrorMessage(null, "No se pudo actualizar la plaza");
         }
-        return "empresa";
+        return "CrearPlaza";
     }
 }
