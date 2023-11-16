@@ -16,92 +16,128 @@
         template="../Template/plantilla.xhtml">
     <ui:define name="content">
         <h:head>
-            <title>Crear Dependientes</title>
+            <title>Empresas</title>
         </h:head>
+
         <h:body>
-            <p:tab title="ROWMS Working Website">
+            <p:panel>
 
 
-                <h:panelGrid style="text-align:center; margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
-                    <h1>Crear un Dependiente de Empresa</h1>
-
-                    <h:form id="formulario">
-                        <h:panelGrid columns="2" styleClass="col-md-10 col-sm-10 col-xs-12 inputgroup">
-
-                            <h:outputText value="Dui de Dependiente" />
-                            <b:inputText value="#{entradaBean.entrada.titulo}" required="true"
-                                         required-message="Agrega un título" />
-
-                            <h:outputText value="Nombre de Dependiente" />
-                            <b:inputText value="#{entradaBean.entrada.titulo}" required="true"
-                                         required-message="Agrega un título" />
-
-                            <h:outputText value="Apellido de Dependiente" />
-                            <b:inputText value="#{entradaBean.entrada.titulo}" required="true"
-                                         required-message="Agrega un título" />
-
-                            <h:outputText value="Edad" />
-                            <b:inputText value="#{entradaBean.entrada.titulo}" required="true"
-                                         required-message="Agrega un título" />
+                <h:form>
+                    <p:panelGrid columns="1" style="width: 50%; ">
+                        <p:outputLabel value="EMPLOYEE FORM" />
+                        <p:panelGrid columns="2">
 
 
-                            <h:outputText value="Genero" />
-                            <h:selectOneMenu value="#{entradaBean.entrada.tipo}">
-                                <f:selectItem itemLabel="En constucción!!" itemValue="" />
-                                <f:selectItem itemLabel="Opción 1" itemValue="opcion1" />
-                                <f:selectItem itemLabel="Opción 2" itemValue="opcion2" />
-                            </h:selectOneMenu>
+                            <p:outputLabel value="idEmpresa" />
+                            <p:inputText value="#{empresaBean.empresa.idEmpresa}"
+                                         required="true" requiredMessage="id de la empresa requerido" />
+
+                            <p:outputLabel value="Nombre de empresa" />
+                            <p:inputText value="#{empresaBean.empresa.nombreEmpresa}"
+                                         required="true" requiredMessage="Nombre empresa requerido" />
+
+                            <p:outputLabel value="Descripcion de empresa" />
+                            <p:inputText value="#{empresaBean.empresa.descripcionEmpresa}"
+                                         required="true" requiredMessage="Descripcion empresa requerido" />
+
+                            <p:outputLabel value="foto de empresa" />
+                            <p:inputText value="#{empresaBean.empresa.fotoEmpresa}"
+                                         required="true" requiredMessage="foto empresa requerido" />
+
+                            <p:outputLabel value="Telefono de empresa" />
+                            <p:inputText value="#{empresaBean.empresa.telefonoEmpresa}"
+                                         required="true" requiredMessage="telefono empresa requerido" />
+
+                            <p:outputLabel value="Direccion de empresa" />
+                            <p:inputText value="#{empresaBean.empresa.direccionEmpresa}"
+                                         required="true" requiredMessage="direccion empresa requerido" />
+
+                            <p:outputLabel value="Correo de empresa" />
+                            <p:inputText value="#{empresaBean.empresa.correoEmpresa}"
+                                         required="true" requiredMessage="correo empresa requerido" />
+
+                            <p:outputLabel value="Contraseña de empresa" />
+                            <p:inputText value="#{empresaBean.empresa.contraseñaEmpresa}"
+                                         required="true" requiredMessage="contraseña empresa requerido" />
+
+                            <p:outputLabel value="estado de empresa" />
+                            <p:inputText value="#{empresaBean.empresa.estadoEmpresa}"
+                                         required="true" requiredMessage="estado empresa requerido" />
+
+                            <p:outputLabel value="rol de empresa" />
+                            <p:inputText value="#{empresaBean.empresa.rol}"
+                                         required="true" requiredMessage="rol empresa requerido" />
+
+                        </p:panelGrid>
+                        <p:commandButton action="#{empresaBean.guardarEmpresa()}"
+                                         ajax="false" value="Guardar" />
+                        <h:messages />
 
 
-                            <h:outputText value="Foto" />
-                            <b:inputText value="#{entradaBean.entrada.titulo}" required="true"
-                                         required-message="Agrega un título" />
 
-                            <h:outputText value="Telefono" />
-                            <b:inputText value="#{entradaBean.entrada.titulo}" required="true"
-                                         required-message="Agrega un título" />
-
-                            <h:outputText value="Dirección" />
-                            <b:inputText value="#{entradaBean.entrada.titulo}" required="true"
-                                         required-message="Agrega un título" />
-
-                            <h:outputText value="Expresión Laboral" />
-                            <b:inputTextarea value="#{entradaBean.entrada.texto}" required="true"
-                                             required-message="Agrega texto a tu entrada" />
+                    </p:panelGrid>
+                </h:form>
 
 
-                            <h:outputText value="Grado Academico" />
-                            <h:selectOneMenu value="#{entradaBean.entrada.tipo}">
-                                <f:selectItem itemLabel="En constucción!!" itemValue="" />
-                                <f:selectItem itemLabel="Opción 1" itemValue="opcion1" />
-                                <f:selectItem itemLabel="Opción 2" itemValue="opcion2" />
-                                <f:selectItem itemLabel="Opción 3" itemValue="opcion3" />
-                            </h:selectOneMenu>
+                <h:form>
+                    <p:dataTable id="empresas"  var="empre" value="#{empresaBean.empresasModel.listarEmpresas()}" rows="10">
+                        <p:column headerText="idEmpresa" sortBy="#{empre.idEmpresa}">
+                            <p:outputLabel value="#{empre.idEmpresa}" />
+                        </p:column>
 
-                            <h:outputText value="Correo" />
-                            <b:inputText value="#{entradaBean.entrada.titulo}" required="true"
-                                         required-message="Agrega un título" />
+                        <p:column headerText="nombreEmpresa" sortBy="#{empre.nombreEmpresa}">
+                            <p:outputLabel value="#{empre.nombreEmpresa}" />
+                        </p:column>
+                        <p:column headerText="direccionEmpresa" sortBy="#{empre.direccionEmpresa}">
+                            <p:outputLabel value="#{empre.direccionEmpresa}" />
+                        </p:column>
+                        <p:column headerText="telefonoEmpresa" sortBy="#{empre.telefonoEmpresa}">
+                            <p:outputLabel value="#{empre.telefonoEmpresa}" />
+                        </p:column>
 
-                            <h:outputText value="Estado" style="display: none;" />
-                            <b:inputText value="1" required="true"
-                                         required-message="Agrega un título" style="display: none;"/>
+                        <p:column headerText="Acciones">
+                            <h:commandButton value="Ver" action="#{empresaBean.verEmpresa(empre.idEmpresa)}" />
+                            <h:commandButton value="Editar" action="#{empresaBean.cargarEmpresa(empre.idEmpresa)}" />
+                            <h:commandButton id="btnDelesdte" action="#{empresaBean.eliminarEmpresa(empre.idEmpresa)}"
+                                             onclick="if (!confirm('Quieres eliminar esta empresa?')) return false"
+                                             value="Eliminar">
+                            </h:commandButton>
+                        </p:column>
 
-                            <h:outputText value="Empresa Afiliada" style="display: none;" />
-                            <b:inputText value="1" required="true"
-                                         required-message="Agrega un título" style="display: none;"/>
+                    </p:dataTable>
 
-                            <h:outputText value="Rol" style="display: none;" />
-                            <b:inputText value="1" required="true"
-                                         required-message="Agrega un título" style="display: none;"/>
+                    <p:dataScroller  id="empresas2"  var="empre" value="#{empresaBean.empresasModel.listarEmpresas()}" chunkSize="10" mode="inline"
+                                     scrollHeight="100">
+                        <div class="product">
+                            <div class="product-list-detail">
+                                <div>ID: #{empre.idEmpresa}</div>
+                                <div>Nombre: #{empre.nombreEmpresa}</div>
+                                <div>Direccion: #{empre.direccionEmpresa}</div>
+                                <div>Telefono: #{empre.telefonoEmpresa}</div>
+                            </div>
+                            <div class="product-list-action">
+                                <p:column headerText="Acciones">
+                                    <h:commandButton value="Ver" action="#{empresaBean.verEmpresa(empre.idEmpresa)}" />
+                                    <h:commandButton value="Editar" action="#{empresaBean.cargarEmpresa(empre.idEmpresa)}" />
+                                    <h:commandButton id="btnDelesdte2" action="#{empresaBean.eliminarEmpresa(empre.idEmpresa)}"
+                                                     onclick="if (!confirm('Quieres eliminar esta empresa?')) return false"
+                                                     value="Eliminar">
+                                    </h:commandButton>
+                                </p:column>
+                            </div>
+                        </div>
+                    </p:dataScroller >
+                </h:form>
 
 
-                        </h:panelGrid>
-                        <b:commandButton value="Agregar" action="#"
-                                         look="success" styleClass="btn-lg"/>
-                    </h:form>
+            </p:panel>
+            <h:outputScript>
+                <c:if test="#{not empty flash.exito}">
+                    alertify.success('#{flash.exito}');
+                </c:if>
+            </h:outputScript>
 
-                </h:panelGrid>
-            </p:tab>
         </h:body>
     </ui:define>
 

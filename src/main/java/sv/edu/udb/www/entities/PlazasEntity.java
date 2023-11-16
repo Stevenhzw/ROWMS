@@ -189,4 +189,6 @@ public class PlazasEntity {
         result = 31 * result + (motivoRechazoPlaza != null ? motivoRechazoPlaza.hashCode() : 0);
         return result;
     }
+
+
 }

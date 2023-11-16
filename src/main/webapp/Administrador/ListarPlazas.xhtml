@@ -93,6 +93,14 @@
                         </f:facet>
                         <h:outputText value="#{plaza.estadoPlaza}" />
                     </h:column>
+
+                    <p:column headerText="Acciones">
+                        <h:commandButton value="Editar" action="#{plazaBean.cargarPlaza(plazas.idPlaza)}" />
+                        <h:commandButton id="btnDelesdte" action="#{plazaBean.eliminarPlaza(plazas.idPlaza)}"
+                                         onclick="if (!confirm('Tu quieres eliminar esta plaza?')) return false"
+                                         value="Eliminar">
+                        </h:commandButton>
+                    </p:column>
                 </b:dataTable>
             </p:tab>
         </p:tabView>
@@ -103,7 +111,7 @@
                 <h1>Lista de Plazas Pendientes</h1>
 
 
-                <b:dataTable value="#{plazaBean.plazas}" var="plaza"
+                <b:dataTable value="#{plazaBean.plazasFiltradasEstado5}" var="plaza"
                              id="entradasPool"
                              styleClass="table table-striped table-bordered">
 
