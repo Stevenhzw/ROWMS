@@ -80,8 +80,8 @@ public class PlazaBean{
         return "OperacionesPlaza";
     }
     public String aceptarPlaza() {
-        plaza.setEstadoPlaza("3");
-        if (modelo.actualizarPlaza(plaza) != null) {
+
+        if (modelo.aceptandoPlaza(plaza) != null) {
             JsfUtil.setFlashMessage("exito", "Plaza aceptada");
         } else {
             JsfUtil.setErrorMessage(null, "No se pudo aceptar la plaza");
@@ -94,8 +94,10 @@ public class PlazaBean{
         } else {
             JsfUtil.setErrorMessage(null, "No se pudo actualizar la plaza");
         }
-        return "CrearPlaza";
+        return "empresa";
     }
+
+
     public String eliminarPlaza(String idPlaza) {
         if (modelo.eliminarPlaza(idPlaza) > 0) {
             JsfUtil.setFlashMessage("exito", "Plaza eliminada exitosamente");
