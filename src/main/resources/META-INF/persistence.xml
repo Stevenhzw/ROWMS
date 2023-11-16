@@ -8,6 +8,7 @@
     <class>sv.edu.udb.www.entities.EstadosEntity</class>
     <class>sv.edu.udb.www.entities.PlazasEntity</class>
     <class>sv.edu.udb.www.entities.UsuariosEntity</class>
+    <class>sv.edu.udb.www.entities.AplicantesEntity</class>
     <properties>
         <property name="eclipselink.jdbc.url" value="jdbc:mysql://localhost:3306/rowms_bd?useSSL=false"/>
         <property name="eclipselink.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
