@@ -6,8 +6,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://bootsfaces.net/ui"
-      xmlns:b="http://primefaces.org/ui"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
 <h:head>
@@ -21,50 +21,45 @@
 
 <h:body>
    <h:form>
-      <p:navBar brand="ROWMS Working Website" brandHref="#" inverse="true">
-         <p:navbarLinks>
+      <p:menubar brand="ROWMS Working Website" brandHref="#" inverse="true">
 
-            <p:dropMenu value="Empresa" icon="pi pi-fw pi-briefcase" rendered="#{loginBean.empresaAutenticada.rol=='adminEmpresa' or loginBean.usuarioAutenticado.rol=='administrador'}">
-               <p:navLink  value="Ver Empresas" outcome="/AdminEmpresa/VerEmpresa"/>
-               <p:navLink  value="Ver Dependientes" outcome="/AdminEmpresa/ListarDependientes"/>
-               <p:navLink  value="Editar Perfil Empresa" outcome="/AdminEmpresa/EditarEmpresa"/>
-               <p:navLink  value="Solicitudes de Plazas" outcome="/AdminEmpresa/EstadoPlaza"/>
-               <p:navLink  value="Crear un Dependiente" outcome="/AdminEmpresa/CrearDependiente"/>
-            </p:dropMenu>
 
-            <p:dropMenu  value="Dependientes"  icon="pi pi-fw pi-folder-open" rendered="#{loginBean.empresaAutenticada.rol=='adminEmpresa' or loginBean.usuarioAutenticado.rol=='administrador' or loginBean.usuarioAutenticado.rol=='dependiente'}" >
-               <p:navLink  value="Ver Plazas" outcome="/Dependiente/VerPlazas"/>
-               <p:navLink  value="Crear solicitud de Plaza" outcome="/Dependiente/CrearPlaza"/>
+            <p:submenu  label="Empresa" icon="pi pi-fw pi-briefcase" rendered="#{loginBean.empresaAutenticada.rol=='adminEmpresa' or loginBean.usuarioAutenticado.rol=='administrador'}">
+               <p:menuitem   value="Ver Empresas" outcome="/AdminEmpresa/VerEmpresa"/>
+               <p:menuitem   value="Ver Dependientes" outcome="/AdminEmpresa/ListarDependientes"/>
+               <p:menuitem   value="Editar Perfil Empresa" outcome="/AdminEmpresa/EditarEmpresa"/>
+               <p:menuitem   value="Solicitudes de Plazas" outcome="/AdminEmpresa/EstadoPlaza"/>
+               <p:menuitem   value="Crear un Dependiente" outcome="/AdminEmpresa/CrearDependiente"/>
+            </p:submenu>
 
-            </p:dropMenu >
+            <p:submenu  label="Dependientes"  icon="pi pi-fw pi-folder-open" rendered="#{loginBean.empresaAutenticada.rol=='adminEmpresa' or loginBean.usuarioAutenticado.rol=='administrador' or loginBean.usuarioAutenticado.rol=='dependiente'}" >
+               <p:menuitem  value="Ver Plazas" outcome="/Dependiente/VerPlazas"/>
+               <p:menuitem  value="Crear solicitud de Plaza" outcome="/Dependiente/CrearPlaza"/>
 
-            <p:dropMenu  value="Administrador"  icon="pi pi-fw pi-lock" rendered="#{loginBean.usuarioAutenticado.rol=='administrador'}">
-               <p:navLink  value="Usuarios" outcome="/Administrador/ListarUsuarios"/>
-               <p:navLink  value="Dependientes" outcome="/AdminEmpresa/ListarDependientes"/>
-               <p:navLink  value="Crear Empresa" outcome="/Administrador/CrearEmpresa"/>
-               <p:navLink  value="Empresas" outcome="/Administrador/ListarEmpresas"/>
-               <p:navLink  value="Plazas" outcome="/Administrador/ListarPlazas"/>
-            </p:dropMenu >
+            </p:submenu >
 
-            <p:navLink value="Mi perfil" icon="pi pi-fw pi-user" outcome="/Usuario/VerUsuario" rendered="#{loginBean.usuarioAutenticado.correo!=null  or loginBean.empresaAutenticada.correoEmpresa!=null}"/>
+            <p:submenu  label="Administrador"  icon="pi pi-fw pi-lock" rendered="#{loginBean.usuarioAutenticado.rol=='administrador'}">
+               <p:menuitem  value="Usuarios" outcome="/Administrador/ListarUsuarios"/>
+               <p:menuitem  value="Dependientes" outcome="/AdminEmpresa/ListarDependientes"/>
+               <p:menuitem  value="Crear Empresa" outcome="/Administrador/CrearEmpresa"/>
+               <p:menuitem  value="Empresas" outcome="/Administrador/ListarEmpresas"/>
+               <p:menuitem  value="Plazas" outcome="/Administrador/ListarPlazas"/>
+            </p:submenu >
 
-            <p:navLink value="Iniciar sesion" icon="pi pi-fw pi-sign-in" outcome="/login"
+            <p:menuitem value="Mi perfil" icon="pi pi-fw pi-user" outcome="/Usuario/VerUsuario" rendered="#{loginBean.usuarioAutenticado.correo!=null  or loginBean.empresaAutenticada.correoEmpresa!=null}"/>
+
+            <p:menuitem value="Iniciar sesion" icon="pi pi-fw pi-sign-in" outcome="/login"
                        rendered="#{loginBean.usuarioAutenticado.correo==null and loginBean.empresaAutenticada.correoEmpresa==null}"/>
 
-            <p:navLink value="Registrarse" icon="pi pi-fw pi-sign-in" outcome="/register"
+            <p:menuitem value="Registrarse" icon="pi pi-fw pi-sign-in" outcome="/register"
                        rendered="#{loginBean.usuarioAutenticado.correo==null and loginBean.empresaAutenticada.correoEmpresa==null}"/>
 
-            <p:navCommandLink value="Cerrar Sesión" action="#{loginBean.cerrarSesion}" icon="pi pi-fw pi-sign-out" ajax="false"
+            <p:menuitem value="Cerrar Sesión" action="#{loginBean.cerrarSesion}" icon="pi pi-fw pi-sign-out" ajax="false"
                               rendered="#{loginBean.usuarioAutenticado.correo!=null or loginBean.empresaAutenticada.correoEmpresa!=null}"/>
 
-            <p:navLink value="Licencia" href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" >
-               <img src="Template/cc.png" alt="CC Icon" width="20" height="20" />
 
-            </p:navLink>
 
-         </p:navbarLinks>
-
-      </p:navBar>
+      </p:menubar>
    </h:form>
 
 
