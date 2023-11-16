@@ -1,3 +1,6 @@
+
+
+
 package sv.edu.udb.www.models;
 import jakarta.persistence.NoResultException;
 import sv.edu.udb.www.entities.EmpresasEntity;
