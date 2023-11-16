@@ -19,7 +19,7 @@ public class EmpresaBean {
         empresa = new EmpresasEntity();
     }
 
-    //Guardar un empleado en la base de datos
+    //Guardar una empresa en la base de datos
     public String guardarEmpresa(){
         //INDICAR EL JSFIntroPU donde se ubica UnsupportedElement JsfUtil;
         if (modelo.insertarEmpresa(empresa) != 1) {

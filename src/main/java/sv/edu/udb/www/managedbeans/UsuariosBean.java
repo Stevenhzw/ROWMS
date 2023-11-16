@@ -56,4 +56,25 @@ public class UsuariosBean {
         }
     }
 
+    public String registrarNuevoDependiente(){
+        usuario.setEmpresaAfiliada(null);
+        usuario.setEstado("1");
+        usuario.setRol("dependiente");
+        usuario.setFoto(null);
+
+        if (modelo.insertarUsuario(usuario) != 1) {
+            JsfUtil.setErrorMessage("error", "El usuario no se ha podido registrar.");
+            return null;
+
+        } else {
+            JsfUtil.setFlashMessage("exito", "Usuario registrado exitosamente");
+            //Forzando la redirección en el cliente
+
+            loginBean.setCorreo(usuario.getCorreo());
+            loginBean.setContraseña(usuario.getContraseña());
+            loginBean.iniciarSesion();
+            return "index?faces-redirect=true";
+        }
+    }
+
 }

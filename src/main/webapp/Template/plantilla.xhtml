@@ -21,59 +21,61 @@
 
 <h:body>
    <h:form>
-   <p:navBar brand="ROWMS Working Website" brandHref="#" inverse="true">
-      <p:navbarLinks>
-      <p:navLink  value="Plazas" outcome="/index"/>
+      <p:navBar brand="ROWMS Working Website" brandHref="#" inverse="true">
+         <p:navbarLinks>
 
-      <p:dropMenu value="Empresa" icon="pi pi-fw pi-briefcase" rendered="#{loginBean.empresaAutenticada.rol=='adminEmpresa' or loginBean.usuarioAutenticado.rol=='administrador'}">
-         <p:navLink  value="Ver Empresas" outcome="/AdminEmpresa/VerEmpresa"/>
-         <p:navLink  value="Ver Dependientes" outcome="/AdminEmpresa/ListarDependientes"/>
-         <p:navLink  value="Editar Perfil Empresa" outcome="/AdminEmpresa/EditarEmpresa"/>
-         <p:navLink  value="Solicitudes de Plazas" outcome="/AdminEmpresa/EstadoPlaza"/>
-         <p:navLink  value="Crear un Dependiente" outcome="/AdminEmpresa/CrearDependiente"/>
-      </p:dropMenu>
+            <p:dropMenu value="Empresa" icon="pi pi-fw pi-briefcase" rendered="#{loginBean.empresaAutenticada.rol=='adminEmpresa' or loginBean.usuarioAutenticado.rol=='administrador'}">
+               <p:navLink  value="Ver Empresas" outcome="/AdminEmpresa/VerEmpresa"/>
+               <p:navLink  value="Ver Dependientes" outcome="/AdminEmpresa/ListarDependientes"/>
+               <p:navLink  value="Editar Perfil Empresa" outcome="/AdminEmpresa/EditarEmpresa"/>
+               <p:navLink  value="Solicitudes de Plazas" outcome="/AdminEmpresa/EstadoPlaza"/>
+               <p:navLink  value="Crear un Dependiente" outcome="/AdminEmpresa/CrearDependiente"/>
+            </p:dropMenu>
 
-      <p:dropMenu  value="Dependientes"  icon="pi pi-fw pi-folder-open" rendered="#{loginBean.empresaAutenticada.rol=='adminEmpresa' or loginBean.usuarioAutenticado.rol=='administrador' or loginBean.usuarioAutenticado.rol=='dependiente'}" >
-         <p:navLink  value="Ver Plazas" outcome="/Dependiente/VerPlazas"/>
-         <p:navLink  value="Crear solicitud de Plaza" outcome="/Dependiente/CrearPlaza"/>
+            <p:dropMenu  value="Dependientes"  icon="pi pi-fw pi-folder-open" rendered="#{loginBean.empresaAutenticada.rol=='adminEmpresa' or loginBean.usuarioAutenticado.rol=='administrador' or loginBean.usuarioAutenticado.rol=='dependiente'}" >
+               <p:navLink  value="Ver Plazas" outcome="/Dependiente/VerPlazas"/>
+               <p:navLink  value="Crear solicitud de Plaza" outcome="/Dependiente/CrearPlaza"/>
 
-      </p:dropMenu >
+            </p:dropMenu >
 
-      <p:dropMenu  value="Administrador"  icon="pi pi-fw pi-lock" rendered="#{loginBean.usuarioAutenticado.rol=='administrador'}">
-         <p:navLink  value="Usuarios" outcome="/Administrador/ListarUsuarios"/>
-         <p:navLink  value="Dependientes" outcome="/AdminEmpresa/ListarDependientes"/>
-         <p:navLink  value="Crear Empresa" outcome="/Administrador/CrearEmpresa"/>
-         <p:navLink  value="Empresas" outcome="/Administrador/ListarEmpresas"/>
-         <p:navLink  value="Plazas" outcome="/Administrador/ListarPlazas"/>
-      </p:dropMenu >
-      <p:navLink value="Mi perfil" icon="pi pi-fw pi-user" outcome="/Usuario/VerUsuario" rendered="#{loginBean.usuarioAutenticado.correo!=null  or loginBean.empresaAutenticada.correoEmpresa!=null}"/>
-      <p:navLink value="Iniciar sesion" icon="pi pi-fw pi-sign-in" outcome="/login"
-                 rendered="#{loginBean.usuarioAutenticado.correo==null and loginBean.empresaAutenticada.correoEmpresa==null}"/>
-      <p:navLink value="Registrarse" icon="pi pi-fw pi-sign-in" outcome="/register"
-                    rendered="#{loginBean.usuarioAutenticado.correo==null and loginBean.empresaAutenticada.correoEmpresa==null}"/>
+            <p:dropMenu  value="Administrador"  icon="pi pi-fw pi-lock" rendered="#{loginBean.usuarioAutenticado.rol=='administrador'}">
+               <p:navLink  value="Usuarios" outcome="/Administrador/ListarUsuarios"/>
+               <p:navLink  value="Dependientes" outcome="/AdminEmpresa/ListarDependientes"/>
+               <p:navLink  value="Crear Empresa" outcome="/Administrador/CrearEmpresa"/>
+               <p:navLink  value="Empresas" outcome="/Administrador/ListarEmpresas"/>
+               <p:navLink  value="Plazas" outcome="/Administrador/ListarPlazas"/>
+            </p:dropMenu >
 
-         <p:navCommandLink value="Cerrar Sesión" actionListener="#{loginBean.cerrarSesion}" icon="pi pi-fw pi-sign-out" ajax="false"
-                           rendered="#{loginBean.usuarioAutenticado.correo!=null or loginBean.empresaAutenticada.correoEmpresa!=null}"/>
+            <p:navLink value="Mi perfil" icon="pi pi-fw pi-user" outcome="/Usuario/VerUsuario" rendered="#{loginBean.usuarioAutenticado.correo!=null  or loginBean.empresaAutenticada.correoEmpresa!=null}"/>
 
-      <p:navLink value="Licencia" href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" >
-         <img src="Template/cc.png" alt="CC Icon" width="20" height="20" />
+            <p:navLink value="Iniciar sesion" icon="pi pi-fw pi-sign-in" outcome="/login"
+                       rendered="#{loginBean.usuarioAutenticado.correo==null and loginBean.empresaAutenticada.correoEmpresa==null}"/>
 
-      </p:navLink>
+            <p:navLink value="Registrarse" icon="pi pi-fw pi-sign-in" outcome="/register"
+                       rendered="#{loginBean.usuarioAutenticado.correo==null and loginBean.empresaAutenticada.correoEmpresa==null}"/>
 
-      </p:navbarLinks>
+            <p:navCommandLink value="Cerrar Sesión" action="#{loginBean.cerrarSesion}" icon="pi pi-fw pi-sign-out" ajax="false"
+                              rendered="#{loginBean.usuarioAutenticado.correo!=null or loginBean.empresaAutenticada.correoEmpresa!=null}"/>
 
-   </p:navBar>
+            <p:navLink value="Licencia" href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" >
+               <img src="Template/cc.png" alt="CC Icon" width="20" height="20" />
+
+            </p:navLink>
+
+         </p:navbarLinks>
+
+      </p:navBar>
    </h:form>
 
 
 
 
-         <ui:insert name="content">
-            Contenido por defecto
-         </ui:insert>
+   <ui:insert name="content">
+      Contenido por defecto
+   </ui:insert>
 
    <br></br>
-         <p class="text-center text-muted">© 2023 ROWMS, DWF404</p>
+   <p class="text-center text-muted">© 2023 ROWMS, DWF404</p>
 
 
 </h:body>

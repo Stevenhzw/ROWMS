@@ -1,10 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  Created by IntelliJ IDEA.
-  User: manue
-  Date: 14/10/2023
-  Time: 15:00
--->
 <ui:composition
         xmlns="http://www.w3.org/1999/xhtml"
         xmlns:h="http://java.sun.com/jsf/html"
@@ -12,137 +6,104 @@
         xmlns:p="http://primefaces.org/ui"
         xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
         xmlns:c="http://java.sun.com/jsp/jstl/core"
-        xmlns:b="http://bootsfaces.net/ui"
         template="../Template/plantilla.xhtml">
+
     <ui:define name="content">
         <h:head>
-            <title>Empresas</title>
+            <title>Registrar Dependiente</title>
         </h:head>
 
-        <h:body>
-            <p:panel>
+        <div class="container h-100">
+            <div class="row h-100 justify-content-center align-items-center">
+                <div class="col-md-6">
+                    <p:panel header="Registrarse" styleClass="p-panel-info">
+                        <h:form class="form" role="form">
+                            <h:panelGroup layout="block" styleClass="alert alert-danger"
+                                          rendered="#{not empty facesContext.messageList}">
+                                <h:messages />
+                            </h:panelGroup>
 
-
-                <h:form>
-                    <p:panelGrid columns="1" style="width: 50%; ">
-                        <p:outputLabel value="EMPLOYEE FORM" />
-                        <p:panelGrid columns="2">
-
-
-                            <p:outputLabel value="idEmpresa" />
-                            <p:inputText value="#{empresaBean.empresa.idEmpresa}"
-                                         required="true" requiredMessage="id de la empresa requerido" />
-
-                            <p:outputLabel value="Nombre de empresa" />
-                            <p:inputText value="#{empresaBean.empresa.nombreEmpresa}"
-                                         required="true" requiredMessage="Nombre empresa requerido" />
-
-                            <p:outputLabel value="Descripcion de empresa" />
-                            <p:inputText value="#{empresaBean.empresa.descripcionEmpresa}"
-                                         required="true" requiredMessage="Descripcion empresa requerido" />
-
-                            <p:outputLabel value="foto de empresa" />
-                            <p:inputText value="#{empresaBean.empresa.fotoEmpresa}"
-                                         required="true" requiredMessage="foto empresa requerido" />
-
-                            <p:outputLabel value="Telefono de empresa" />
-                            <p:inputText value="#{empresaBean.empresa.telefonoEmpresa}"
-                                         required="true" requiredMessage="telefono empresa requerido" />
-
-                            <p:outputLabel value="Direccion de empresa" />
-                            <p:inputText value="#{empresaBean.empresa.direccionEmpresa}"
-                                         required="true" requiredMessage="direccion empresa requerido" />
-
-                            <p:outputLabel value="Correo de empresa" />
-                            <p:inputText value="#{empresaBean.empresa.correoEmpresa}"
-                                         required="true" requiredMessage="correo empresa requerido" />
-
-                            <p:outputLabel value="Contraseña de empresa" />
-                            <p:inputText value="#{empresaBean.empresa.contraseñaEmpresa}"
-                                         required="true" requiredMessage="contraseña empresa requerido" />
-
-                            <p:outputLabel value="estado de empresa" />
-                            <p:inputText value="#{empresaBean.empresa.estadoEmpresa}"
-                                         required="true" requiredMessage="estado empresa requerido" />
-
-                            <p:outputLabel value="rol de empresa" />
-                            <p:inputText value="#{empresaBean.empresa.rol}"
-                                         required="true" requiredMessage="rol empresa requerido" />
-
-                        </p:panelGrid>
-                        <p:commandButton action="#{empresaBean.guardarEmpresa()}"
-                                         ajax="false" value="Guardar" />
-                        <h:messages />
-
-
-
-                    </p:panelGrid>
-                </h:form>
-
-
-                <h:form>
-                    <p:dataTable id="empresas"  var="empre" value="#{empresaBean.empresasModel.listarEmpresas()}" rows="10">
-                        <p:column headerText="idEmpresa" sortBy="#{empre.idEmpresa}">
-                            <p:outputLabel value="#{empre.idEmpresa}" />
-                        </p:column>
-
-                        <p:column headerText="nombreEmpresa" sortBy="#{empre.nombreEmpresa}">
-                            <p:outputLabel value="#{empre.nombreEmpresa}" />
-                        </p:column>
-                        <p:column headerText="direccionEmpresa" sortBy="#{empre.direccionEmpresa}">
-                            <p:outputLabel value="#{empre.direccionEmpresa}" />
-                        </p:column>
-                        <p:column headerText="telefonoEmpresa" sortBy="#{empre.telefonoEmpresa}">
-                            <p:outputLabel value="#{empre.telefonoEmpresa}" />
-                        </p:column>
-
-                        <p:column headerText="Acciones">
-                            <h:commandButton value="Ver" action="#{empresaBean.verEmpresa(empre.idEmpresa)}" />
-                            <h:commandButton value="Editar" action="#{empresaBean.cargarEmpresa(empre.idEmpresa)}" />
-                            <h:commandButton id="btnDelesdte" action="#{empresaBean.eliminarEmpresa(empre.idEmpresa)}"
-                                             onclick="if (!confirm('Quieres eliminar esta empresa?')) return false"
-                                             value="Eliminar">
-                            </h:commandButton>
-                        </p:column>
-
-                    </p:dataTable>
-
-                    <p:dataScroller  id="empresas2"  var="empre" value="#{empresaBean.empresasModel.listarEmpresas()}" chunkSize="10" mode="inline"
-                                     scrollHeight="100">
-                        <div class="product">
-                            <div class="product-list-detail">
-                                <div>ID: #{empre.idEmpresa}</div>
-                                <div>Nombre: #{empre.nombreEmpresa}</div>
-                                <div>Direccion: #{empre.direccionEmpresa}</div>
-                                <div>Telefono: #{empre.telefonoEmpresa}</div>
+                            <div class="form-group">
+                                <h:outputLabel for="dui">DUI:</h:outputLabel>
+                                <h:inputText id="dui" value="#{usuariosBean.usuario.dui}" required="true" class="form-control" validatorMessage="Debe ser: XXXXXXXX-X">
+                                    <f:validateRegex pattern="[0-9]{8}-[0-9]" />
+                                </h:inputText>
                             </div>
-                            <div class="product-list-action">
-                                <p:column headerText="Acciones">
-                                    <h:commandButton value="Ver" action="#{empresaBean.verEmpresa(empre.idEmpresa)}" />
-                                    <h:commandButton value="Editar" action="#{empresaBean.cargarEmpresa(empre.idEmpresa)}" />
-                                    <h:commandButton id="btnDelesdte2" action="#{empresaBean.eliminarEmpresa(empre.idEmpresa)}"
-                                                     onclick="if (!confirm('Quieres eliminar esta empresa?')) return false"
-                                                     value="Eliminar">
-                                    </h:commandButton>
-                                </p:column>
+
+                            <div class="form-group">
+                                <h:outputLabel for="nombre">Nombre:</h:outputLabel>
+                                <h:inputText id="nombre" value="#{usuariosBean.usuario.nombre}" required="true" class="form-control" pattern="^[A-Za-z]+$" title="Ingrese solo letras"/>
                             </div>
-                        </div>
-                    </p:dataScroller >
-                </h:form>
+
+                            <div class="form-group">
+                                <h:outputLabel for="apellido">Apellido:</h:outputLabel>
+                                <h:inputText id="apellido" value="#{usuariosBean.usuario.apellido}" required="true" class="form-control" pattern="^[A-Za-z]+$" title="Ingrese solo letras"/>
+                            </div>
+
+                            <div class="form-group">
+                                <h:outputLabel for="edad">Edad:</h:outputLabel>
+                                <h:inputText id="edad" value="#{usuariosBean.usuario.edad}" required="true" class="form-control" pattern="\d+" title="Debe ingresar un número" maxlength="2"/>
+                            </div>
+
+                            <div class="form-group">
+                                <h:outputLabel for="genero">Genero:</h:outputLabel>
+                                <h:selectOneMenu id="genero" value="#{usuariosBean.usuario.genero}" required="true" class="form-control">
+                                    <f:selectItem itemLabel="Masculino" itemValue="Masculino" />
+                                    <f:selectItem itemLabel="Femenino" itemValue="Femenino" />
+                                </h:selectOneMenu>
+                            </div>
+
+                            <div class="form-group">
+                                <h:outputLabel for="telefono">Telefono:</h:outputLabel>
+                                <h:inputText id="telefono" value="#{usuariosBean.usuario.telefono}" required="true" class="form-control" validatorMessage="Debe ser: 7XXX-XXXX">
+                                    <f:validateRegex pattern="[726][0-9]{3}-[0-9]{4}" />
+                                </h:inputText>
+                            </div>
+
+                            <div class="form-group">
+                                <h:outputLabel for="direccion">Dirección:</h:outputLabel>
+                                <h:inputText id="direccion" value="#{usuariosBean.usuario.direccion}" required="true" class="form-control"/>
+                            </div>
+
+                            <div class="form-group">
+                                <h:outputLabel for="expLaboral">Experiencia Laboral (en años):</h:outputLabel>
+                                <h:inputText id="expLaboral" value="#{usuariosBean.usuario.expLaboral}" required="true" class="form-control" pattern="\d+" title="Debe ingresar un número" maxlength="2"/>
+                            </div>
+
+                            <div class="form-group">
+                                <h:outputLabel for="gradoAcademico">Grado Academico:</h:outputLabel>
+                                <h:selectOneMenu id="gradoAcademico" value="#{usuariosBean.usuario.gradoAcademico}" required="true" class="form-control">
+                                    <f:selectItem itemLabel="Primaria" itemValue="Primaria" />
+                                    <f:selectItem itemLabel="Bachillerato" itemValue="Bachillerato" />
+                                    <f:selectItem itemLabel="Educación Superior" itemValue="Educacion superior" />
+                                </h:selectOneMenu>
+                            </div>
+
+                            <div class="form-group">
+                                <h:outputLabel for="correo">Correo Electronico:</h:outputLabel>
+                                <h:inputText id="correo" value="#{usuariosBean.usuario.correo}" required="true" class="form-control" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" title="Ingrese un correo correcto"/>
+                            </div>
+
+                            <div class="form-group">
+                                <h:outputLabel for="contraseña">Contraseña:</h:outputLabel>
+                                <h:inputSecret id="contraseña" value="#{usuariosBean.usuario.contraseña}" required="true" class="form-control"/>
+                            </div>
+
+                            <h:commandButton class="btn btn-primary" value="Registrarse" action="#{usuariosBean.registrarNuevoDependiente()}"/>
+                        </h:form>
+                        <h:outputScript>
+                            <c:if test="#{not empty flash.exito}">
+                                alertify.success('#{flash.exito}');
+                            </c:if>
+                        </h:outputScript>
+                    </p:panel>
+                </div>
+            </div>
+        </div>
 
 
-            </p:panel>
-            <h:outputScript>
-                <c:if test="#{not empty flash.exito}">
-                    alertify.success('#{flash.exito}');
-                </c:if>
-            </h:outputScript>
 
-        </h:body>
     </ui:define>
 
 </ui:composition>
-
-
-
 
