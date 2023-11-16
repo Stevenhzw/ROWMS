@@ -9,15 +9,93 @@
         template="Template/plantilla.xhtml">
 
     <ui:define name="content">
-        <p:tabView>
-
-
-        </p:tabView>
         <p:panel class="text-center text-muted" header="Bienvenid@, #{loginBean.usuarioAutenticado.nombre} #{loginBean.usuarioAutenticado.apellido}!" rendered="#{loginBean.usuarioAutenticado.correo!=null}"/>
         <p:panel class="text-center text-muted" header="Bienvenid@, #{loginBean.empresaAutenticada.nombreEmpresa}!" rendered="#{loginBean.empresaAutenticada.correoEmpresa!=null}"/>
+
+
+        <div class="container h-100" >
+
+            <p:outputLabel value="Lista plazas disponibles" style="font-weight: bold;font-size: large" />
+
+            <h:form>
+                <p:dataTable id="Plazas"  var="plazas" value="#{plazaBean.plazaModel.listarActivas()}" rows="25">
+                    <p:column headerText="idPlaza">
+                        <p:outputLabel value="#{plazas.idPlaza}" />
+                    </p:column>
+
+                    <p:column headerText="Nombre de la plaza">
+                        <p:outputLabel value="#{plazas.nombrePlaza}" />
+                    </p:column>
+                    <p:column headerText="Descripción de la plaza">
+                        <p:outputLabel value="#{plazas.descripcionPlaza}" />
+                    </p:column>
+                    <p:column headerText="Dirección de la plaza">
+                        <p:outputLabel value="#{plazas.direccionPlaza}" />
+                    </p:column>
+                    <p:column headerText="Empresa de la plaza">
+                        <p:outputLabel value="#{empresaBean.escribirEmpresa(plazas.empresaAfiliada)}" />
+                    </p:column>
+                    <p:column headerText="Salario de la plaza">
+                        $<p:outputLabel value="#{plazas.salarioPlaza}" />
+                    </p:column>
+                    <p:column headerText="Requisitos de la plaza">
+                        <p:outputLabel value="#{plazas.requisitoPlaza}" />
+                    </p:column>
+                    <p:column headerText="Cargos de la plaza">
+                        <p:outputLabel value="#{plazas.cargoPlaza}" />
+                    </p:column>
+
+                    <p:column headerText="Acciones">
+                        <p:outputLabel value="Debe de iniciar sesión primero." rendered="#{loginBean.usuarioAutenticado.correo==null and loginBean.empresaAutenticada.correoEmpresa==null}" />
+                        <p:outputLabel value="Solo un usuario independiente puede aplicar." rendered="#{loginBean.usuarioAutenticado.rol!='Aplicante' and loginBean.empresaAutenticada.correoEmpresa==null and loginBean.usuarioAutenticado.rol!=null }" />
+                        <h:commandButton value="Aplicar a la plaza" action="#{plazaBean.cargarPlaza(plazas.idPlaza)}" rendered="#{loginBean.usuarioAutenticado.rol=='Aplicante' and loginBean.usuarioAutenticado.correo!=null}" />
+                    </p:column>
+
+                </p:dataTable>
+            </h:form>
+
+            <br/><br/>
+
+            <p:outputLabel value="Lista plazas aplicadas" style="font-weight: bold; font-size: large"
+                           rendered="#{loginBean.usuarioAutenticado.rol=='Aplicante' and loginBean.usuarioAutenticado.correo!=null}" />
+
+            <h:form>
+                <p:dataTable id="Plazas"  var="aplicados" value="#{usuariosBean.usuariosModel.listarAplicaciones_Usuario(loginBean.usuarioAutenticado.dui)}"
+                             rendered="#{loginBean.usuarioAutenticado.rol=='Aplicante' and loginBean.usuarioAutenticado.correo!=null}" rows="10">
+
+                    <p:column headerText="#">
+                        <p:outputLabel value="#{usuariosBean.contador}" />
+                    </p:column>
+
+                    <p:column headerText="Nombre de la plaza">
+                        <p:outputLabel value="#{plazaBean.plazaModel.obtenerPlazaPorId(aplicados.plazaAplicada).nombrePlaza}" />
+                    </p:column>
+
+                    <p:column headerText="Descripcion de la plaza">
+                        <p:outputLabel value="#{plazaBean.plazaModel.obtenerPlazaPorId(aplicados.plazaAplicada).descripcionPlaza}" />
+                    </p:column>
+
+                    <p:column headerText="Salario de la plaza">
+                        $<p:outputLabel value="#{plazaBean.plazaModel.obtenerPlazaPorId(aplicados.plazaAplicada).salarioPlaza}" />
+                    </p:column>
+
+                    <p:column headerText="Nombre de la empresa">
+                        <p:outputLabel value="#{empresaBean.escribirEmpresa(plazaBean.plazaModel.obtenerPlazaPorId(aplicados.plazaAplicada).empresaAfiliada)}" />
+                    </p:column>
+
+                    <p:column headerText="Respuesta">
+                        <p:outputLabel value="#{aplicados.estadoAplicacion}" />
+                    </p:column>
+
+                </p:dataTable>
+            </h:form>
+
+
+        </div>
+
+        <p:tabView>
+
+        </p:tabView>
     </ui:define>
 
 </ui:composition>
-
-
-
