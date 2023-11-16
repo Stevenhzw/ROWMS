@@ -56,10 +56,11 @@ public class UsuariosBean {
         }
     }
 
-    public String registrarNuevoDependiente(){
+    public String registrarNuevoDependiente(String idEmpresa){
         usuario.setEmpresaAfiliada(null);
         usuario.setEstado("1");
         usuario.setRol("dependiente");
+        usuario.setEmpresaAfiliada(idEmpresa);
         usuario.setFoto(null);
 
         if (modelo.insertarUsuario(usuario) != 1) {
