@@ -3,6 +3,7 @@
 
 package sv.edu.udb.www.models;
 import jakarta.persistence.NoResultException;
+import sv.edu.udb.www.entities.AplicantesEntity;
 import sv.edu.udb.www.entities.EmpresasEntity;
 import sv.edu.udb.www.utils.JpaUtil;
 import java.util.List;
@@ -16,7 +17,37 @@ import sv.edu.udb.www.entities.PlazasEntity;
 
 public class PlazaModel {
 
+    public int validarPlaza(AplicantesEntity aplicante) {
+        EntityManager em = JpaUtil.getEntityManager();
+        try {
+            Long contador = em.createQuery("select count(a) from AplicantesEntity a " +
+                            "where a.duiAplicante = :dui and a.plazaAplicada = :plaza", Long.class)
+                    .setParameter("dui", aplicante.getDuiAplicante())
+                    .setParameter("plaza", aplicante.getPlazaAplicada())
+                    .getSingleResult();
 
+            return contador != null ? contador.intValue() : 0;
+        } catch (NoResultException e) {
+            return 1;  // Retorna null si no se encuentra un usuario
+        } finally {
+            em.close();
+        }
+    }
+
+    public int aplicarPlaza(AplicantesEntity aplicante){
+        EntityManager em = JpaUtil.getEntityManager();
+        EntityTransaction tran = em.getTransaction();
+        try {
+            tran.begin();//Iniciando transacción
+            em.persist(aplicante); //Guardando el objeto en la BD
+            tran.commit();//Confirmando la transacción
+            em.close();
+            return 1;
+        } catch (Exception e) {
+            em.close();
+            return 0;
+        }
+    }
 
     public List<PlazasEntity> listarPlazas() {
         EntityManager em = JpaUtil.getEntityManager();
