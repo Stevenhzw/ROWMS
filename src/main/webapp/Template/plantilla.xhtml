@@ -33,7 +33,7 @@
          <p:navLink  value="Crear un Dependiente" outcome="/AdminEmpresa/CrearDependiente"/>
       </p:dropMenu>
 
-      <p:dropMenu  value="Dependientes"  icon="pi pi-fw pi-folder-open" rendered="#{loginBean.empresaAutenticada.rol=='adminEmpresa' or loginBean.usuarioAutenticado.rol=='administrador' or loginBean.empresaAutenticada.rol=='dependiente'}" >
+      <p:dropMenu  value="Dependientes"  icon="pi pi-fw pi-folder-open" rendered="#{loginBean.empresaAutenticada.rol=='adminEmpresa' or loginBean.usuarioAutenticado.rol=='administrador' or loginBean.usuarioAutenticado.rol=='dependiente'}" >
          <p:navLink  value="Ver Plazas" outcome="/Dependiente/VerPlazas"/>
          <p:navLink  value="Crear solicitud de Plaza" outcome="/Dependiente/CrearPlaza"/>
          <p:navLink  value="Editar Una plaza de Plaza" outcome="/Dependiente/EditarPlaza"/>
