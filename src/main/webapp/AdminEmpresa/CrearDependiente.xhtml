@@ -79,6 +79,7 @@
                                 </h:selectOneMenu>
                             </div>
 
+
                             <div class="form-group">
                                 <h:outputLabel for="correo">Correo Electronico:</h:outputLabel>
                                 <h:inputText id="correo" value="#{usuariosBean.usuario.correo}" required="true" class="form-control" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" title="Ingrese un correo correcto"/>
@@ -89,7 +90,7 @@
                                 <h:inputSecret id="contraseña" value="#{usuariosBean.usuario.contraseña}" required="true" class="form-control"/>
                             </div>
 
-                            <h:commandButton class="btn btn-primary" value="Registrarse" action="#{usuariosBean.registrarNuevoDependiente()}"/>
+                            <h:commandButton class="btn btn-primary" value="Registrarse" action="#{usuariosBean.registrarNuevoDependiente(loginBean.empresaAutenticada.idEmpresa)}"/>
                         </h:form>
                         <h:outputScript>
                             <c:if test="#{not empty flash.exito}">

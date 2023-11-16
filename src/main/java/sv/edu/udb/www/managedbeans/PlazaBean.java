@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 @ManagedBean
 @RequestScoped
-public class PlazaBean{
+public class PlazaBean {
 
     private PlazasEntity plaza;
     PlazaModel modelo = new PlazaModel();
@@ -57,6 +57,7 @@ public class PlazaBean{
     }
 
     public String guardarPlaza() {
+        plaza.setEstadoPlaza("5");
         if (modelo.insertarPlaza(plaza) != 1) {
             JsfUtil.setErrorMessage(null, "Error: no se pudo insertar la plaza, revisa que los campos estén correctos");
         } else {
@@ -79,6 +80,19 @@ public class PlazaBean{
         return "OperacionesPlaza";
     }
 
+    public String aceptarPlaza() {
+
+        if (modelo.aceptandoPlaza(plaza) != null) {
+            JsfUtil.setFlashMessage("exito", "Plaza aceptada");
+        } else {
+            JsfUtil.setErrorMessage(null, "No se pudo aceptar la plaza");
+        }
+        return "EstadoPlaza";
+    }
+
+
+
+
     public String eliminarPlaza(String idPlaza) {
         if (modelo.eliminarPlaza(idPlaza) > 0) {
             JsfUtil.setFlashMessage("exito", "Plaza eliminada exitosamente");
@@ -88,7 +102,7 @@ public class PlazaBean{
         return "CrearPlaza";
     }
 
-    public String aceptarPlaza(String idPlaza) {
+    /*public String aceptarPlaza(String idPlaza) {
         // 1. Obtener la plaza correspondiente a partir del idPlaza
         PlazasEntity plaza = modelo.obtenerPlazaPorId(idPlaza);
 
@@ -113,7 +127,7 @@ public class PlazaBean{
 
         // En caso de errores, puedes redirigir a la misma página o a una página de error
         return "ListarUsuarios";
-    }
+    }*/
 
     public String rechazarPlaza(String idPlaza) {
         // Lógica para rechazar la plaza
@@ -123,6 +137,7 @@ public class PlazaBean{
         return "nombreDeTuPagina"; // Puedes redirigir a una página específica después de rechazar la plaza
     }
 
+
     public String actualizarPlaza() {
         if (modelo.actualizarPlaza(plaza) != null) {
             JsfUtil.setFlashMessage("exito", "Plaza actualizada exitosamente");
@@ -131,4 +146,5 @@ public class PlazaBean{
         }
         return "CrearPlaza";
     }
+
 }

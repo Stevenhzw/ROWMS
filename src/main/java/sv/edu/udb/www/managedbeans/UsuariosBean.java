@@ -12,7 +12,13 @@ import java.util.List;
 @RequestScoped
 public class UsuariosBean {
 
+    private int contador = 0;
+
     UsuariosModel modelo = new UsuariosModel();
+
+    public UsuariosModel getUsuariosModel() {
+        return modelo;
+    }
 
     private UsuariosEntity usuario;
     private List<UsuariosEntity> listaUsuarios;
@@ -35,6 +41,11 @@ public class UsuariosBean {
     }
      */
 
+    public int getContador() {
+        contador++;
+        return contador;
+    }
+
     public String registrarNuevoAplicante(){
         usuario.setEmpresaAfiliada(null);
         usuario.setEstado("1");
@@ -56,10 +67,11 @@ public class UsuariosBean {
         }
     }
 
-    public String registrarNuevoDependiente(){
+    public String registrarNuevoDependiente(String idEmpresa){
         usuario.setEmpresaAfiliada(null);
         usuario.setEstado("1");
         usuario.setRol("dependiente");
+        usuario.setEmpresaAfiliada(idEmpresa);
         usuario.setFoto(null);
 
         if (modelo.insertarUsuario(usuario) != 1) {

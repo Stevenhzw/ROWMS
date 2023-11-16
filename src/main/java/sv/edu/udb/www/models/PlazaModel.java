@@ -30,6 +30,21 @@ public class PlazaModel {
         }
     }
 
+    public List<PlazasEntity> listarActivas() {
+        EntityManager em = JpaUtil.getEntityManager();
+        try {
+
+            Query consulta = em.createQuery("SELECT e FROM PlazasEntity e WHERE e.estadoPlaza = '1'");
+
+            List<PlazasEntity> listaPlazas = consulta.getResultList();
+            em.close();
+            return listaPlazas;
+        } catch (Exception e) {
+            em.close();
+            return null;
+        }
+    }
+
     public int insertarPlaza(PlazasEntity plaza) {
         EntityManager em = JpaUtil.getEntityManager();
         EntityTransaction tran = em.getTransaction();
@@ -99,7 +114,46 @@ public class PlazaModel {
                 entidadPersistente.setTipoPlaza(plaza.getTipoPlaza());
                 entidadPersistente.setRubroPlaza(plaza.getRubroPlaza());
                 entidadPersistente.setCargoPlaza(plaza.getCargoPlaza());
+
                 entidadPersistente.setMotivoRechazoPlaza(plaza.getMotivoRechazoPlaza());
+
+                entidadPersistente.setEstadoPlaza(plaza.getEstadoPlaza());
+                entidadPersistente.setMotivoRechazoPlaza(plaza.getMotivoRechazoPlaza());
+
+                plazaActualizada = em.merge(entidadPersistente);
+            }
+
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction.isActive()) {
+                transaction.rollback();
+            }
+            e.printStackTrace(); // Log the exception for debugging purposes
+        } finally {
+            em.close();
+        }
+
+        return plazaActualizada;
+    }
+
+
+
+    public PlazasEntity aceptandoPlaza(PlazasEntity plaza) {
+        EntityManager em = JpaUtil.getEntityManager();
+        EntityTransaction transaction = em.getTransaction();
+        PlazasEntity plazaActualizada = null;
+
+        try {
+            transaction.begin();
+            // Obtener la entidad persistente de la base de datos
+            PlazasEntity entidadPersistente = em.find(PlazasEntity.class, plaza.getIdPlaza());
+
+            if (entidadPersistente != null) {
+                // Actualizar los campos de la entidad persistente con los valores del objeto recibido
+
+
+                entidadPersistente.setEstadoPlaza("3");
+
 
                 // Actualiza los demás campos de la entidad de manera similar
 
